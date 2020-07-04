@@ -6,7 +6,7 @@ require_once "PHPMailer/SMTP.php";
 require_once "PHPMailer/Exception.php";
 
 
-$to = "sayapingeorge@gmail.com";
+$to = "ibnelaiq@gmail.com";
 $id = $_POST["id"];
 $senderName = 'Admin';
 
@@ -14,10 +14,8 @@ $senderName = 'Admin';
 
 $recipient = $to;
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
-
-
+$usernameSmtp = 'stampmaker7@gmail.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'stampMaker123';            // This is you gmail password
 
 
 // The subject line of the email

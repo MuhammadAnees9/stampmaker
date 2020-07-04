@@ -17,6 +17,7 @@ $stmt = $conn->prepare("SELECT * FROM `user` WHERE username = '$email' && passwo
   	while ($data = $result->fetch_assoc()) {
        $_SESSION["username"] = $data['username'];
        $_SESSION["email"] = $data['email'];
+       $_SESSION["id"] = $data['id'];
            // prepare and bind
 $stmt = $conn->prepare("INSERT INTO tblsession (start, end, sessionIP, downloads, userid) VALUES (?, ?, ?,?,?)");
 $stmt->bind_param("sssii",$start,$end,$sessionIP,$downloads,$userid);

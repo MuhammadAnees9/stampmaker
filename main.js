@@ -42,10 +42,9 @@
 
 
 
-
    function updateLabels(element,show){
         $(".card-body").removeClass("all");
-        $("#labels").append("<div class='card elementlabel' id='"+element+"'><div class='card-body all' id='"+element+"'>"+show+"</div><center><button type='button' id='"+element+"' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'>Delete</span><i class='text-danger'>&times;</i></span></button></center></div>");
+        $("#labels").append("<li class='card elementlabel' id='"+element+"'><div class='card-body all' id='"+element+"'>"+show+"</div><center><button type='button' id='"+element+"' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'>Delete</span><i class='text-danger'>&times;</i></span></button></center></li>");
             $(".guide").css("display","none");
 
         //hideallproperties();

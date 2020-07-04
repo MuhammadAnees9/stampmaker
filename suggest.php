@@ -8,17 +8,17 @@ require_once "PHPMailer/PHPMailer.php";
 require_once "PHPMailer/SMTP.php";
 require_once "PHPMailer/Exception.php";
 $text = $_POST["text"];
-$to = "sayapingeorge@gmail.com";
+$to = "ibnelaiq@gmail.com";
 $from = $_SESSION["email"];
+$id = $_SESSION["id"];
 $subject = "Concern Or Suggestion";
 
-$message = $text;
 
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
+$usernameSmtp = 'stampmaker7@gmail.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'stampMaker123';            // This is you gmail password
 
 $mail = new PHPMailer(true);
 
@@ -42,6 +42,9 @@ $mail->AddReplyTo($usernameSmtp, 'Information');// specifying the mail address t
 $mail->IsHTML(true);
 $mail->Subject = $subject;
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
+$message .= "<b>From:</b> ".$from."<br><b>User ID:</b> ".$id."<br>";
+
+$message .= "<b>Message:</b> ".$text;
 $mail->Body = $message;
     $mail->Send();
     echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;

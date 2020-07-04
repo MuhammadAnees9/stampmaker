@@ -92,7 +92,10 @@ function logout(){
             type: "post", //request type,
             dataType: 'json',
             success: function(response) {
-            	location.reload();
+              swal("Logout", "You are log out successfully.", "success").then(function(){
+                location.reload();
+              });
+            	
              }
          });
 }
@@ -110,14 +113,13 @@ function login(){
                     $('#myModalLogin').modal('hide');
             		$("#usernameLogin").css("border","1px solid green");
             		$("#passLogin").css("border","1px solid green");
-            		swal("Welcome!", "You have loged in successfully.", "success").then(function() {
-                                  //Checking if the user turn from the  download
-        if($("#info").html() != ""){
-      download();
-    }else{
-      location.reload();
-    }
-});
+            		swal("Welcome!", "You have loged in successfully.", "success").then(function() {                                
+                  if($("#info").html() != ""){
+                    download();
+                  }else{
+                    location.reload();
+                  }
+                });
 
             	}
             	else if(response.abc == "fail"){
@@ -178,8 +180,16 @@ function Dashboard(){
     $(".suggest").slideToggle();
  }
 function suggestion(){
-
   var suggestText = $("#suggestText").val();
+  if(suggestText == null || suggestText == ""){
+    alert("Please enter message first");
+   
+  }else{
+     swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
+  $(".suggest").slideToggle();
+  });
+
+
     $.ajax({
             url:"suggest.php", //the page containing php script
             type: "post", //request type,
@@ -187,9 +197,12 @@ function suggestion(){
             data: {text:suggestText},
             success: function(response) {
               console.log(response);
-              if(response.abc == "done"){
-                swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success");
-              }
+             
+               
+              
             }
          });
-}
+  }
+
+  }
+

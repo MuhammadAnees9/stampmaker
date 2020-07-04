@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@ session_start();
 <body>
 	<div class="container" >
 		<div class="row shadow-sm bg-primary p-3 text-white">
-        <h3 class="col-lg-3" style="padding:20px;">Stamp Maker</h3>
+        <h3 class="col-lg-3" style="padding:20px;">My Stamp Maker</h3>
         <div class="col">
             <button class="btn" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px" height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#ffffff" d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z"></path>
@@ -68,18 +68,16 @@ session_start();
 
       ?>
 		</div>
-		  <div class="scrolling-wrapper" id="labels">
 
-
-
- 				 </div>
  				 <!-- Scrolling Wrapper End-->
  				 <div class="row">
-
-          <div class="col shadow-sm canvas" style="height:400px;">
+    <ul class="bookmarks col-lg-2 col-sm-12" id="labels">
+    </ul>
+          <div class="col-lg-6 canvas col-sm-12" style="height:400px;margin-top:40px;">
 
           </div>
- 				 	<div class="col" id="properties" style="height:400px;">
+          <br>
+ 				 	<div class="col-lg-4 col-sm-12" id="properties" style="height:400px;margin-top:40px;">
             <div class="guide">
             <u><b>Create a round stamp</b></u><br>
 Select <b>Circle</b> element to add a stamp circle<br>
@@ -107,6 +105,7 @@ Delete elements clicking on <b>delete x</b> <br>
           </center>
         </div>
 		</div>
+
 
 
 <script>
@@ -166,7 +165,9 @@ Delete elements clicking on <b>delete x</b> <br>
       </div>
     </div>
   </div>
-    <div class="modal fade" id="myModalLogin" role="dialog">
+
+</div>
+ <div class="modal fade" id="myModalLogin" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -176,9 +177,9 @@ Delete elements clicking on <b>delete x</b> <br>
         <div class="modal-body">
           <form action="javascript:login()" method="post">
           <center><h3>Log In</h3><b id="info" style="color:red"></b><br></center>
-          <input type="text" class="signup form-control" id="usernameLogin" placeholder="Username" required="">
+          <input type="text" class="signup form-control" id="usernameLogin" value="admin" placeholder="Username" required="">
           <br>
-          <input type="password" class="signup form-control" id="passLogin" placeholder="Password" required="" >
+          <input type="password" class="signup form-control" value="admin123" id="passLogin" placeholder="Password" required="" >
           <br>
           
         <center><h6 style="font-weight:normal;">Not registered yet.<a id="reg" onclick="notauser();">Click here</a></h6></center>
@@ -191,10 +192,9 @@ Delete elements clicking on <b>delete x</b> <br>
       </div>
     </div>
   </div>
-</div>
-
 	</div>
-
+<!-- Footer -->
+<!-- Footer -->
 <?php
 if(empty($_SESSION["username"])){
 
@@ -213,6 +213,82 @@ function getSuggest(){
 }
 ?>
 </body>
+
+<footer class="footer font-small blue pt-4" style="background-color:#292e31;color:#007bff;">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">My Stamp Maker</h5>
+        <p>Create a round stamp easily.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+ <ul class="list-unstyled">
+          <li>
+            <a href="terms.php">
+              Terms & conditions.
+            </a>
+            
+          </li>
+          <li>
+            <a href="privacy.php">Privacy Note</a>
+          </li>
+        </ul>
+        
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+<ul class="list-unstyled">
+          <li>
+            <b style="color:white;">Email:</b> sayapingeorge@gmail.com
+          </li>
+          <li>
+            <b style="color:white;">Address:</b> MyStampMaker <br>
+Brentwood Street, 30709<br>
+Southfield, MI 48076<br>
+United States<br>
+
+          </li>
+          <li>
+           <b style="color:white;">Company Name:</b> My Stamp Maker
+          </li>
+        </ul>
+       
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href=""> MyStampMaker</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
 </html>
 <script type="text/javascript">
 var idleTime = 0;
