@@ -214,7 +214,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         img.onload = function() { //on image load do the following stuff
             var ct = document.getElementById('measure');
             ct.appendChild(img);
-            var wrh = img.width / pictures[u][1];
+            var wrh = img.width / img.height;
 
             //var wrh = img.width / img.height;
             var newWidth = mainCanvas.width;
