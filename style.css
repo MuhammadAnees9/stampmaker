@@ -1,212 +1,242 @@
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 .footer {
-  z-index:-10;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 250px; /* Set the fixed height of the footer here */
+    z-index: -10;
+    width: 100%;
+    margin-top: 20vh;
+    height: auto;
+    /* Set the fixed height of the footer here */
 }
 
+#measure {
+    position: absolute;
+    left: -10000px;
+    top: -100000px;
+}
 
 @media only screen and (max-width: 600px) {
-  html{
-    min-height:250%;
-  }
-  .footer{
-    height: 500px!important;
-    margin-top:10px;
-  }
-  .canvas{
-    padding-left:30px!important;
-    height:auto!important;
-  }
-  #labels{
-    height:200px!important;
-    width:90%!important;
-  }
-  #downloads{
-    margin-top:20px;
-  }
+    .canvas {
+        padding: 0px!important;
+        padding-left: 10px!important;
+        height: auto!important;
+    }
+    #labels {
+        height: 200px!important;
+        width: 90%!important;
+    }
+    #downloads {
+        margin-top: 100px;
+    }
 }
 
-  .canvas{
-   
-   padding-left:20%;
+.canvas {
+    padding-left: 20%;
+}
 
-  }
-  .text{
-    padding:5px;
-    width:100%;
-    border:0px;
-    border-bottom:2px solid #7db8fa;
+.text {
+    padding: 5px;
+    width: 100%;
+    border: 0px;
+    border-bottom: 2px solid #7db8fa;
+}
 
-  }
-  .form-control{
-    border-radius:0px;
-  }
-  .all{
-    border-bottom:4px solid #7db8fa;
-  }
-  h2{
-    font-size:20px;
-    padding:
-    font-weight:lighter;
-  }
+.form-control {
+    border-radius: 0px;
+}
+
+.all {
+    border-bottom: 4px solid #7db8fa;
+}
+
+h2 {
+    font-size: 20px;
+    padding: font-weight: lighter;
+}
 
 .scrolling-wrapper {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  white-space: nowrap;
-}
-.btn{
-  border-radius:0px;
-}
-.card {
-  height: auto;
-  cursor:default;
-}
-.card:hover{
-  background-color:#eeeeee;
-}
-.card:active{
-  background-color:#cccccc;
-}
-.card:not(.all){
- border-bottom:4px solid transparent;
- border:1px solid transparent;
-}
-.slider{
-  display:block;
-}
-h3{
-  font-family: 'Roboto', sans-serif;
-}
-.closeL{
-  background-color:transparent;
-  border:transparent;
-}
-#labels li{
-  margin:0px;
-  padding:0px;
-  width:140px;
-}
-#labels{
-  margin:0px;
-  width:200px;
-  height:400px;
-  overflow-y:scroll;
-}
-.card-body{
-  height:65px;
-}
-#reg{
-  color:#007bff;
-  cursor:pointer;
-}
-#reg:hover{
-  text-decoration:underline;
-}
-#reg:active{
-  color:grey;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-.slider {
-  margin:10px;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 5px;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%; 
-  background: #007bff ;
-  cursor: pointer;
+.btn {
+    border-radius: 0px;
 }
-  }
+
+.card {
+    height: auto;
+    cursor: default;
+}
+
+.card:hover {
+    background-color: #eeeeee;
+}
+
+.card:active {
+    background-color: #cccccc;
+}
+
+.card:not(.all) {
+    border-bottom: 4px solid transparent;
+    border: 1px solid transparent;
+}
+
+.slider {
+    display: block;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.closeL {
+    background-color: transparent;
+    border: transparent;
+}
+
+#labels li {
+    margin: 0px;
+    padding: 0px;
+    width: 140px;
+}
+
+#labels {
+    margin: 0px;
+    width: 200px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.card-body {
+    height: 65px;
+}
+
+#reg {
+    color: #007bff;
+    cursor: pointer;
+}
+
+#reg:hover {
+    text-decoration: underline;
+}
+
+#reg:active {
+    color: grey;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .slider {
+        margin: 10px;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 5px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #007bff;
+        cursor: pointer;
+    }
+}
+
+
 /* The slider itself */
 
+
 /* width */
+
 ::-webkit-scrollbar {
-  width: 2px;
-  height:10px; 
+    width: 2px;
+    height: 10px;
 }
+
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-  width: 2px;
-  background: #f1f1f1;
+    width: 2px;
+    background: #f1f1f1;
 }
+
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: #888;
+    background: #888;
 }
+
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
 
-.scrolling-wrapper, .scrolling-wrapper-flexbox {
-  margin-bottom:10px;
-  height: 100px;
-  -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.scrolling-wrapper,
+.scrolling-wrapper-flexbox {
+    margin-bottom: 10px;
+    height: 100px;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
-.pickup{
-  background-color:white;
-  margin-top:10px;
-  padding:0px;
-  border:0px;
-  height:20px;
-  width:30px;
+
+.pickup {
+    background-color: white;
+    margin-top: 10px;
+    padding: 0px;
+    border: 0px;
+    height: 20px;
+    width: 30px;
 }
-.pickupparent{
-  float:right;
+
+.pickupparent {
+    float: right;
 }
+
 .bottomright {
-
-     position: fixed;
-     bottom: 0px;
-     right: 0px;
-
-}
-.demo{
-    color:white;
-       padding:10px;
-     font-family: 'Roboto', sans-serif;
-     font-size:0.9em;
-     background-color: #007bff;
-}
-.suggest{
-  
-  background-color:#f9f9f9;
-  border:1px solid #007bff;
-  width:332px;
-  bottom:40px;
-  padding:20px;
-}
-.suggest textarea{
-  background-color:#f9f8f8;
-  border:1px solid black;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
-html,body{
+.demo {
+    color: white;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    background-color: #007bff;
+    z-index: 10;
+}
+
+.suggest {
+    z-index: 11;
+    background-color: #f9f9f9;
+    border: 1px solid #007bff;
+    width: 332px;
+    bottom: 40px;
+    padding: 20px;
+}
+
+.suggest textarea {
+    background-color: #f9f8f8;
+    border: 1px solid black;
+}
+
+html,
+body {
     height: 100%
 }
