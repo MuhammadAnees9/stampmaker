@@ -116,7 +116,7 @@ session_start();
 
             </div>
             <br>
-            <div class="col-lg-4 col-sm-12" id="properties" style="height:400px;margin-top:40px;">
+            <div class="col-lg-4 col-sm-12" id="properties" style="height:auto;margin-top:40px;">
                 <div class="guide">
                     <u><b>Create a round stamp</b></u><br>
                     Select <b>Circle</b> element to add a stamp circle<br>
