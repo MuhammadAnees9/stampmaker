@@ -4,8 +4,18 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+<head> 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171780865-1');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -22,6 +32,7 @@ session_start();
 	<title>Stamp Maker</title>
 </head>
 <body>
+  <div id="measure"></div>
 	<div class="container" >
 		<div class="row shadow-sm bg-primary p-3 text-white">
         <h3 class="col-lg-3" style="padding:20px;">My Stamp Maker</h3>
@@ -153,9 +164,11 @@ Delete elements clicking on <b>delete x</b> <br>
     		<textarea class="form-control" placeholder="Reason of using (Not a translator)" id="reason"></textarea>
     		<br>
     		<label class="checkbox-inline">
-      			I have read and accept Terms and Conditions. &nbsp;&nbsp;<input type="checkbox" id="accept" required="">
+      			I have read and accept <a href="terms.php" target="_blank">Terms and Conditions.</a> &nbsp;&nbsp;<input type="checkbox" id="accept" required="">
     		</label>
     		<br>
+        <a href="terms.php" style="float:right;" target="_blank">Terms and conditions</a><br>
+         <a href="privacy.php" style="float:right;" target="_blank">Privacy notice</a>
     		<center>
     			<button class="btn btn-md btn-success modals" id="signup">Sign Up</button>
     		</center>
@@ -177,9 +190,9 @@ Delete elements clicking on <b>delete x</b> <br>
         <div class="modal-body">
           <form action="javascript:login()" method="post">
           <center><h3>Log In</h3><b id="info" style="color:red"></b><br></center>
-          <input type="text" class="signup form-control" id="usernameLogin" value="admin" placeholder="Username" required="">
+          <input type="text" class="signup form-control" id="usernameLogin" placeholder="Username" required="">
           <br>
-          <input type="password" class="signup form-control" value="admin123" id="passLogin" placeholder="Password" required="" >
+          <input type="password" class="signup form-control" id="passLogin" placeholder="Password" required="" >
           <br>
           
         <center><h6 style="font-weight:normal;">Not registered yet.<a id="reg" onclick="notauser();">Click here</a></h6></center>
@@ -214,7 +227,7 @@ function getSuggest(){
 ?>
 </body>
 
-<footer class="footer font-small blue pt-4" style="background-color:#292e31;color:#007bff;">
+<footer class="footer font-small blue pt-4" style="background-color:#007bff;color:white;">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -240,13 +253,13 @@ function getSuggest(){
         <!-- Links -->
  <ul class="list-unstyled">
           <li>
-            <a href="terms.php">
+            <a style="color:white;" href="terms.php" target="_blank">
               Terms & conditions.
             </a>
             
           </li>
           <li>
-            <a href="privacy.php">Privacy Note</a>
+            <a style="color:white;" href="privacy.php" target="_blank">Privacy Notice</a>
           </li>
         </ul>
         
@@ -284,7 +297,7 @@ United States<br>
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href=""> MyStampMaker</a>
+    <a href="#" style="color:white;"> MyStampMaker</a>
   </div>
   <!-- Copyright -->
 
