@@ -32,10 +32,15 @@ html {
     }
     #labels {
         height: 200px!important;
-        width: 90%!important;
+        border-left: 1px solid lightgrey;
+        margin: auto;
     }
     #downloads {
         margin-top: 100px;
+    }
+    #properties {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -111,7 +116,6 @@ h3 {
 }
 
 #labels {
-    margin: 0px;
     width: 200px;
     height: 400px;
     overflow-y: scroll;
