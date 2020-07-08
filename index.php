@@ -6,6 +6,7 @@ session_start();
 <html>
 
 <head>
+<link rel="icon" href="favicon.ico">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
     <script>
@@ -40,62 +41,66 @@ session_start();
 
 <body>
     <div id="measure"></div>
-    <div class="container">
-        <div class="row shadow-sm bg-primary p-3 text-white">
-            <h3 class="col-lg-3" style="padding:20px;">My Stamp Maker</h3>
-            <div class="col-lg-6 col-sm-12">
-                <button class="btn o" id="addroundtext" title="Text Around The Circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
-                        </path>
-                    </svg>
+        <div class="container shadow-sm bg-primary p-3 text-white">
+            <div class="row">
 
-                    <br><span style="color:white;">Round Text</span>
-                </button>
-                <button class="btn o" id="addlinetext" title="Line Text">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M5 236l60 1 15 -38 45 0c-1,-20 3,-35 15,-50 1,-1 1,-2 2,-2l-41 -1 24 -59 22 54c1,0 7,-5 10,-7 13,-8 27,-11 43,-10l-45 -113 -60 0 -90 225zm180 -82l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Line Text</span>
+         
+                <div class="col-sm col-lg-7">
+                    
+                <img src="logo.png" />
+                    <button class="btn o" id="addroundtext" title="Text Around The Circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                            height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path fill="#ffffff"
+                                d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
+                            </path>
+                        </svg>
 
-                </button>
-                <button class="btn o" id="addcircle" title="Circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M125 15c-61,0 -110,49 -110,110 0,61 49,110 110,110 7,0 13,0 20,-1 -7,-7 -12,-15 -16,-24 -1,0 -3,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,2 0,2 9,3 17,8 24,15 1,-6 1,-11 1,-17 0,-61 -49,-110 -110,-110zm60 139l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Circle</span>
+                        <br><span style="color:white;">Round Text</span>
+                    </button>
+                    <button class="btn o" id="addlinetext" title="Line Text">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                            height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path fill="#ffffff"
+                                d="M5 236l60 1 15 -38 45 0c-1,-20 3,-35 15,-50 1,-1 1,-2 2,-2l-41 -1 24 -59 22 54c1,0 7,-5 10,-7 13,-8 27,-11 43,-10l-45 -113 -60 0 -90 225zm180 -82l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
+                            </path>
+                        </svg>
+                        <br><span style="color:white;">Line Text</span>
+
+                    </button>
+                    <button class="btn o" id="addcircle" title="Circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                            height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path fill="#ffffff"
+                                d="M125 15c-61,0 -110,49 -110,110 0,61 49,110 110,110 7,0 13,0 20,-1 -7,-7 -12,-15 -16,-24 -1,0 -3,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,2 0,2 9,3 17,8 24,15 1,-6 1,-11 1,-17 0,-61 -49,-110 -110,-110zm60 139l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
+                            </path>
+                        </svg>
+                        <br><span style="color:white;">Circle</span>
 
 
-                </button>
-                <button class="btn o" id="addimage" title="Image">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path class="add_el_path" fill="#ffffff"
-                            d="M185 154l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12zm-83 -25c0,-11 -8,-20 -19,-20 -11,0 -20,9 -20,20 0,11 9,20 20,20 11,0 19,-9 19,-20zm-44 72l0 23 69 0c-2,-7 -4,-14 -4,-21 0,-22 12,-41 29,-53l-9 -12 -20 29 -25 -11 -40 45zm32 -174l-58 61 0 164 114 0c-5,-5 -9,-9 -12,-14l-88 0 0 -144 53 0 0 -53 101 0 0 99c5,1 9,3 14,5l0 -118 -124 0zm-5 26l0 27 -25 0 25 -27z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Image</span>
+                    </button>
+                    <button class="btn o" id="addimage" title="Image">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                            height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path class="add_el_path" fill="#ffffff"
+                                d="M185 154l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12zm-83 -25c0,-11 -8,-20 -19,-20 -11,0 -20,9 -20,20 0,11 9,20 20,20 11,0 19,-9 19,-20zm-44 72l0 23 69 0c-2,-7 -4,-14 -4,-21 0,-22 12,-41 29,-53l-9 -12 -20 29 -25 -11 -40 45zm32 -174l-58 61 0 164 114 0c-5,-5 -9,-9 -12,-14l-88 0 0 -144 53 0 0 -53 101 0 0 99c5,1 9,3 14,5l0 -118 -124 0zm-5 26l0 27 -25 0 25 -27z">
+                            </path>
+                        </svg>
+                        <br><span style="color:white;">Image</span>
 
-                </button>
+                    </button>
 
-            </div>
-            <div class="col-lg-3">
-                <?php
+                </div>
+                <div class="col-sm">
+                    <center>
+                    <?php
       getNav();
       function getNav(){
       if(isset($_SESSION["username"]))
       {
-        echo "<h6 style='margin:20px;'>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
+        echo "<h6>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;'>Log Out</button>&nbsp;";
         if($_SESSION["username"] == "admin"){
-          echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
+          echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;'>Dashboard</button>";
         }    
   
       }
@@ -105,9 +110,13 @@ session_start();
       }
 
       ?>
+                </center>
+
+                </div>
             </div>
         </div>
 
+        <div class="container">
         <!-- Scrolling Wrapper End-->
         <div class="row">
             <ul class="bookmarks col-lg-2 col-sm-12" id="labels">
@@ -445,13 +454,37 @@ getSuggest();
 }
 
 function getSuggest(){
-          echo "<div class='suggest bottomright'>
+          echo "
+          
+          <div class='suggest bottomright' id='suggest'>
           <center><h5>Leave Suggestion</h5></center>
           <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
           <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
-</div><div class='demo bottomright' onclick='togglesuggestions()'>
-   To send your concerns or suggestions.<b>Click Here</b>
-</div>";
+        </div>
+        <div class='suggest  bottomleft' id='suggestIns'>
+        <center><h5>Instructions</h5></center>
+        Select <b>Circle</b> element to add a stamp circle<br>
+        Edit the circle, change its radius and stroke width<br>
+        Select <b>Round</b> Text element to add a text around the circle<br>
+        Enter and edit the text, change spacing and rotate it clockwise<br>
+        Select <b>Line</b> Text element to add a text in the center<br>
+        Enter and edit the text, move or rotate it<br>
+        Select <b>Image</b> element to add an image<br>
+        Upload the image, change its size and position<br>
+        Add any numbers of elements<br>
+        Delete elements clicking on <b>delete x</b> <br>
+        <b>Download</b> your stamp
+      </div>
+
+<div class='demo bottomright' onclick='togglesuggestions()'>
+To send concerns or suggestions.<b>Click Here</b>
+</div>
+<div class='demo bottomleft' id='howto' onclick='toggleinstruction()' >
+To view Instruction or 'How To'.<b>Click Here</b>
+</div>
+
+
+";
 }
 ?>
 </body>
@@ -474,7 +507,6 @@ function getSuggest(){
             </div>
             <!-- Grid column -->
 
-            <hr class="clearfix w-100 d-md-none pb-3">
 
             <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3">
@@ -531,7 +563,7 @@ function getSuggest(){
     <!-- Copyright -->
 
 </footer>
-
+<br><br><br>
 </html>
 <script type="text/javascript">
 var idleTime = 0;
