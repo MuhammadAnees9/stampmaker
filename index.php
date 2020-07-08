@@ -444,6 +444,24 @@ session_start();
         </div>
     </div>
     </div>
+    <div class='suggest  bottomleft' id='suggestIns'>
+        <center><h5>Instructions</h5></center>
+        Select <b>Circle</b> element to add a stamp circle<br>
+        Edit the circle, change its radius and stroke width<br>
+        Select <b>Round</b> Text element to add a text around the circle<br>
+        Enter and edit the text, change spacing and rotate it clockwise<br>
+        Select <b>Line</b> Text element to add a text in the center<br>
+        Enter and edit the text, move or rotate it<br>
+        Select <b>Image</b> element to add an image<br>
+        Upload the image, change its size and position<br>
+        Add any numbers of elements<br>
+        Delete elements clicking on <b>delete x</b> <br>
+        <b>Download</b> your stamp
+      </div>
+      <div class='demo bottomleft' id='howto' onclick='toggleinstruction()' style='display:none' >
+To view Instruction or 'How To'.<b>Click Here</b>
+</div>
+
     <!-- Footer -->
     <!-- Footer -->
     <?php
@@ -461,27 +479,11 @@ function getSuggest(){
           <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
           <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
         </div>
-        <div class='suggest  bottomleft' id='suggestIns'>
-        <center><h5>Instructions</h5></center>
-        Select <b>Circle</b> element to add a stamp circle<br>
-        Edit the circle, change its radius and stroke width<br>
-        Select <b>Round</b> Text element to add a text around the circle<br>
-        Enter and edit the text, change spacing and rotate it clockwise<br>
-        Select <b>Line</b> Text element to add a text in the center<br>
-        Enter and edit the text, move or rotate it<br>
-        Select <b>Image</b> element to add an image<br>
-        Upload the image, change its size and position<br>
-        Add any numbers of elements<br>
-        Delete elements clicking on <b>delete x</b> <br>
-        <b>Download</b> your stamp
-      </div>
-
+        
 <div class='demo bottomright' onclick='togglesuggestions()'>
 To send concerns or suggestions.<b>Click Here</b>
 </div>
-<div class='demo bottomleft' id='howto' onclick='toggleinstruction()' >
-To view Instruction or 'How To'.<b>Click Here</b>
-</div>
+
 
 
 ";
