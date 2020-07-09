@@ -109,8 +109,17 @@ h2 {
     white-space: nowrap;
 }
 
-.btn {
+.col .btn {
+    padding:0px;
+    margin:0px;
+    height:100%;
+    display: inline;
+    width:45%;
+    border:0px;
     border-radius: 0px;
+}
+.col .btn img{
+    width:40%!important;
 }
 
 .card {
