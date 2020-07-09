@@ -17,10 +17,17 @@ html {
     top: -100000px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
     .card-body p {
         position:relative;
-        top:60px;   
+        top:50px;   
+    }
+    #co{
+        margin-top:0px!important;
+    }
+    .modals{
+        margin:0px!important;
+        margin-left:5px!important;
     }
     .card{
 
@@ -120,6 +127,9 @@ h2 {
 }
 .col .btn img{
     width:40%!important;
+}
+.o{
+    padding:5px;
 }
 
 .card {
