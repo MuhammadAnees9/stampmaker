@@ -18,6 +18,9 @@ html {
 }
 
 @media only screen and (max-width: 750px) {
+    .sp-replacer {
+    padding:4px!important;
+    }
     .card-body p {
         position:relative;
         top:50px;   
@@ -133,6 +136,9 @@ h2 {
 }
 .col select{
     height:100%;
+}
+.sp-replacer{
+    padding:17%!important;
 }
 .card {
     height: auto;
