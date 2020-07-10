@@ -131,7 +131,9 @@ h2 {
 .o{
     padding:5px;
 }
-
+.col select{
+    height:100%;
+}
 .card {
     height: auto;
     cursor: default;
