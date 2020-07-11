@@ -23,7 +23,7 @@ $stmt->bind_param("sssssi",$username,$email,$password,$langS,$ip,$active);
 //Saving Data
  $username = $_POST["username"];
 $email = $_POST["email"];
-$password = $_POST["pass"];
+$password = md5($_POST["pass"]);
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();

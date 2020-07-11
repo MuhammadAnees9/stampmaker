@@ -3,8 +3,8 @@ session_start();
 include "dbConfig.php";
 
 $email = $_POST["username"];
-$password = $_POST["password"];
-$stmt = $conn->prepare("SELECT * FROM `user` WHERE username = '$email' && password = '$password' && isActive = '1'") or die(mysqli_error());
+$password = md5($_POST["password"]);
+$stmt = $conn->prepare("SELECT * FROM `user` WHERE `username` = '$email' or `email` = '$email' && `password` = '$password' && isActive = '1'") or die(mysqli_error());
   if($stmt->execute()){
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
@@ -17,6 +17,7 @@ $stmt = $conn->prepare("SELECT * FROM `user` WHERE username = '$email' && passwo
   	while ($data = $result->fetch_assoc()) {
        $_SESSION["username"] = $data['username'];
        $_SESSION["email"] = $data['email'];
+       $_SESSION["role"]  = $data['role'];
            // prepare and bind
 $stmt = $conn->prepare("INSERT INTO tblsession (start, end, sessionIP, downloads, userid) VALUES (?, ?, ?,?,?)");
 $stmt->bind_param("sssii",$start,$end,$sessionIP,$downloads,$userid);
