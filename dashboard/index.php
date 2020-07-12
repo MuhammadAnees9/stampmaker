@@ -61,8 +61,7 @@ CheckIfAdmin();
         </ul>
     </div>
     <!--/.sidebar-->
-    <a class="btn btn-lg btn-secondary btn-block mb-5" data-toggle='modal' data-target='#myModal'>
-        + ADD USERS</a>
+
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
             <ol class="breadcrumb">
@@ -76,6 +75,8 @@ CheckIfAdmin();
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                    <a class="btn btn-lg btn-primary mb-5" data-toggle='modal' data-target='#myModal'>
+                        + ADD USERS</a>
                     <div class="panel-heading">
                         Users Table
                         <span class="pull-right clickable panel-toggle panel-button-tab-left"><em

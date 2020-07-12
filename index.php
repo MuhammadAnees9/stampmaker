@@ -72,10 +72,11 @@ session_start();
             <?php
                                 getNav();
                                 function getNav(){
-                                if(isset($_SESSION["username"]))
+                                if(isset($_SESSION["uid"]))
                                 {
-                                echo "<h6 style='margin:20px;'>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
-                                if($_SESSION["role"] == "admin"){
+                                    $d = $_SESSION["uid"];
+                                echo "<h6 style='margin:20px;'>Welcome, ".$d['username']."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
+                                if($d['role'] == "admin"){
                                 echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
                                 }
                                 

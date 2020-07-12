@@ -241,6 +241,9 @@ function login() {
         $("#usernameLogin").css("border", "1px solid red");
         $("#passLogin").css("border", "1px solid red");
         swal("incorrect Credentials", "The credentials you provide are incorrect.", "warning");
+      } else if (response.abc == "true") {
+
+        swal("user already login", "User already login into system", "warning");
       } else if (response.abc == "admin") {
         swal("Welcome! Admin", "You have loged in successfully.", "success").then(function () {
 
