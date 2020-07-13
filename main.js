@@ -43,12 +43,11 @@
 
 
 
-
    function updateLabels(element, show) {
      $(".card-body").removeClass("all");
-     $("#labels").append("<div class='card elementlabel' id='" + element + "'><div class='card-body all' id='" + element + "'>" + show + "</div><center><button type='button' id='" + element + "' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'>Delete</span><i class='text-danger'>&times;</i></span></button></center></div>");
+     $("#labels").append("<li class='card elementlabel' id='" + element + "'><div class='card-body all' id='" + element + "'><p>" + show + "</p></div><center><button type='button' id='" + element + "' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'>Delete</span><i class='text-danger'>&times;</i></span></button></center></li>");
      $(".guide").css("display", "none");
-
+     $("#howto").css("display", "block");
      //hideallproperties();
    }
 
@@ -65,7 +64,7 @@
        if (checkAvailiblity(Circles, 5) == 0) {
          return;
        }
-       var moduleDiv = "<div id='Circle" + (Circles.length) + "' class='property'><h3>Circle: " + (Circles.length + 1) + "</h3><div class='slidecontainer'>Color:<input id='CircleColor-" + (Circles.length) + "'  /></div><div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" + (Circles.length) + "'  class='slider' min='30' max='240' value='260'></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" + (Circles.length) + "'  class='slider' min='1' max='100' value='1'></div></div>";
+       var moduleDiv = "<div id='Circle" + (Circles.length) + "' class='property'><h3>Circle: " + (Circles.length + 1) + "</h3><div class='slidecontainer' >Color:<input id='CircleColor-" + (Circles.length) + "'  /></div><div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" + (Circles.length) + "'  class='slider' min='30' max='240' value='260'></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" + (Circles.length) + "'  class='slider' min='1' max='100' value='1'></div></div>";
 
 
        $("#properties").append(moduleDiv);
@@ -102,7 +101,7 @@
        if (checkAvailiblity(LineTexts, 10) == 0) {
          return;
        }
-       var moduleDiv = "<div id='LineText" + (LineTexts.length) + "' class='property'> <h3>Line Text: " + (LineTexts.length + 1) + "</h3>               <div class='row'>                 <select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control col-sm'>          <option value='Arial' style='font-family: Arial' selected=''>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>        <select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control col-sm'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>          <button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn'>            <img src='svg/bold-solid.svg' width='20' height='20'>          </button>          <button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn'>              <img src='svg/italic-solid.svg' width='20' height='20'>          </button>     <div class='slidecontainer'>Color:<input id='LineColor-" + (LineTexts.length) + "'  /></div>             </div>      Text:      <div class='slidecontainer'>        <input type='text' id='InputTextLineText-" + (LineTexts.length) + "'  class='text' value='Text on the line'>               </div>            <div class='slidecontainer'>        Horizontal Position:        <span class='range-slider__value'>0</span>        <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "'  class='slider' min='0' max='250' value='125'>      </div>           <div class='slidecontainer'>          Vertical Position:<span class='range-slider__value'>0</span>        <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "'  class='slider' min='0' max='240' value='120'>      </div>            <div class='slidecontainer'>        Rotation:<span class='range-slider__value'>0</span>        <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "'  class='slider'  min='0' max='360' value='0'>      </div>              </div>          </div>";
+       var moduleDiv = "<div id='LineText" + (LineTexts.length) + "' class='property'> <h3>Line Text: " + (LineTexts.length + 1) + "</h3> <div class='form-row'> <div class='col'> <select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control'> <option value='Arial' style='font-family: Arial' selected=''>Arial</option> <option value='Calibri' style='font-family: Calibri'>Calibri</option> <option value='Courier New' style='font-family: Courier New'>Courier New</option> <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option> <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option> <option value='Verdana' style='font-family: Verdana'>Verdana</option> <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option> <option value='Days' style='font-family: Days'>Days</option> <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option> <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option> </select> </div> <div class='col'> <select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control'> <option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option> <option>12</option> <option>14</option> <option>16</option> <option selected=''>18</option> <option>20</option> <option>22</option> <option>24</option> <option>28</option> <option>30</option> <option>32</option> <option>34</option> <option>36</option> <option>38</option> <option>40</option> <option>42</option> <option>44</option> <option>46</option> <option>48</option> <option>50</option> <option>52</option> <option>54</option> <option>56</option> <option>60</option> <option>64</option> <option>72</option> <option>80</option> </select> </div> <div class='col'> <button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn'> <img src='svg/bold-solid.svg' width='20' height='50'> </button> <button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn'> <img src='svg/italic-solid.svg' width='50' height='50'> </button> </div> <div class='col'> <div class='slidecontainer' id='co'><input style='width:100%;height:100%' id='LineColor-" + (LineTexts.length) + "' /></div> </div> </div> Text: <div class='slidecontainer'> <input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text' value='Text on the line'> </div> <div class='slidecontainer'> Horizontal Position: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='250' value='125'> </div> <div class='slidecontainer'> Vertical Position:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='240' value='120'> </div> <div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "' class='slider' min='0' max='360' value='0'> </div> </div> </div>";
        $("#properties").append(moduleDiv);
        var LineText = [$('#InputTextLineText-' + (LineTexts.length)).val(), $('#InputHorizontalPositionLineText-' + (LineTexts.length)).val(), $('#InputVerticalPositionLineText-' + (LineTexts.length)).val(), $('#InputRotationLineText-' + (LineTexts.length)).val(), $('#InputFontLineText-' + (LineTexts.length)).val(), $('#InputFontSizeLineText-' + (LineTexts.length)).val(), "normal", "normal", "Line Text", "#16264c"];
        LineTexts.push(LineText);
@@ -127,8 +126,10 @@
          return;
        }
        var moduleDiv = "<div id='Picture" + (Pictures.length) + "' class='property'> <h3>Image: " + (Pictures.length + 1) + "</h3>Image:      <div class='slidecontainer'>        <input type='file' id='InputPictureSrc-" + (Pictures.length) + "' name='files' /></div>            <div class='slidecontainer'>      Horizontal Position:  <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='126' >      </div>           <div class='slidecontainer'>     Vertical Position:  <span class='range-slider__value'>0</span>    <input type='range' id='InputPictureVerticalPosition-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='126' >      </div>          <div class='slidecontainer'>   Size:  <span class='range-slider__value'>0</span>     <input type='range' id='InputPictureSize-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='250' >      </div>           <div class='slidecontainer'>      Rotation:   <span class='range-slider__value'>0</span>  <input type='range' id='InputPictureRotation-" + (Pictures.length) + "'  class='slider' min='0' max='360' value='0' >      </div>  </div>";
+
        $("#properties").append(moduleDiv);
        var Picture = [($('#InputPictureSrc-' + (Pictures.length)).val() == null ? null : $('#InputPictureSrc-' + (Pictures.length)).val()), $('#InputPictureSize-' + (Pictures.length)).val(), $('#InputPictureHorizontalPosition-' + (Pictures.length)).val(), $('#InputPictureVerticalPosition-' + (Pictures.length)).val(), $('#InputPictureRotation-' + (Pictures.length)).val(), "Picture"];
+
        Pictures.push(Picture);
 
        updateLabels("Picture #" + (Pictures.length - 1), "Image #" + (Pictures.length));
@@ -217,6 +218,8 @@
 
        if (index == 0) {
          $(".guide").css("display", "block");
+
+         $("#howto").css("display", "none");
        }
 
        //console.log(DeletedElements);
@@ -377,6 +380,13 @@
            Pictures[i][3] = 125;
            $("#InputPictureVerticalPosition-" + index).val(126);
            $("#InputPictureHorizontalPosition-" + index).val(126);
+           var img = new Image();
+           img.onload = function () {
+             $("#InputPictureSize-" + index).attr("max", img.height);
+             $("#InputPictureSize-" + index).attr("value", img.height);
+             Pictures[0][1] = img.height;
+           }
+           img.src = 'data:image/png;base64' + base64First;
          }
          rangeSlider();
          var fore = $('.pickup').val();
