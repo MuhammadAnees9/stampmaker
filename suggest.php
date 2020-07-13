@@ -10,9 +10,9 @@ require_once "PHPMailer/Exception.php";
 $text = $_POST["text"];
 $to = "sayapingeorge@gmail.com";
 $from = $_SESSION["email"];
+$id = $_SESSION["id"];
 $subject = "Concern Or Suggestion";
 
-$message = $text;
 
 
 $recipient = $to; // this is receipient email address.
@@ -42,6 +42,9 @@ $mail->AddReplyTo($usernameSmtp, 'Information');// specifying the mail address t
 $mail->IsHTML(true);
 $mail->Subject = $subject;
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
+$message .= "<b>From:</b> ".$from."<br><b>User ID:</b> ".$id."<br>";
+
+$message .= "<b>Message:</b> ".$text;
 $mail->Body = $message;
     $mail->Send();
     echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;

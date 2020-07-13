@@ -6,11 +6,19 @@ session_start();
 <html>
 
 <head>
+    <link rel="icon" type="image/png" href="logofav.png" sizes="32x32">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
+    <script src="google_anylatic.js">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+
     <script type="text/javascript" src="customCircularLibrary.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
@@ -20,28 +28,30 @@ session_start();
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="modals.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script src="dashboard/js/select2.min.js"></script>
-    <link href="dashboard/css/select2.min.css" rel="stylesheet" />
     <title>Stamp Maker</title>
 </head>
 
 <body>
-    <div class="container">
-        <?php ?>
-        <div class="row shadow-sm bg-primary p-3 text-white">
-            <h3 class="col-lg-3" style="padding:20px;">Stamp Maker</h3>
-            <div class="col">
-                <button class="btn" id="addroundtext" title="Text Around The Circle">
+    <div id="measure"></div>
+    <div class="container shadow-sm bg-primary p-3 text-white">
+        <div class="row">
+
+            <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+
+            <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
+
+                <img class="d-inline d-lg-none" src="logo.png" />
+                <button class="btn o" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
                             d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
                         </path>
-                        <svg>
-                            <br><span style="color:white;">Round Text</span>
+                    </svg>
+
+                    <br><span style="color:white;">Round Text</span>
                 </button>
-                <button class="btn" id="addlinetext" title="Line Text">
+                <button class="btn o" id="addlinetext" title="Line Text">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
@@ -49,8 +59,9 @@ session_start();
                         </path>
                     </svg>
                     <br><span style="color:white;">Line Text</span>
+
                 </button>
-                <button class="btn" id="addcircle" title="Circle">
+                <button class="btn o" id="addcircle" title="Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
@@ -58,8 +69,10 @@ session_start();
                         </path>
                     </svg>
                     <br><span style="color:white;">Circle</span>
+
+
                 </button>
-                <button class="btn" id="addimage" title="Image">
+                <button class="btn o" id="addimage" title="Image">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path class="add_el_path" fill="#ffffff"
@@ -67,9 +80,13 @@ session_start();
                         </path>
                     </svg>
                     <br><span style="color:white;">Image</span>
+
                 </button>
+
             </div>
-            <?php
+            <div class="col-sm-4">
+                <center>
+                    <?php
                                 getNav();
                                 function getNav(){
                                 if(isset($_SESSION["uid"]))
@@ -87,14 +104,22 @@ session_start();
                                 
                                 }
                                 ?>
+                </center>
+
+            </div>
         </div>
-        <div class="scrolling-wrapper" id="labels">
-        </div>
+    </div>
+
+    <div class="container">
         <!-- Scrolling Wrapper End-->
         <div class="row">
-            <div class="col shadow-sm canvas" style="height:400px;">
+            <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
+            </ul>
+            <div class="col-lg-6 canvas col-sm-3 col-10 col-md-4" style="margin-top:40px;">
+
             </div>
-            <div class="col" id="properties" style="height:400px;">
+            <br>
+            <div class="col-lg-4 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
                 <div class="guide">
                     <u><b>Create a round stamp</b></u><br>
                     Select <b>Circle</b> element to add a stamp circle<br>
@@ -110,16 +135,21 @@ session_start();
                     <b>Download</b> your stamp
                 </div>
             </div>
+
+
         </div>
         <br>
         <div class="col-lg">
-            <?php $session = (isset($_SESSION['sessionid']))?$_SESSION['sessionid']:'null';?>
+            <?php $session = (isset($_SESSION['uid']))?$_SESSION['uid']:'null';?>
             <center>
                 <button class="btn btn-lg btn-success shadow" id="downloads"
                     onclick="down('<?php echo $session?>')">Download</button>
             </center>
         </div>
     </div>
+
+
+
     <script>
     // $(document).click(function(){
     // alert($("#colorpicker").spectrum("get").toHex());
@@ -131,6 +161,7 @@ session_start();
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+
                 </div>
                 <div class="modal-body">
                     <form action="javascript:ajaxCall()" method="post">
@@ -346,8 +377,10 @@ session_start();
                             <option value="Yoruba">Yoruba</option>
                             <option value="Zulu">Zulu</option>
                         </select>
+
                         <p style="font-size:15px;text-decoration:underline;" id="target">* Language Not Inlisted?</p>
                         <input type="text" class="signup form-control" id="lang3" placeholder="Write Language Here">
+
                         <label class="checkbox-inline">
                             Not a translator? &nbsp;&nbsp;<input type="checkbox" id="notatranslator">
                         </label>
@@ -355,23 +388,29 @@ session_start();
                             id="reason"></textarea>
                         <br>
                         <label class="checkbox-inline">
-                            I have read and accept Terms and Conditions. &nbsp;&nbsp;<input type="checkbox" id="accept"
-                                required="">
+                            I have read and accept <a href="terms.php" target="_blank">Terms and Conditions.</a>
+                            &nbsp;&nbsp;<input type="checkbox" id="accept" required="">
                         </label>
                         <br>
+                        <a href="terms.php" style="float:right;" target="_blank">Terms and conditions</a><br>
+                        <a href="privacy.php" style="float:right;" target="_blank">Privacy notice</a>
                         <center>
                             <button class="btn btn-md btn-success modals" id="signup">Sign Up</button>
                         </center>
                     </form>
+
                 </div>
             </div>
         </div>
+    </div>
+
     </div>
     <div class="modal fade" id="myModalLogin" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+
                 </div>
                 <div class="modal-body">
                     <form action="javascript:login()" method="post" id="loginForm">
@@ -384,6 +423,7 @@ session_start();
                         <input type="password" class="signup form-control" id="passLogin" placeholder="Password"
                             required="">
                         <br>
+
                         <center>
                             <h6 style="font-weight:normal;">Not registered yet.<a id="reg" onclick="notauser();">Click
                                     here</a></h6>
@@ -392,28 +432,136 @@ session_start();
                             <button class="btn btn-md btn-success modals" id="login">Log In</button>
                         </center>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <div class='suggest  bottomleft' id='suggestIns'>
+        <center>
+            <h5>Instructions</h5>
+        </center>
+        Select <b>Circle</b> element to add a stamp circle<br>
+        Edit the circle, change its radius and stroke width<br>
+        Select <b>Round</b> Text element to add a text around the circle<br>
+        Enter and edit the text, change spacing and rotate it clockwise<br>
+        Select <b>Line</b> Text element to add a text in the center<br>
+        Enter and edit the text, move or rotate it<br>
+        Select <b>Image</b> element to add an image<br>
+        Upload the image, change its size and position<br>
+        Add any numbers of elements<br>
+        Delete elements clicking on <b>delete x</b> <br>
+        <b>Download</b> your stamp
     </div>
+    <div class='demo bottomleft' id='howto' onclick='toggleinstruction()' style='display:none'>
+        To view Instruction or 'How To'.<b>Click Here</b>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
     <?php
-                if(empty($_SESSION["username"])){
-                }else{
-                getSuggest();
-                }
-                function getSuggest(){
-                echo "<div class='suggest bottomright'>
-                    <center><h5>Leave Suggestion</h5></center>
-                    <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
-                    <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
-                </div><div class='demo bottomright' onclick='togglesuggestions()'>
-                To send your concerns or suggestions.<b>Click Here</b>
-            </div>";
-            }
-            ?>
+if(empty($_SESSION["username"])){
+
+}else{
+getSuggest();  
+}
+
+function getSuggest(){
+          echo "
+          
+          <div class='suggest bottomright' id='suggest'>
+          <center><h5>Leave Suggestion</h5></center>
+          <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
+          <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
+        </div>
+        
+<div class='demo bottomright' onclick='togglesuggestions()'>
+To send concerns or suggestions.<b>Click Here</b>
+</div>
+
+
+
+";
+}
+?>
 </body>
+
+<footer class="footer font-small blue pt-4" style="background-color:#007bff;color:white;">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">My Stamp Maker</h5>
+                <p>Create a round stamp easily.</p>
+
+            </div>
+            <!-- Grid column -->
+
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <ul class="list-unstyled">
+                    <li>
+                        <a style="color:white;" href="terms.php" target="_blank">
+                            Terms & conditions.
+                        </a>
+
+                    </li>
+                    <li>
+                        <a style="color:white;" href="privacy.php" target="_blank">Privacy Notice</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <ul class="list-unstyled">
+                    <li>
+                        <b style="color:white;">Email:</b> sayapingeorge@gmail.com
+                    </li>
+                    <li>
+                        <b style="color:white;">Address:</b> MyStampMaker <br>
+                        Brentwood Street, 30709<br>
+                        Southfield, MI 48076<br>
+                        United States<br>
+
+                    </li>
+                    <li>
+                        <b style="color:white;">Company Name:</b> My Stamp Maker
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#" style="color:white;"> MyStampMaker</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<br><br><br>
 
 </html>
 <script type="text/javascript">
@@ -433,6 +581,7 @@ var idleTime = 0;
 $(document).ready(function() {
     //Increment the idle time counter every minute.
     var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
     //Zero the idle timer on mouse movement.
     $(this).mousemove(function(e) {
         idleTime = 0;
@@ -451,14 +600,17 @@ function timerIncrement() {
             dataType: 'json',
             success: function(response) {
                 if (response.abc == "done") {
+
                     swal("You Have Been Logout",
                         "You have been logout, Reason: Inactive for about 4 hours.", "warning").then(
                         function() {
+
                             location.reload();
                         });
                 }
             }
         });
+
     }
 }
 </script>
