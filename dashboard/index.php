@@ -94,7 +94,7 @@ CheckIfAdmin();
                             </thead>
                             <tbody>
                                 <?php
-                                                    $sql = "SELECT id, username, email,userIP FROM user where isActive = 1 && username != 'admin'";
+                                                    $sql = "SELECT id, username, email,userIP FROM user where isActive = 1 && role != 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
                                                     // output data of each row
