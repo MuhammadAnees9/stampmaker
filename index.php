@@ -89,22 +89,23 @@ session_start();
             <div class="col-sm-4">
                 <center>
                     <?php
-      getNav();
-      function getNav(){
-      if(isset($_SESSION["username"]))
-      {
-        echo "<h6>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;'>Log Out</button>&nbsp;";
-        if($_SESSION["username"] == "admin"){
-          echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;'>Dashboard</button>";
-        }    
-  
-      }
-      else{
-        echo "<button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModal' style='height:40px;margin:20px;'>Sign Up</button><button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModalLogin' style='height:40px;margin:20px;' onclick='reset()'>Log In</button>";
-      }
-      }
-
-      ?>
+                                getNav();
+                                function getNav(){
+                                if(isset($_SESSION["uid"]))
+                                {
+                                    $d = $_SESSION["uid"];
+                                echo "<h6 style='margin:20px;'>Welcome, ".$d['username']."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
+                                if($d['role'] == "admin"){
+                                echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
+                                }
+                                
+                                }
+                                else{
+                                echo "<button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModal' style='height:40px;margin:20px;'>Sign Up</button><button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModalLogin' style='height:40px;margin:20px;' onclick='reset()'>Log In</button>";
+                                }
+                                
+                                }
+                                ?>
                 </center>
 
             </div>
@@ -141,7 +142,7 @@ session_start();
         </div>
         <br>
         <div class="col-lg">
-            <?php $session = (isset($_SESSION['sessionid']))?$_SESSION['sessionid']:'null';?>
+            <?php $session = (isset($_SESSION['uid']))?$_SESSION['uid']:'null';?>
             <center>
                 <button class="btn btn-lg btn-success shadow" id="downloads"
                     onclick="down('<?php echo $session?>')">Download</button>
@@ -414,7 +415,7 @@ session_start();
 
                 </div>
                 <div class="modal-body">
-                    <form action="javascript:login()" method="post">
+                    <form action="javascript:login()" method="post" id="loginForm">
                         <center>
                             <h3>Log In</h3><b id="info" style="color:red"></b><br>
                         </center>

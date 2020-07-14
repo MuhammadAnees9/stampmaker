@@ -97,6 +97,21 @@ function ajaxCall() {
   });
 }
 
+
+function logout() {
+  $.ajax({
+    url: "logout.php", //the page containing php script
+    type: "post", //request type,
+    dataType: 'json',
+    success: function (response) {
+      swal("Logout", "You are log out successfully.", "success").then(function () {
+        location.reload();
+      });
+
+    }
+  });
+}
+
 function addUser() {
   var Txtemail = $("#email").val();
   var Txtpass = $("#pass").val();
@@ -185,17 +200,6 @@ function UpdatePassword(ele) {
   }
 }
 
-function logout() {
-  $.ajax({
-    url: "logout.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    success: function (response) {
-      location.reload();
-    }
-  });
-}
-
 function login() {
 
 
@@ -241,6 +245,9 @@ function login() {
         $("#usernameLogin").css("border", "1px solid red");
         $("#passLogin").css("border", "1px solid red");
         swal("incorrect Credentials", "The credentials you provide are incorrect.", "warning");
+      } else if (response.abc == "true") {
+
+        swal("user already login", "User already login into system", "warning");
       } else if (response.abc == "admin") {
         swal("Welcome! Admin", "You have loged in successfully.", "success").then(function () {
 
@@ -269,7 +276,6 @@ function download() {
     link.href = canvas.toDataURL();
     link.download = "dicomimage.png";
     link.click();
-    location.reload();
   }
   //location.reload();
   //   var link = document.createElement('a');
@@ -295,24 +301,39 @@ function notauser() {
 
 function togglesuggestions() {
 
-  $(".suggest").slideToggle();
+  $("#suggest").slideToggle();
+}
+
+function toggleinstruction() {
+
+  $("#suggestIns").slideToggle();
 }
 
 function suggestion() {
-
   var suggestText = $("#suggestText").val();
-  $.ajax({
-    url: "suggest.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    data: {
-      text: suggestText
-    },
-    success: function (response) {
-      console.log(response);
-      if (response.abc == "done") {
-        swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success");
+  if (suggestText == null || suggestText == "") {
+    alert("Please enter message first");
+
+  } else {
+    swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
+      $(".suggest").slideToggle();
+    });
+
+
+    $.ajax({
+      url: "suggest.php", //the page containing php script
+      type: "post", //request type,
+      dataType: 'json',
+      data: {
+        text: suggestText
+      },
+      success: function (response) {
+        console.log(response);
+
+
+
       }
-    }
-  });
+    });
+  }
+
 }
