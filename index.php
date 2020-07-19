@@ -1,6 +1,5 @@
 <?php
-include "dbConfig.php";
-session_start();
+   session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,19 +19,22 @@ session_start();
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="modals.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="dashboard/js/select2.min.js"></script>
     <link href="dashboard/css/select2.min.css" rel="stylesheet" />
     <title>Stamp Maker</title>
 </head>
 
 <body>
-    <div class="container">
-        <?php ?>
-        <div class="row shadow-sm bg-primary p-3 text-white">
-            <h3 class="col-lg-3" style="padding:20px;">Stamp Maker</h3>
-            <div class="col">
-                <button class="btn" id="addroundtext" title="Text Around The Circle">
+    <div id="measure"></div>
+    <div class="container shadow-sm bg-primary p-3 text-white">
+        <div class="row">
+
+            <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+
+            <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
+
+                <img class="d-inline d-lg-none" src="logo.png" />
+                <button class="btn o" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
@@ -68,6 +70,30 @@ session_start();
                     </svg>
                     <br><span style="color:white;">Image</span>
                 </button>
+
+            </div>
+            <div class="col-sm-4">
+                <center>
+                    <?php
+                                getNav();
+                                function getNav(){
+                                if(isset($_SESSION["uid"]))
+                                {
+                                    $d = $_SESSION["uid"];
+                                echo "<h6 style='margin:20px;'>Welcome, ".$d['username']."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
+                                if($d['role'] == "admin"){
+                                echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
+                                }
+                                
+                                }
+                                else{
+                                echo "<button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModal' style='height:40px;margin:20px;'>Sign Up</button><button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModalLogin' style='height:40px;margin:20px;' onclick='reset()'>Log In</button>";
+                                }
+                                
+                                }
+                                ?>
+                </center>
+
             </div>
             <?php
                                 getNav();
@@ -113,7 +139,7 @@ session_start();
         </div>
         <br>
         <div class="col-lg">
-            <?php $session = (isset($_SESSION['sessionid']))?$_SESSION['sessionid']:'null';?>
+            <?php $session = (isset($_SESSION['uid']))?$_SESSION['uid']:'null';?>
             <center>
                 <button class="btn btn-lg btn-success shadow" id="downloads"
                     onclick="down('<?php echo $session?>')">Download</button>
@@ -269,7 +295,7 @@ session_start();
                             <option value="Chinese">Chinese</option>
                             <option value="Creole">Creole</option>
                             <option value="Croatian">Croatian</option>
-                            <option value="Czech">Czech</option>
+                            echo json_encode(array("abc"=>'admin')); <option value="Czech">Czech</option>
                             <option value="Danish">Danish</option>
                             <option value="Dari">Dari</option>
                             <option value="Dutch">Dutch</option>

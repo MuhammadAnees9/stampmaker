@@ -8,7 +8,7 @@ require_once "PHPMailer/Exception.php";
 
 $to = $_POST["email"];
 $id = $_POST["id"];
-$link = "http://localhost/stampmaker/";
+$link = "http://test.mystampmaker.com/";
 $senderName = 'Test';
 
 

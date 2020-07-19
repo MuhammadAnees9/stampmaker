@@ -97,93 +97,6 @@ function ajaxCall() {
   });
 }
 
-function addUser() {
-  var Txtemail = $("#email").val();
-  var Txtpass = $("#pass").val();
-  var TxtlangSource = $("#langS").val();
-  var TxtUsername = $("#usernametext").val();
-  var action = $("#action").val();
-  var role = $("#role").val();
-  var isActive = $("#isActive").val();
-  $.ajax({
-    url: "adminActivity.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    data: {
-      email: Txtemail,
-      pass: Txtpass,
-      langS: TxtlangSource,
-      username: TxtUsername,
-      role: role,
-      isActive: isActive,
-      action: action,
-    },
-    success: function (response) {
-      console.log(response);
-      var iduser = response.id;
-      if (response.abc == "done") {
-        $('#myModalLogin').modal('hide');
-        swal("You Have Been Registered", "New user added Successfully", "success");
-        location.reload();
-      }
-      if (response.abc == "email") {
-        $("#email").css("border", "1px solid red");
-        $("#username").css("border", "1px solid green");
-        swal("Email already exists", "The Email that you have entered already exists, try new one.!", "warning");
-
-      }
-      if (response.abc == "username") {
-        $("#username").css("border", "1px solid red");
-        $("#email").css("border", "1px solid green");
-        swal("Username already exists", "The Username that you have entered already exists, try new one.!", "warning");
-
-      }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(JSON.stringify(jqXHR));
-      console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-    }
-  });
-
-
-}
-
-function UpdatePassword(ele) {
-  if (event.key === 'Enter') {
-    const pass = ele.value;
-    const id = ele.id;
-    var regularExpression = /^[a-zA-Z]$/;
-    if (pass.trim() == "") {
-      swal("Password Field Empty", "Password field is required", "warning");
-    }
-    if (pass.trim().length < 5) {
-      swal("Miniumum 5 characters are required", "Password length must be 5 minimum character", "warning");
-    }
-
-    $.ajax({
-      url: "adminActivity.php", //the page containing php script
-      type: "post", //request type,
-      dataType: 'json',
-      data: {
-        pass: pass,
-        id: id,
-        action: 'updatePass'
-      },
-      success: function (response) {
-        if (response.abc == "done") {
-          swal("Password Updated", "Password updated Successfully", "success");
-          location.reload();
-        }
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(JSON.stringify(jqXHR));
-        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-      }
-    });
-
-
-  }
-}
 
 function logout() {
   $.ajax({
@@ -191,10 +104,53 @@ function logout() {
     type: "post", //request type,
     dataType: 'json',
     success: function (response) {
-      location.reload();
+      console.log(response);
+      swal("Logout", "You are log out successfully.", "success").then(function () {
+        location.reload();
+      });
+
     }
   });
 }
+
+
+
+// function UpdatePassword(ele) {
+//   if (event.key === 'Enter') {
+//     const pass = ele.value;
+//     const id = ele.id;
+//     var regularExpression = /^[a-zA-Z]$/;
+//     if (pass.trim() == "") {
+//       swal("Password Field Empty", "Password field is required", "warning");
+//     }
+//     if (pass.trim().length < 5) {
+//       swal("Miniumum 5 characters are required", "Password length must be 5 minimum character", "warning");
+//     }
+
+//     $.ajax({
+//       url: "adminActivity.php", //the page containing php script
+//       type: "pust", //request type,
+//       dataType: 'json',
+//       data: {
+//         pass: pass,
+//         id: id,
+//         action: 'updatePass'
+//       },
+//       success: function (response) {
+//         if (response.abc == "done") {
+//           swal("Password Updated", "Password updated Successfully", "success");
+//           location.reload();
+//         }
+//       },
+//       error: function (jqXHR, textStatus, errorThrown) {
+//         console.log(JSON.stringify(jqXHR));
+//         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+//       }
+//     });
+
+
+//   }
+// }
 
 function login() {
 
@@ -214,20 +170,25 @@ function login() {
     $("#passLogin").css("border", "1px solid red");
     swal("Password Minimum 5 characher", "", "warning");
   } else $.ajax({
-    url: "login.php", //the page containing php script
+    url: "auth/auth.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
-    data: {
+    data: JSON.stringify({
       username: txtusername,
       password: txtpassword
-    },
+    }),
     success: function (response) {
-      console.log(response.abc);
-      if (response.abc == "done") {
+      if (response.status == 422) {
+        $("#usernameLogin").css("border", "1px solid red");
+        $("#passLogin").css("border", "1px solid red");
+        swal(response.message, '', 'warning');
+      }
+      if (response.status == 200) {
         $('#myModalLogin').modal('hide');
-        $("#usernameLogin").css("border", "1px solid green");
-        $("#passLogin").css("border", "1px solid green");
-        swal("Welcome!", "You have loged in successfully.", "success").then(function () {
+        // $("#usernameLogin").css("border", "1px solid green");
+        // $("#passLogin").css("border", "1px solid green");
+
+        swal("Welcome!", response.message, "success").then(function () {
           //Checking if the user turn from the  download
           if ($("#info").html() != "") {
             download();
@@ -236,27 +197,13 @@ function login() {
           }
         });
 
-      } else if (response.abc == "fail") {
-
-        $("#usernameLogin").css("border", "1px solid red");
-        $("#passLogin").css("border", "1px solid red");
-        swal("incorrect Credentials", "The credentials you provide are incorrect.", "warning");
-      } else if (response.abc == "true") {
-
-        swal("user already login", "User already login into system", "warning");
-      } else if (response.abc == "admin") {
-        swal("Welcome! Admin", "You have loged in successfully.", "success").then(function () {
-
-          if ($("#info").html() != "") {
-            download();
-          } else {
-            location.reload();
-          }
-
-        });
-
       }
 
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+
+      console.log(JSON.stringify(jqXHR));
+      console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
     }
   });
 }
@@ -272,7 +219,6 @@ function download() {
     link.href = canvas.toDataURL();
     link.download = "dicomimage.png";
     link.click();
-    location.reload();
   }
   //location.reload();
   //   var link = document.createElement('a');
@@ -286,7 +232,7 @@ function reset() {
 }
 
 function Dashboard() {
-  window.location = "dashboard/index.php";
+  window.location = "admin/index.php";
 }
 
 //Function for not a user on sign up form
@@ -298,24 +244,39 @@ function notauser() {
 
 function togglesuggestions() {
 
-  $(".suggest").slideToggle();
+  $("#suggest").slideToggle();
+}
+
+function toggleinstruction() {
+
+  $("#suggestIns").slideToggle();
 }
 
 function suggestion() {
-
   var suggestText = $("#suggestText").val();
-  $.ajax({
-    url: "suggest.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    data: {
-      text: suggestText
-    },
-    success: function (response) {
-      console.log(response);
-      if (response.abc == "done") {
-        swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success");
+  if (suggestText == null || suggestText == "") {
+    alert("Please enter message first");
+
+  } else {
+    swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
+      $(".suggest").slideToggle();
+    });
+
+
+    $.ajax({
+      url: "suggest.php", //the page containing php script
+      type: "post", //request type,
+      dataType: 'json',
+      data: {
+        text: suggestText
+      },
+      success: function (response) {
+        console.log(response);
+
+
+
       }
-    }
-  });
+    });
+  }
+
 }
