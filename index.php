@@ -1,6 +1,5 @@
 <?php
-include "dbConfig.php";
-session_start();
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -302,7 +301,7 @@ session_start();
                             <option value="Chinese">Chinese</option>
                             <option value="Creole">Creole</option>
                             <option value="Croatian">Croatian</option>
-                            <option value="Czech">Czech</option>
+                            echo json_encode(array("abc"=>'admin')); <option value="Czech">Czech</option>
                             <option value="Danish">Danish</option>
                             <option value="Dari">Dari</option>
                             <option value="Dutch">Dutch</option>
