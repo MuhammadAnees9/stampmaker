@@ -14,12 +14,12 @@ $conn = new mysqli("stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com", "admin
 
 //check session login if admin
 function CheckIfAdmin(){
-    if(isset($_SESSION['uid'])){
+    if(isset($_SESSION['sessionid'])){
      if($_SESSION['role']!="admin"){
          header("location:../403.php");
      }
 }
-if(!isset($_SESSION['uid'])){
+if(!isset($_SESSION['sessionid'])){
       header("location:../index.php");
 }
 
