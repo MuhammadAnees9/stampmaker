@@ -21,9 +21,10 @@ $stmt = $conn->prepare("INSERT INTO user (username, email, password, nativeLangu
 $stmt->bind_param("sssssi",$username,$email,$password,$langS,$ip,$active);
 
 //Saving Data
+$password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
  $username = $_POST["username"];
 $email = $_POST["email"];
-$password = md5($_POST["pass"]);
+$password = $password;
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
