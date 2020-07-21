@@ -56,8 +56,8 @@ else:
 
     
     // IF PASSWORD IS LESS THAN 8 THE SHOW THE ERROR
-    if(strlen($password) < 6):
-        $returnData = msg(0,422,'Your password must be at least 8 characters long!');
+    if(strlen($password) < 5):
+        $returnData = msg(0,422,'Your password must be at least 5 characters long!');
 
     // THE USER IS ABLE TO PERFORM THE LOGIN ACTION
     else:

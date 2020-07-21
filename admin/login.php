@@ -11,62 +11,67 @@ if(isset($_SESSION['uid'])){
 }
 ?>
 
+
+<script src="assets/js/jquery-3.5.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <!DOCTYPE html>
 <html>
+<title>Admin Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/my.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,
+h1 {
+    font-family: "Raleway", sans-serif
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <script type="text/javascript" src="../modals.js"></script>
-    <script src="js/dataTables.min.js"></script>
-    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <!--Custom Font-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
-</head>
+body,
+html {
+    height: 100%
+}
+
+.bgimg {
+    background-image: url('assets/img/bg.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
 
 <body>
-    <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">Log in</div>
-                <div class="panel-body">
-                    <form action="javascript:login()" method="POST" id="loginForm">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" class="signup form-control" id="usernameLogin" placeholder="Username"
-                                    required="">
-                                <br>
 
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="signup form-control" id="passLogin" placeholder="Password"
-                                    required="">
-                                <br>
-                            </div>
-                            <div class="checkbox">
-
-                            </div>
-                            <button class="btn btn-md btn-success modals" id="login">Log In</button>
-                        </fieldset>
-                    </form>
+    <div class="bgimg my-display-container my-animate-opacity my-text-white">
+        <div class="my-display-container">
+            <div class="">
+                <div class="my-bar my-white my-wide my-padding my-card my-black">
+                    <a href="#" class="my-bar-item my-button"><b class="my-text-blue">Stamp Maker</b> Admin</a>
                 </div>
             </div>
-        </div><!-- /.col-->
-    </div><!-- /.row -->
+        </div>
+        <div class="my-display-middle">
+
+            <form class=" my-container" action="javascript:login()" method="POST" id="loginForm" <div
+                class="my-section">
+                <label><b>Username</b></label>
+                <input class="my-input signup my-border my-margin-bottom" type="text" id="usernameLogin"
+                    placeholder="Username" required="">
+                <label><b>Password</b></label>
+                <input type="password" class="signup my-input signup my-border my-margin-bottom" id="passLogin"
+                    placeholder="Password" required="">
+                <button class="my-button btn my-block my-green my-section my-padding" id="login">Login</button>
+        </div>
+        </form>
+
+        <!-- <h1 class="my-jumbo my-animate-top">COMING SOON</h1>
+            <hr class="my-border-grey" style="margin:auto;width:40%">
+            <p class="my-large my-center">35 days left</p> -->
+    </div>
+
+    </div>
+
 </body>
 <script type="text/javascript">
 function login() {

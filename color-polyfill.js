@@ -1,45 +1,52 @@
-$(function(){
+$(function () {
   if (!Modernizr.inputtypes.color) {
     var makeHexCode = function (r, g, b) {
       var nR = r.toString(16),
-	  nG = g.toString(16),
-	  nB = b.toString(16);
+        nG = g.toString(16),
+        nB = b.toString(16);
       while (nR.length < 2) {
-	nR = "0" + nR;
+        nR = "0" + nR;
       }
       while (nG.length < 2) {
-	nG = "0" + nG;
+        nG = "0" + nG;
       }
       while (nB.length < 2) {
-	nB = "0" + nB;
+        nB = "0" + nB;
       }
       return "#" + nR + nG + nB;
     };
 
     var RGBtoHSV = function (r, g, b) {
-      r = r/255, g = g/255, b = b/255;
-      var max = Math.max(r, g, b), min = Math.min(r, g, b);
+      r = r / 255, g = g / 255, b = b / 255;
+      var max = Math.max(r, g, b),
+        min = Math.min(r, g, b);
       var h, s, v = max;
 
       var d = max - min;
       s = max == 0 ? 0 : d / max;
 
       if (max == min) {
-	h = 0;
+        h = 0;
       } else {
-	switch(max){
-	  case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-	  case g: h = (b - r) / d + 2; break;
-	  case b: h = (r - g) / d + 4; break;
-	}
-	h /= 6;
+        switch (max) {
+          case r:
+            h = (g - b) / d + (g < b ? 6 : 0);
+            break;
+          case g:
+            h = (b - r) / d + 2;
+            break;
+          case b:
+            h = (r - g) / d + 4;
+            break;
+        }
+        h /= 6;
       }
 
-      return [Math.round(h * 360), Math.round((s * 100) * 10)/10, Math.round((v * 100) * 10)/10];
+      return [Math.round(h * 360), Math.round((s * 100) * 10) / 10, Math.round((v * 100) * 10) / 10];
     };
 
     var HSVtoRGB = function (h, s, v) {
-      h = h/360, s = s/100, v = v/100;
+      h = h / 360, s = s / 100, v = v / 100;
       var r, g, b;
 
       var i = Math.floor(h * 6);
@@ -48,13 +55,25 @@ $(function(){
       var q = v * (1 - f * s);
       var t = v * (1 - (1 - f) * s);
 
-      switch(i % 6){
-	case 0: r = v, g = t, b = p; break;
-	case 1: r = q, g = v, b = p; break;
-	case 2: r = p, g = v, b = t; break;
-	case 3: r = p, g = q, b = v; break;
-	case 4: r = t, g = p, b = v; break;
-	case 5: r = v, g = p, b = q; break;
+      switch (i % 6) {
+        case 0:
+          r = v, g = t, b = p;
+          break;
+        case 1:
+          r = q, g = v, b = p;
+          break;
+        case 2:
+          r = p, g = v, b = t;
+          break;
+        case 3:
+          r = p, g = q, b = v;
+          break;
+        case 4:
+          r = t, g = p, b = v;
+          break;
+        case 5:
+          r = v, g = p, b = q;
+          break;
       }
 
       return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
@@ -62,19 +81,19 @@ $(function(){
 
     var sanitizeChannelValue = function (max) {
       if (/^\d+$/.test(this.value)) {
-	if (parseInt(this.value, 10) > max) {
-	  $(this).val(max);
-	} else if (parseInt(this.value, 10) < 0) {
-	  $(this).val(0);
-	}
+        if (parseInt(this.value, 10) > max) {
+          $(this).val(max);
+        } else if (parseInt(this.value, 10) < 0) {
+          $(this).val(0);
+        }
       } else if (/^[a-fA-F\d]{2}$/.test(this.value)) {
-	$(this).val(parseInt(this.value, 16));
+        $(this).val(parseInt(this.value, 16));
       } else {
-	$(this).val(0);
+        $(this).val(0);
       }
     };
 
-    $('input[type="color"]').each(function(index) {
+    $('input[type="color"]').each(function (index) {
       var startValue = $(this).attr('value') || '#000000';
       var startRed = parseInt(startValue.substring(1, 3), 16);
       var startGreen = parseInt(startValue.substring(3, 5), 16);
@@ -87,7 +106,7 @@ $(function(){
         name: $(this).attr('name'),
         value: startValue
       });
-      
+
       var btnContainer = document.createElement('span');
       $(btnContainer).addClass("color-picker-button-container");
 
@@ -257,7 +276,7 @@ $(function(){
         value: $(blueInput).val()
       });
 
-      var HSVinputchange = function() {
+      var HSVinputchange = function () {
         var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseFloat($(satInput).val()), parseFloat($(valInput).val()));
         var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
         $(redSlider).slider("option", "value", RGBcolor[0]);
@@ -271,7 +290,7 @@ $(function(){
         colorSwatch.style.backgroundColor = newColor;
         $(hiddenField).val(newColor.toLowerCase());
       };
-      var RGBinputchange = function() {
+      var RGBinputchange = function () {
         var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         $(hueSlider).slider("option", "value", HSVcolor[0]);
@@ -285,7 +304,7 @@ $(function(){
         colorSwatch.style.backgroundColor = newColor;
         $(hiddenField).val(newColor.toLowerCase());
       };
-      var HSVslide = function() {
+      var HSVslide = function () {
         var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
         var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
         $(redSlider).slider("option", "value", RGBcolor[0]);
@@ -297,7 +316,7 @@ $(function(){
         bigSwatch.style.backgroundColor = newColor;
         $(hexInput).val(newColor);
       };
-      var HSVslidechange = function() {
+      var HSVslidechange = function () {
         var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
         var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
         $(redSlider).slider("option", "value", RGBcolor[0]);
@@ -311,7 +330,7 @@ $(function(){
         colorSwatch.style.backgroundColor = newColor;
         $(hiddenField).val(newColor.toLowerCase());
       };
-      var RGBslide = function() {
+      var RGBslide = function () {
         var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         $(hueSlider).slider("option", "value", HSVcolor[0]);
@@ -323,7 +342,7 @@ $(function(){
         $(hexInput).val(newColor);
         bigSwatch.style.backgroundColor = newColor;
       };
-      var RGBslidechange = function() {
+      var RGBslidechange = function () {
         var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         $(hueSlider).slider("option", "value", HSVcolor[0]);
@@ -397,13 +416,13 @@ $(function(){
         RGBinputchange();
       });
       $(hueSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(hueInput).val($(this).slider("value"));
             HSVslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(hueInput).val($(this).slider("value"));
             HSVslidechange();
@@ -411,13 +430,13 @@ $(function(){
         }
       });
       $(satSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(satInput).val($(this).slider("value"));
             HSVslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(satInput).val($(this).slider("value"));
             HSVslidechange();
@@ -425,13 +444,13 @@ $(function(){
         }
       });
       $(valSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(valInput).val($(this).slider("value"));
             HSVslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(valInput).val($(this).slider("value"));
             HSVslidechange();
@@ -439,13 +458,13 @@ $(function(){
         }
       });
       $(redSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(redInput).val($(this).slider("value"));
             RGBslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(redInput).val($(this).slider("value"));
             RGBslidechange();
@@ -453,13 +472,13 @@ $(function(){
         }
       });
       $(greenSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(greenInput).val($(this).slider("value"));
             RGBslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(greenInput).val($(this).slider("value"));
             RGBslidechange();
@@ -467,13 +486,13 @@ $(function(){
         }
       });
       $(blueSlider).bind({
-        slide: function(event, ui) {
+        slide: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(blueInput).val($(this).slider("value"));
             RGBslide();
           }
         },
-        slidechange: function(event, ui) {
+        slidechange: function (event, ui) {
           if (event.originalEvent !== undefined) {
             $(blueInput).val($(this).slider("value"));
             RGBslidechange();
@@ -481,51 +500,51 @@ $(function(){
         }
       });
       if (Modernizr.csstransitions) {
-	pickerDiv.className = "color-picker-dialog color-picker-closed";
-	$(colorBtn).click(function () {
-	  $(pickerDiv).unbind('transitionend');
-	  $(pickerDiv).unbind('oTransitionEnd');
-	  $(pickerDiv).unbind('webkitTransitionEnd');
-	  $(pickerDiv).unbind('MSTransitionEnd');
-	  pickerDiv.style.display = 'block';
-	  $(pickerDiv).css('opacity');
-	  pickerDiv.className = "color-picker-dialog color-picker-open";
-	  return false;
-	});
-	var closeFunc = function () {
-	  if (pickerDiv.className == "color-picker-dialog color-picker-open") {
-	    var transitionend_function = function(event, ui) {
-	      pickerDiv.style.display = 'none';
-	      $(pickerDiv).unbind({
-		transitionend: transitionend_function,
-		oTransitionEnd: transitionend_function,
-		webkitTransitionEnd: transitionend_function,
-		MSTransitionEnd: transitionend_function
-	      });
-	    }
-	    $(pickerDiv).bind({
-	      transitionend: transitionend_function,
-	      oTransitionEnd: transitionend_function,
-	      webkitTransitionEnd: transitionend_function,
-	      MSTransitionEnd: transitionend_function
-	    });
-	    pickerDiv.className = "color-picker-dialog color-picker-closed";
-	    return false;
-	  }
-	}
-	$(pickerDiv).mouseleave(closeFunc);
-	$(okButton).click(closeFunc);
+        pickerDiv.className = "color-picker-dialog color-picker-closed";
+        $(colorBtn).click(function () {
+          $(pickerDiv).unbind('transitionend');
+          $(pickerDiv).unbind('oTransitionEnd');
+          $(pickerDiv).unbind('webkitTransitionEnd');
+          $(pickerDiv).unbind('MSTransitionEnd');
+          pickerDiv.style.display = 'block';
+          $(pickerDiv).css('opacity');
+          pickerDiv.className = "color-picker-dialog color-picker-open";
+          return false;
+        });
+        var closeFunc = function () {
+          if (pickerDiv.className == "color-picker-dialog color-picker-open") {
+            var transitionend_function = function (event, ui) {
+              pickerDiv.style.display = 'none';
+              $(pickerDiv).unbind({
+                transitionend: transitionend_function,
+                oTransitionEnd: transitionend_function,
+                webkitTransitionEnd: transitionend_function,
+                MSTransitionEnd: transitionend_function
+              });
+            }
+            $(pickerDiv).bind({
+              transitionend: transitionend_function,
+              oTransitionEnd: transitionend_function,
+              webkitTransitionEnd: transitionend_function,
+              MSTransitionEnd: transitionend_function
+            });
+            pickerDiv.className = "color-picker-dialog color-picker-closed";
+            return false;
+          }
+        }
+        $(pickerDiv).mouseleave(closeFunc);
+        $(okButton).click(closeFunc);
       } else {
-	$(colorBtn).click(function () {
-	  $(pickerDiv).fadeIn();
-	  return false;
-	});
-	var closeFunc = function () {
-	  $(pickerDiv).fadeOut();
-	  return false;
-	}
-	$(pickerDiv).mouseleave(closeFunc);
-	$(okButton).click(closeFunc);
+        $(colorBtn).click(function () {
+          $(pickerDiv).fadeIn();
+          return false;
+        });
+        var closeFunc = function () {
+          $(pickerDiv).fadeOut();
+          return false;
+        }
+        $(pickerDiv).mouseleave(closeFunc);
+        $(okButton).click(closeFunc);
       }
     });
   }
