@@ -3,7 +3,7 @@ session_start();
 include('dbconfig.php');
 
 CheckIfAdmin();
- $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+ echo $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
 ?>
 <!DOCTYPE html>
 <html>
