@@ -1,4 +1,4 @@
-<?php include "dbConfig.php";
+<?php include "dbconfig.php";
 session_start();
 
 if(isset($_SESSION['uid'])){
