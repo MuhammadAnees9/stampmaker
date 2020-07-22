@@ -3,7 +3,7 @@ session_start();
 include('dbconfig.php');
 
 CheckIfAdmin();
- echo $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+$base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,13 +16,13 @@ CheckIfAdmin();
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script type="text/javascript" src="../modals.js"></script>
-<script src="<?=$base_url?>assets/js/jquery-3.5.1.js"></script>
-<script src="<?=$base_url?>assets/js/sweetalert.min.js"></script>
-<script src="<?=$base_url?>assets/js/select2.min.js"></script>
-<script src="<?=$base_url?>assets/js/bootstrap.min.js"></script>
-<script src="<?=$base_url?>assets/js/popper.min.js"></script>
-<script src="<?=$base_url?>assets/js/dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/js/modals.js"></script>
+<script src="assets/js/jquery-3.5.1.js"></script>
+<script src="assets/js/sweetalert.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/dataTables.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 
