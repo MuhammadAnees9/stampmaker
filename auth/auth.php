@@ -126,7 +126,7 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
-                $returnData = msg(0,422,'Invalid Email Address!');
+                $returnData = msg(0,422,'Wrong username or Email!');
             endif;
         }
         catch(PDOException $e){
