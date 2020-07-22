@@ -1,6 +1,9 @@
 <?php
    session_start();
     $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+    if(isset($_SESSION['uid']) && $_SESSION['role']=='admin'){
+        header('location:admin/index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>

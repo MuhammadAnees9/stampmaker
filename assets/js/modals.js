@@ -24,7 +24,7 @@ function ajaxCall() {
 
   //Ajax Call
   $.ajax({
-    url: base_url + "stamp/signup.php", //the page containing php script
+    url: base_url + "signup.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     data: {
@@ -45,7 +45,7 @@ function ajaxCall() {
 
         $('#myModal').modal('toggle');
         $.ajax({
-          url: base_url + "stamp/mailActivate.php", //the page containing php script
+          url: base_url + "mailActivate.php", //the page containing php script
           type: "post", //request type,
           dataType: 'json',
           data: {
@@ -54,7 +54,7 @@ function ajaxCall() {
           },
           success: function (response) {
             $.ajax({
-              url: base_url + "stamp/mailAdmin.php", //the page containing php script
+              url: base_url + "mailAdmin.php", //the page containing php script
               type: "post", //request type,
               dataType: 'json',
               data: {
@@ -102,7 +102,7 @@ function ajaxCall() {
 
 function logout() {
   $.ajax({
-    url: base_url + "stamp/logout.php", //the page containing php script
+    url: base_url + "logout.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     success: function (response) {
@@ -266,7 +266,7 @@ function suggestion() {
 
 
     $.ajax({
-      url: base_url + "stamp/suggest.php", //the page containing php script
+      url: base_url + "suggest.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {

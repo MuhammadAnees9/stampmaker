@@ -1,5 +1,6 @@
 <?php
 include_once('header.php');
+
 ?>
 <header id="portfolio">
 
@@ -33,6 +34,7 @@ include_once('header.php');
                                                 $sql = "SELECT s.id as sessionid,start,end,sessionIP,downloads,u.username FROM tblsession s inner join user u on s.userid = u.id";
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
+                                                   
                                                 // output data of each row
                                                 while($row = $result->fetch_assoc()) {
                                                 echo "<tr>

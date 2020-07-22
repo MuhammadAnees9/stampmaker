@@ -107,7 +107,6 @@ function login() {
                 swal(response.message, '', 'warning');
             }
             if (response.status == 200) {
-                $('#myModalLogin').modal('hide');
                 $("#usernameLogin").css("border", "1px solid green");
                 $("#passLogin").css("border", "1px solid green");
 
