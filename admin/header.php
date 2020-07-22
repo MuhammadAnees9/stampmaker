@@ -10,9 +10,9 @@ $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?')
 <title>Admin</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="<?=$base_url?>assets/css/my.css">
-<link rel="stylesheet" href="<?=$base_url?>assets/css/bootstrap.min.css">
-<link href="<?=$base_url?>assets/css/dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/my.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link href="assets/css/dataTables.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
