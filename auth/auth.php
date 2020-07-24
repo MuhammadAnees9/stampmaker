@@ -56,8 +56,8 @@ else:
 
     
     // IF PASSWORD IS LESS THAN 8 THE SHOW THE ERROR
-    if(strlen($password) < 6):
-        $returnData = msg(0,422,'Your password must be at least 8 characters long!');
+    if(strlen($password) < 5):
+        $returnData = msg(0,422,'Your password must be at least 5 characters long!');
 
     // THE USER IS ABLE TO PERFORM THE LOGIN ACTION
     else:
@@ -126,7 +126,7 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
-                $returnData = msg(0,422,'Invalid Email Address!');
+                $returnData = msg(0,422,'Wrong username or Email!');
             endif;
         }
         catch(PDOException $e){
