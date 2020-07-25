@@ -364,6 +364,13 @@ include_once('header.php');
                     <br>
                     <a href="terms.php" style="float:right;" target="_blank">Terms and conditions</a><br>
                     <a href="privacy.php" style="float:right;" target="_blank">Privacy notice</a>
+                    <div class="field-group">
+                        <div><input type="checkbox" name="remember" id="remember"
+                                <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                    </div>
+                    <br><br>
                     <center>
                         <button class="btn btn-md btn-success modals" id="signup">Sign Up</button>
                     </center>
@@ -387,17 +394,24 @@ include_once('header.php');
                     <center>
                         <h3>Log In</h3><b id="info" style="color:red"></b><br>
                     </center>
-                    <input type="text" class="signup form-control" id="usernameLogin" placeholder="Username"
-                        required="">
+                    <input type="text" class="signup form-control" id="usernameLogin"
+                        value="<?php if(isset($_COOKIE["usernameLogin"])) { echo $_COOKIE["usernameLogin"]; } ?>"
+                        placeholder="Username" required="">
                     <br>
-                    <input type="password" class="signup form-control" id="passLogin" placeholder="Password"
-                        required="">
+                    <input type="password" class="signup form-control" id="passLogin" placeholder="Password" required=""
+                        value="<?php if(isset($_COOKIE["passLogin"])) { echo $_COOKIE["passLogin"]; } ?>">
                     <br>
 
                     <center>
                         <h6 style="font-weight:normal;">Not registered yet.<a id="reg" onclick="notauser();">Click
                                 here</a></h6>
                     </center>
+                    <div class="field-group">
+                        <div><input type="checkbox" name="remember" id="remember"
+                                <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                    </div>
                     <center>
                         <button class="btn btn-md btn-success modals" id="login">Log In</button>
                     </center>

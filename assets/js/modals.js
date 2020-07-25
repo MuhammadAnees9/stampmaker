@@ -7,7 +7,8 @@ function ajaxCall() {
   var TxtlangTarget = $("#langTarget").val();
   var TxtReason = $("#reason").val();
   var TxtUsername = $("#usernametext").val();
-
+  var remember = $("#remember").is(":checked");
+  var reason = $("#reason").val();
   if (TxtlangSource == null || TxtlangSource == "" || TxtlangSource == undefined) {
     TxtlangSource = $("#lang2").val();
   }
@@ -33,7 +34,9 @@ function ajaxCall() {
       langS: TxtlangSource,
       langT: TxtlangTarget,
       username: TxtUsername,
-      reason: TxtReason
+      reason: TxtReason,
+      remember: remember,
+
     },
     success: function (response) {
       console.log(response);
@@ -159,6 +162,7 @@ function login() {
 
   var txtusername = $("#usernameLogin").val();
   var txtpassword = $("#passLogin").val();
+  var remember = $("#remember").is(":checked");
   //validate login form
   if (txtusername.trim() == "") {
     $("#usernameLogin").css("border", "1px solid red");
@@ -171,43 +175,46 @@ function login() {
   if (txtpassword.length < 5) {
     $("#passLogin").css("border", "1px solid red");
     swal("Password Minimum 5 characher", "", "warning");
-  } else $.ajax({
-    url: base_url + "auth/auth.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    data: JSON.stringify({
-      username: txtusername,
-      password: txtpassword
-    }),
-    success: function (response) {
-      if (response.status == 422) {
-        $("#usernameLogin").css("border", "1px solid red");
-        $("#passLogin").css("border", "1px solid red");
-        swal(response.message, '', 'warning');
+  } else
+
+    $.ajax({
+      url: base_url + "auth/auth.php", //the page containing php script
+      type: "post", //request type,
+      dataType: 'json',
+      data: JSON.stringify({
+        username: txtusername,
+        password: txtpassword,
+        remember: remember,
+      }),
+      success: function (response) {
+        if (response.status == 422) {
+          $("#usernameLogin").css("border", "1px solid red");
+          $("#passLogin").css("border", "1px solid red");
+          swal(response.message, '', 'warning');
+        }
+        if (response.status == 200) {
+          $('#myModalLogin').modal('hide');
+          // $("#usernameLogin").css("border", "1px solid green");
+          // $("#passLogin").css("border", "1px solid green");
+
+          swal("Welcome!", response.message, "success").then(function () {
+            //Checking if the user turn from the  download
+            if ($("#info").html() != "") {
+              download();
+            } else {
+              location.reload();
+            }
+          });
+
+        }
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+
+        console.log(JSON.stringify(jqXHR));
+        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
       }
-      if (response.status == 200) {
-        $('#myModalLogin').modal('hide');
-        // $("#usernameLogin").css("border", "1px solid green");
-        // $("#passLogin").css("border", "1px solid green");
-
-        swal("Welcome!", response.message, "success").then(function () {
-          //Checking if the user turn from the  download
-          if ($("#info").html() != "") {
-            download();
-          } else {
-            location.reload();
-          }
-        });
-
-      }
-
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-      console.log(JSON.stringify(jqXHR));
-      console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-    }
-  });
+    });
 }
 
 function download() {

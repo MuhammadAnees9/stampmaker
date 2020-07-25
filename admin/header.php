@@ -57,7 +57,9 @@ h6 {
                 <i class="fa fa-remove"></i>
             </a>
             <img src="assets/img/admin.png" style="width:45%;" class="my-round"><br><br>
+            <h5>Welcome <b class="my-codespan"><?=$_SESSION['username'];?></b></h5>
             <h4><b>Admin</b></h4>
+
         </div>
         <div class="my-bar-block">
             <a href="index.php" onclick="my_close()" class="my-bar-item my-button my-padding"><i

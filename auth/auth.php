@@ -53,8 +53,8 @@ if(!isset($data->username)
 else:
     $username = trim($data->username);
     $password = trim($data->password);
-
-    
+    $remember  =trim($data->remember);
+     
     // IF PASSWORD IS LESS THAN 8 THE SHOW THE ERROR
     if(strlen($password) < 5):
         $returnData = msg(0,422,'Your password must be at least 5 characters long!');
@@ -98,7 +98,10 @@ else:
                     $_SESSION["role"] = $row['role'];
                     $_SESSION["isLogin"] = $row['isLogin'];
                     $_SESSION['uid'] = $row;
-                    
+                    if(!empty($remember)) {
+               setcookie("usernameLogin",$username,time() + (3*30*24*3600), "/");
+                setcookie("passLogin",$password,time()+  (3*30*24*3600), "/");
+			}
                     $returnData = msg(1,200,'You have successfully logged in.',$row);
 
                         $start = date("Y-m-d H:i:s");
@@ -121,7 +124,7 @@ else:
                     
                 // IF INVALID PASSWORD
                 else:
-                    $returnData = msg(0,422,'Invalid Password!');
+                    $returnData = msg(0,422,$remember);
                 endif;
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR

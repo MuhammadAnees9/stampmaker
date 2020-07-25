@@ -93,7 +93,7 @@ else:
             if($check_email_stmt->rowCount()):
                 $returnData = msg(0,422, 'This E-mail already in use!');
             elseif($check_user_stmt->rowCount()):
-                $returnData = msg(0,422, 'This user already in use!');
+                $returnData = msg(0,422, 'User already logged in!');
             else:
                 $insert_query = "INSERT INTO `user`(`username`,`email`,`password`,`nativeLanguage`,`userIp`,`role`,`isActive`) VALUES(:username,:email,:password,:nativeLanguage,:userIp,:role,:isActive)";
 
