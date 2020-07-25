@@ -1,5 +1,7 @@
 <?php
-include 'dbConfig.php';
+require __DIR__.'/classes/Database.php';
+$db_connection = new Database();
+$conn = $db_connection->dbConnection();
 session_start();
 $end = date("Y-m-d H:i:s");
 $id = $_SESSION["sessionid"];

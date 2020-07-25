@@ -39,12 +39,13 @@ include_once('header.php');
                                 <th scope="col">Email</th>
                                 <th scope="col">User IP</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Reg Date</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive FROM user where role != 'admin'";
+                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role != 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -56,6 +57,7 @@ include_once('header.php');
                                                         <td>".$row["email"]."</td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
+                                                              <td>".$row["regdate"]."</td>
                                                         <td>
                                                       
                                                         <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
@@ -102,12 +104,13 @@ include_once('header.php');
                                 <th scope="col">Password</th>
                                 <th scope="col">User IP</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Reg Date</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive FROM user where role = 'admin'";
+                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role = 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -121,6 +124,7 @@ include_once('header.php');
                                                         <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
+                                                            <td>".$row["regdate"]."</td>
                                                         <td>
                                                       
                                                         <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>

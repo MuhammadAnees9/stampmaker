@@ -68,6 +68,7 @@ else:
     $role = trim($data->role);
     $isActive = trim($data->isActive);
     $userIp = trim(getUserIpAddr());
+    $regdate = date("Y-m-d H:i:s");
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
         $returnData = msg(0,422,'Invalid Email Address!');
     
@@ -93,9 +94,9 @@ else:
             if($check_email_stmt->rowCount()):
                 $returnData = msg(0,422, 'This E-mail already in use!');
             elseif($check_user_stmt->rowCount()):
-                $returnData = msg(0,422, 'User already logged in!');
+                $returnData = msg(0,422, 'This username already in use!');
             else:
-                $insert_query = "INSERT INTO `user`(`username`,`email`,`password`,`nativeLanguage`,`userIp`,`role`,`isActive`) VALUES(:username,:email,:password,:nativeLanguage,:userIp,:role,:isActive)";
+                $insert_query = "INSERT INTO `user`(`username`,`email`,`password`,`nativeLanguage`,`userIp`,`role`,`isActive`,`regdate`) VALUES(:username,:email,:password,:nativeLanguage,:userIp,:role,:isActive,:regdate)";
 
                 $insert_stmt = $conn->prepare($insert_query);
 
@@ -108,6 +109,7 @@ else:
                  $insert_stmt->bindValue(':userIp', $userIp,PDO::PARAM_STR);
                    $insert_stmt->bindValue(':role', $role,PDO::PARAM_STR);
                  $insert_stmt->bindValue(':isActive', $isActive,PDO::PARAM_STR);
+                 $insert_stmt->bindValue(':regdate', $regdate,PDO::PARAM_STR);
                 $insert_stmt->execute();
                 
                 $userid1 = $conn->lastInsertId();

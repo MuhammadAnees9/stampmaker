@@ -150,8 +150,8 @@ window.onload = () => {
         ]
     });
     $('#tablesession').DataTable({
-        "aaSorting": [
-            [2, 'desc']
+        "order": [
+            [0, 'desc']
         ],
         dom: 'Bfrtip',
         buttons: [

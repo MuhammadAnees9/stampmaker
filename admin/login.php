@@ -4,9 +4,9 @@ session_start();
 if(isset($_SESSION['uid'])){
 	$data = $_SESSION['uid'];
 	if($data['role']=='admin'){
-		 header( 'Location: index.php' );
+		 header( 'Location:./index.php' );
 	}else{
-		 header( 'Location: ../403.php' );
+		 header('Location: ../' );
 	}
 }
 ?>

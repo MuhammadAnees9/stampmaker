@@ -18,8 +18,8 @@ $sql_u = "SELECT * FROM user WHERE username='$username'";
     else{
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO user (username, email, password, nativeLanguage, userIP,isActive) VALUES (?, ?, ?,?,?,?)");
-$stmt->bind_param("sssssi",$username,$email,$password,$langS,$ip,$active);
+$stmt = $conn->prepare("INSERT INTO user (username, email, password, nativeLanguage, userIP,isActive,regdate) VALUES (?, ?, ?,?,?,?,?)");
+$stmt->bind_param("sssssis",$username,$email,$password,$langS,$ip,$active,$regdate);
 
 //Saving Data
 $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
@@ -29,6 +29,7 @@ $password = $password;
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
+$regdate = date("Y-m-d H:i:s");
 $active = 0;
 $stmt->execute();
 

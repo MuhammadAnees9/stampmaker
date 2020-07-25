@@ -83,7 +83,7 @@ else:
                   if($row['isActive']==0):
                          $returnData = msg(0,422,'Please check your email and activate account!');
                 elseif($row['isLogin']=='true'):
-                            $returnData = msg(0,422,'User Already Login!');
+                            $returnData = msg(0,422,'User already logged in!');
                             
                 elseif($check_password):
                        
@@ -124,7 +124,7 @@ else:
                     
                 // IF INVALID PASSWORD
                 else:
-                    $returnData = msg(0,422,$remember);
+                    $returnData = msg(0,422,'Invalid password!');
                 endif;
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
