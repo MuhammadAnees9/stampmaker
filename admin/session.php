@@ -18,7 +18,7 @@ include_once('header.php');
         <br>
         <br>
 
-        <table class="table my-table-all my-card-4 table" id="table">
+        <table class="table my-table-all my-card-4 table" id="tablesession">
             <thead>
                 <tr>
                     <th scope="col">#</th>

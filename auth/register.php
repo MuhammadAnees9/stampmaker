@@ -45,14 +45,16 @@ elseif(!isset($data->username)
     || !isset($data->password)
     || !isset($data->nativeLanguage)
      || !isset($data->role)
+        || !isset($data->langTarget)
     || empty(trim($data->username))
     || empty(trim($data->email))
     || empty(trim($data->password))
     || empty(trim($data->nativeLanguage))
+    || empty(trim($data->langTarget))
     || empty(trim($data->role))
     ):
 
-    $fields = ['fields' => ['username','email','password','nativeLanguage','role']];
+    $fields = ['fields' => ['username','email','password','nativeLanguage','langTarget','role']];
     $returnData = msg(0,422,'Please Fill in all Required Fields!',$fields);
 
 // IF THERE ARE NO EMPTY FIELDS THEN-
@@ -62,6 +64,7 @@ else:
     $email = trim($data->email);
     $password = trim($data->password);
     $nativeLanguage = trim($data->nativeLanguage);
+    $langTarget = trim($data->langTarget);
     $role = trim($data->role);
     $isActive = trim($data->isActive);
     $userIp = trim(getUserIpAddr());
@@ -114,7 +117,7 @@ else:
 
                 // DATA BINDING
                 $insert_stmt2->bindValue(':sourceLang',$nativeLanguage,PDO::PARAM_STR);
-                $insert_stmt2->bindValue(':TargetLang', $nativeLanguage,PDO::PARAM_STR);
+                $insert_stmt2->bindValue(':TargetLang', $langTarget,PDO::PARAM_STR);
                 $insert_stmt2->bindValue(':userid',$userid1,PDO::PARAM_STR);
                  $insert_stmt2->execute();
                 $returnData = msg(1,201,'You have successfully registered.');

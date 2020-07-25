@@ -75,6 +75,7 @@ function addUser() {
     var Txtemail = $("#email").val();
     var Txtpass = $("#pass").val();
     var TxtlangSource = $("#langS").val();
+    var langTarget = $("#langTarget").val();
     var TxtUsername = $("#usernametext").val();
     var action = $("#action").val();
     var role = $("#role").val();
@@ -87,6 +88,7 @@ function addUser() {
             email: Txtemail,
             password: Txtpass,
             nativeLanguage: TxtlangSource,
+            langTarget: langTarget,
             username: TxtUsername,
             role: role,
             isActive: isActive,
@@ -147,7 +149,22 @@ window.onload = () => {
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
+    $('#tablesession').DataTable({
+        "aaSorting": [
+            [2, 'desc']
+        ],
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
 
+    $('#admintable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
 
 
 };
