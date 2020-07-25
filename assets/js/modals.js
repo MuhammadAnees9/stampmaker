@@ -102,7 +102,7 @@ function ajaxCall() {
 
 function logout() {
   $.ajax({
-    url: "https://test.mystampmaker.com/logout.php", //the page containing php script
+    url: base_url + "logout.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     success: function (response) {
