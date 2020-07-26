@@ -2,18 +2,17 @@
 
 include_once('header.php');
 function timeago($time, $tense='ago') {
-  
+   date_default_timezone_set('America/Detroit');
     static $periods = array('year', 'month', 'day', 'hour', 'minute', 'second');
 
   
     if(!(strtotime($time)>0)) {
         return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
     }
-
-    
+   
     $now  = new DateTime('now');
     $time = new DateTime($time);
-    $now->setTimezone(new DateTimeZone('America/Detroit'));
+    
     $diff = $now->diff($time)->format('%y %m %d %h %i %s');
     
     $diff = explode(' ', $diff);
