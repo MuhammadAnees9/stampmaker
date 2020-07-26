@@ -1,6 +1,47 @@
 <?php
 
 include_once('header.php');
+function timeago($time, $tense='ago') {
+  
+    static $periods = array('year', 'month', 'day', 'hour', 'minute', 'second');
+
+  
+    if(!(strtotime($time)>0)) {
+        return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
+    }
+
+    
+    $now  = new DateTime('now');
+    $time = new DateTime($time);
+    $now->setTimezone(new DateTimeZone('America/Detroit'));
+    $diff = $now->diff($time)->format('%y %m %d %h %i %s');
+    
+    $diff = explode(' ', $diff);
+    $diff = array_combine($periods, $diff);
+   
+    $diff = array_filter($diff);
+    
+    $period = key($diff);
+    $value  = current($diff);
+
+  
+    if(!$value) {
+        $period = 'seconds';
+        $value  = 0;
+    } else {
+       
+        if($period=='day' && $value>=7) {
+            $period = 'week';
+            $value  = floor($value/7);
+        }
+   
+        if($value>1) {
+            $period .= 's';
+        }
+    }
+
+    return "$value $period $tense";
+}
 ?>
 <!-- Header -->
 <br>
@@ -57,7 +98,7 @@ include_once('header.php');
                                                         <td>".$row["email"]."</td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
-                                                              <td>".$row["regdate"]."</td>
+                                                              <td>".timeago($row["regdate"])."</td>
                                                         <td>
                                                       
                                                         <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>

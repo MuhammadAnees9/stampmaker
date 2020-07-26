@@ -29,6 +29,7 @@ function getUserIpAddr(){
     return $ip;
 }
 
+
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/classes/JwtHandler.php';
 $now = new DateTime();
@@ -135,7 +136,7 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
-               
+            //    $returnData = msg(0,422,$d);
                 $returnData = msg(0,422,'Wrong username or Email!');
             endif;
         }
