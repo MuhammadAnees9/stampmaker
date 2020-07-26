@@ -16,7 +16,7 @@ $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?')
 function CheckIfAdmin(){
     if(isset($_SESSION['uid'])){
      if($_SESSION['role']!="admin"){
-         header("location:../403.php");
+         header("location:$base_url.index.php");
      }
 }
 if(!isset($_SESSION['uid'])){

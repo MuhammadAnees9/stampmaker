@@ -4,9 +4,9 @@ session_start();
 if(isset($_SESSION['uid'])){
 	$data = $_SESSION['uid'];
 	if($data['role']=='admin'){
-		 header( 'Location: index.php' );
+		 header( 'Location:./index.php' );
 	}else{
-		 header( 'Location: ../403.php' );
+		 header('Location: ../' );
 	}
 }
 ?>
@@ -57,10 +57,18 @@ html {
                 class="my-section">
                 <label><b>Username</b></label>
                 <input class="my-input signup my-border my-margin-bottom" type="text" id="usernameLogin"
-                    placeholder="Username" required="">
+                    placeholder="Username" required=""
+                    value="<?php if(isset($_COOKIE["usernameLogin"])) { echo $_COOKIE["usernameLogin"]; } ?>">
                 <label><b>Password</b></label>
                 <input type="password" class="signup my-input signup my-border my-margin-bottom" id="passLogin"
-                    placeholder="Password" required="">
+                    placeholder="Password" required=""
+                    value="<?php if(isset($_COOKIE["passLogin"])) { echo $_COOKIE["passLogin"]; } ?>">
+                <div class="field-group">
+                    <div><input type="checkbox" name="remember" id="remember"
+                            <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                </div>
                 <button class="my-button btn my-block my-green my-section my-padding" id="login">Login</button>
         </div>
         </form>
@@ -79,6 +87,7 @@ function login() {
 
     var txtusername = $("#usernameLogin").val();
     var txtpassword = $("#passLogin").val();
+    var remember = $("#remember").is(":checked");
     //validate login form
     if (txtusername.trim() == "") {
         $("#usernameLogin").css("border", "1px solid red");
@@ -97,7 +106,8 @@ function login() {
         dataType: 'json',
         data: JSON.stringify({
             username: txtusername,
-            password: txtpassword
+            password: txtpassword,
+            remember: remember,
         }),
         success: function(response) {
             console.log(response);
