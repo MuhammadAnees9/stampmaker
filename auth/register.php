@@ -30,7 +30,9 @@ function getUserIpAddr(){
 require __DIR__.'/classes/Database.php';
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
-
+$now = new DateTime();
+$now->setTimezone(new DateTimeZone('America/Detroit'));
+$regdate =  $now->format('Y-m-d H:i:s');
 // GET DATA FORM REQUEST
 $data = json_decode(file_get_contents("php://input"));
 $returnData = [];
@@ -68,7 +70,7 @@ else:
     $role = trim($data->role);
     $isActive = trim($data->isActive);
     $userIp = trim(getUserIpAddr());
-    $regdate = date("Y-m-d H:i:s");
+    // $regdate = date("Y-m-d H:i:s");
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
         $returnData = msg(0,422,'Invalid Email Address!');
     

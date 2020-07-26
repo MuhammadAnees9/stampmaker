@@ -31,10 +31,16 @@ function getUserIpAddr(){
 
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/classes/JwtHandler.php';
-
+$now = new DateTime();
+$now->setTimezone(new DateTimeZone('America/Detroit'));
+$start =  $now->format('Y-m-d H:i:s');
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
-
+// $tz = 'America/Detroit';
+// $timestamp = time();
+// $dt = new DateTime("now", new DateTimeZone($tz)); 
+// $dt->setTimestamp($timestamp); 
+// $date2 =  $dt->format('Y-m-d H:i:s');
 $data = json_decode(file_get_contents("php://input"));
 $returnData = [];
 if($_SERVER["REQUEST_METHOD"]=="POST"):
@@ -104,7 +110,7 @@ else:
 			}
                     $returnData = msg(1,200,'You have successfully logged in.',$row);
 
-                        $start = date("Y-m-d H:i:s");
+                        // $start = date("Y-m-d H:i:s");
                         $end = "Browser Closed!";
                         $sessionIP = getUserIpAddr();
                         $downloads = 0;
@@ -112,11 +118,11 @@ else:
                     $insert_query = "INSERT INTO `tblsession`(`start`,`end`,`sessionIP`,`downloads`,`userid`) VALUES(:start,:end,:sessionIP,:downloads,:userid)";
 
                     $insert_stmt = $conn->prepare($insert_query);
-                    $insert_stmt->bindValue(':start', $start,PDO::PARAM_STR);
-                    $insert_stmt->bindValue(':end', $end,PDO::PARAM_STR);
-                    $insert_stmt->bindValue(':sessionIP', $sessionIP,PDO::PARAM_STR);
-                    $insert_stmt->bindValue(':downloads', $downloads,PDO::PARAM_STR);
-                    $insert_stmt->bindValue(':userid', $userid,PDO::PARAM_STR);
+                    $insert_stmt->bindValue(':start',$start,PDO::PARAM_STR);
+                    $insert_stmt->bindValue(':end',$end,PDO::PARAM_STR);
+                    $insert_stmt->bindValue(':sessionIP',$sessionIP,PDO::PARAM_STR);
+                    $insert_stmt->bindValue(':downloads',$downloads,PDO::PARAM_STR);
+                    $insert_stmt->bindValue(':userid',$userid,PDO::PARAM_STR);
                     $insert_stmt->execute();
                     $_SESSION["sessionid"] = $conn->lastInsertId();
                      $update = $conn->prepare("UPDATE `user` SET isLogin='true' WHERE email='".$_SESSION["email"]."'");
@@ -129,6 +135,7 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
+               
                 $returnData = msg(0,422,'Wrong username or Email!');
             endif;
         }

@@ -1,9 +1,12 @@
 <?php
+session_start();
 require __DIR__.'/classes/Database.php';
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
-session_start();
-$end = date("Y-m-d H:i:s");
+$now = new DateTime();
+$now->setTimezone(new DateTimeZone('America/Detroit'));
+$end =  $now->format('Y-m-d H:i:s');
+// $end = date("Y-m-d H:i:s");
 $id = $_SESSION["sessionid"];
 $sql = "UPDATE tblsession SET end='$end' WHERE id='$id'";
 $update = $conn->prepare("UPDATE `user` SET isLogin='false' WHERE email='".$_SESSION["email"]."'");

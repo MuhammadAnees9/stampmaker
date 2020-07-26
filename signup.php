@@ -2,6 +2,8 @@
 include "dbConfig.php";
 $username = $_POST["username"];
 $email = $_POST["email"];
+$now = new DateTime();
+$now->setTimezone(new DateTimeZone('America/Detroit'));
 
 $sql_u = "SELECT * FROM user WHERE username='$username'";
     $sql_e = "SELECT * FROM user WHERE email='$email'";
@@ -29,7 +31,8 @@ $password = $password;
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
-$regdate = date("Y-m-d H:i:s");
+$regdate =  $now->format('Y-m-d H:i:s');
+// $regdate = date("Y-m-d H:i:s");
 $active = 0;
 $stmt->execute();
 
