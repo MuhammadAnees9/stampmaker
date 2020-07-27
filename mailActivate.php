@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
    $message = $row["messageforactivation"];
   }
 }
-$message .= "<br>Please <a href='".$link."/register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
+$message .= "<br>Please <a href='".$link."register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
 
 $mail = new PHPMailer(true);
 

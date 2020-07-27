@@ -141,12 +141,9 @@ include_once('header.php');
                     </center>
                     <input type="text" class="signup form-control" id="usernametext" placeholder="Username" required="">
                     <br>
-                    <input type="text" class="signup form-control" id="email" placeholder="Email" required=""
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <input type="text" class="signup form-control" id="email" placeholder="Email" required="">
                     <br>
-                    <input type="password" class="signup form-control" id="pass" placeholder="Password" required=""
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <input type="password" class="signup form-control" id="pass" placeholder="Password" required="">
                     <br>
                     <select class="form-control" id="langS" required="">
                         <option selected="" value="" disabled="">Select Native / Source Language</option>

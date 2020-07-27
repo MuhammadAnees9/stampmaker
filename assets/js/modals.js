@@ -22,84 +22,87 @@ function ajaxCall() {
   } else {
 
   }
+  if (Txtpass.trim().length < 5) {
+    swal("Miniumum 5 characters are required", "Password length must be 5 minimum character",
+      "warning");
+  } else
+    //Ajax Call
+    $.ajax({
+      url: base_url + "signup.php", //the page containing php script
+      type: "post", //request type,
+      dataType: 'json',
+      data: {
+        email: Txtemail,
+        pass: Txtpass,
+        langS: TxtlangSource,
+        langT: TxtlangTarget,
+        username: TxtUsername,
+        reason: TxtReason,
+        remember: remember,
 
-  //Ajax Call
-  $.ajax({
-    url: base_url + "signup.php", //the page containing php script
-    type: "post", //request type,
-    dataType: 'json',
-    data: {
-      email: Txtemail,
-      pass: Txtpass,
-      langS: TxtlangSource,
-      langT: TxtlangTarget,
-      username: TxtUsername,
-      reason: TxtReason,
-      remember: remember,
+      },
+      success: function (response) {
+        console.log(response);
+        var iduser = response.id;
+        if (response.abc == "done") {
+          $('#myModalLogin').modal('hide');
+          $("#username").css("border", "1px solid green");
+          $("#email").css("border", "1px solid green");
 
-    },
-    success: function (response) {
-      console.log(response);
-      var iduser = response.id;
-      if (response.abc == "done") {
-        $('#myModalLogin').modal('hide');
-        $("#username").css("border", "1px solid green");
-        $("#email").css("border", "1px solid green");
-
-        $('#myModal').modal('toggle');
-        $.ajax({
-          url: base_url + "mailActivate.php", //the page containing php script
-          type: "post", //request type,
-          dataType: 'json',
-          data: {
-            email: Txtemail,
-            id: iduser
-          },
-          success: function (response) {
-            $.ajax({
-              url: base_url + "mailAdmin.php", //the page containing php script
-              type: "post", //request type,
-              dataType: 'json',
-              data: {
-                id: iduser
-              },
-              success: function (response) {
-                location.href = location.href;
-              },
-              error: function (jqXHR, textStatus, errorThrown) {
-                console.log(JSON.stringify(jqXHR));
-                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-              }
-            });
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log(JSON.stringify(jqXHR));
-            console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-          }
+          $('#myModal').modal('toggle');
+          $.ajax({
+            url: base_url + "mailActivate.php", //the page containing php script
+            type: "post", //request type,
+            dataType: 'json',
+            data: {
+              email: Txtemail,
+              id: iduser
+            },
+            success: function (response) {
+              $.ajax({
+                url: base_url + "mailAdmin.php", //the page containing php script
+                type: "post", //request type,
+                dataType: 'json',
+                data: {
+                  id: iduser
+                },
+                success: function (response) {
+                  location.href = location.href;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                  console.log(JSON.stringify(jqXHR));
+                  console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                }
+              });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(JSON.stringify(jqXHR));
+              console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
 
 
-        });
-        swal("You Have Been Registered", "Activation Link has been sent to your email!.Click on activation link to verfiy your account.", "success");
+          });
+          swal("You Have Been Registered", "Activation Link has been sent to your email!.Click on activation link to verfiy your account.", "success");
 
+        }
+        if (response.abc == "email") {
+          $("#email").css("border", "1px solid red");
+          $("#username").css("border", "1px solid green");
+          swal("Email already exists", "The Email that you have entered already exists, try new one.!", "warning");
+
+        }
+        if (response.abc == "username") {
+          $("#username").css("border", "1px solid red");
+          $("#email").css("border", "1px solid green");
+          swal("Username already exists", "The Username that you have entered already exists, try new one.!", "warning");
+
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(JSON.stringify(jqXHR));
+        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
       }
-      if (response.abc == "email") {
-        $("#email").css("border", "1px solid red");
-        $("#username").css("border", "1px solid green");
-        swal("Email already exists", "The Email that you have entered already exists, try new one.!", "warning");
-
-      }
-      if (response.abc == "username") {
-        $("#username").css("border", "1px solid red");
-        $("#email").css("border", "1px solid green");
-        swal("Username already exists", "The Username that you have entered already exists, try new one.!", "warning");
-
-      }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(JSON.stringify(jqXHR));
-      console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-    }
-  });
+    });
 }
 
 
@@ -268,7 +271,7 @@ function suggestion() {
 
   } else {
     swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
-      $(".suggest").slideToggle();
+      $("#suggest").slideToggle();
     });
 
 
