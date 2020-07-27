@@ -80,12 +80,13 @@ function timeago($time, $tense='ago') {
                                 <th scope="col">User IP</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Reg Date</th>
+                                <th scope="col">ExpDate</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role != 'admin'";
+                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate,DATE_ADD(regdate, INTERVAL +3 MONTH) as expdate FROM user where role != 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -97,7 +98,8 @@ function timeago($time, $tense='ago') {
                                                         <td>".$row["email"]."</td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
-                                                              <td>".timeago($row["regdate"])."</td>
+                                                            <td>".timeago($row["regdate"])."</td>
+                                                             <td>".$row["expdate"]."</td>
                                                         <td>
                                                       
                                                         <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
@@ -164,7 +166,7 @@ function timeago($time, $tense='ago') {
                                                         <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
-                                                            <td>".$row["regdate"]."</td>
+                                                            <td>".timeago($row["regdate"])."</td>
                                                         <td>
                                                       
                                                         <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
