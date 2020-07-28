@@ -80,38 +80,42 @@ function addUser() {
     var action = $("#action").val();
     var role = $("#role").val();
     var isActive = $("#isActive").val();
-    $.ajax({
-        url: "../auth/register.php", //the page containing php script
-        type: "post", //request type,
-        dataType: 'json',
-        data: JSON.stringify({
-            email: Txtemail,
-            password: Txtpass,
-            nativeLanguage: TxtlangSource,
-            langTarget: langTarget,
-            username: TxtUsername,
-            role: role,
-            isActive: isActive,
-            action: action,
-        }),
-        success: function(response) {
+    if (Txtpass.trim().length < 5) {
+        swal("Miniumum 5 characters are required", "Password length must be 5 minimum character",
+            "warning");
+    } else
+        $.ajax({
+            url: "../auth/register.php", //the page containing php script
+            type: "post", //request type,
+            dataType: 'json',
+            data: JSON.stringify({
+                email: Txtemail,
+                password: Txtpass,
+                nativeLanguage: TxtlangSource,
+                langTarget: langTarget,
+                username: TxtUsername,
+                role: role,
+                isActive: isActive,
+                action: action,
+            }),
+            success: function(response) {
 
-            if (response.status == 201) {
-                $('#myModalLogin').modal('hide');
-                swal("Registered", response.message, "success");
-                location.reload();
+                if (response.status == 201) {
+                    $('#myModalLogin').modal('hide');
+                    swal("Registered", response.message, "success");
+                    location.reload();
+                }
+                if (response.status == 422) {
+                    // $('#myModalLogin').modal('hide');
+                    swal("Warning", response.message, "error");
+                    // location.reload();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
             }
-            if (response.status == 422) {
-                // $('#myModalLogin').modal('hide');
-                swal("Warning", response.message, "error");
-                // location.reload();
-            }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log(JSON.stringify(jqXHR));
-            console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-        }
-    });
+        });
 
 
 }

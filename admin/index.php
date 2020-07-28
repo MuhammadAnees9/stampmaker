@@ -205,9 +205,7 @@ function timeago($time, $tense='ago') {
                         <input type="text" class="signup form-control" id="email" placeholder="Email" required=""
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         <br>
-                        <input type="password" class="signup form-control" id="pass" placeholder="Password" required=""
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                        <input type="password" class="signup form-control" id="pass" placeholder="Password" required="">
                         <br>
                         <input type="hidden" name="action" id="action" value="add">
                         <div class="form-group">
