@@ -108,7 +108,7 @@ function ajaxCall() {
 
 function logout() {
   $.ajax({
-    url: base_url + "logout.php", //the page containing php script
+    url: base_url + "stamp/logout.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     success: function (response) {
