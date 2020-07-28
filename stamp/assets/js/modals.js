@@ -28,7 +28,7 @@ function ajaxCall() {
   } else
     //Ajax Call
     $.ajax({
-      url: base_url + "signup.php", //the page containing php script
+      url: base_url + "stamp/signup.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {
