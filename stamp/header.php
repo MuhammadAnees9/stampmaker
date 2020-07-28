@@ -15,7 +15,7 @@
     <script src="stamp/assets/js/google_anylatic.js">
     </script>
     <script src="stamp/assets/js/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stamp/assets/css/bootstrap.min.css">
     <script src="stamp/assets/js/bootstrap.min.js"></script>
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 
