@@ -102,7 +102,7 @@ function login() {
         $("#passLogin").css("border", "1px solid red");
         swal("Password Minimum 5 characher", "", "warning");
     } else $.ajax({
-        url: "../auth/auth.php", //the page containing php script
+        url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
         data: JSON.stringify({
