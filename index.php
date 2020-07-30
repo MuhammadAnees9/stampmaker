@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 include_once('header.php');
+
 ?>
 
 <div id="measure"></div>

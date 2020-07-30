@@ -181,7 +181,8 @@ function login() {
   } else
 
     $.ajax({
-      url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
+      url: "https://test.mystampmaker.com/login.php", //the page containing php script
+
       type: "post", //request type,
       dataType: 'json',
       data: JSON.stringify({

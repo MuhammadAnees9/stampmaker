@@ -67,7 +67,7 @@ html {
                 <div class="field-group">
                     <div><input type="checkbox" name="remember" id="remember"
                             <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
-                        <label for="remember-me">Remember mee</label>
+                        <label for="remember-me">Remember me</label>
                     </div>
                 </div>
                 <button class="my-button btn my-block my-green my-section my-padding" id="login">Login</button>
