@@ -16,7 +16,7 @@ $conn = new mysqli("stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com", "admin
 function CheckIfAdmin(){
     if(isset($_SESSION['uid'])){
      if($_SESSION['role']!="admin"){
-         header("location:../");
+         header("location:https://test.mystampmaker.com/");
      }
 }
 if(!isset($_SESSION['uid'])){

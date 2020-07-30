@@ -6,14 +6,12 @@ if(isset($_SESSION['uid'])){
 	if($data['role']=='admin'){
 		 header( 'Location:./index.php' );
 	}else{
-		 header('Location: ../' );
+		 header('Location: https://test.mystampmaker.com/' );
 	}
 }
 ?>
 
 
-<script src="assets/js/jquery-3.5.1.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +20,9 @@ if(isset($_SESSION['uid'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/my.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<script src="assets/js/jquery-3.5.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 body,
 h1 {

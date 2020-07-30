@@ -181,7 +181,7 @@ function login() {
   } else
 
     $.ajax({
-      url: base_url + "auth/auth.php", //the page containing php script
+      url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: JSON.stringify({
@@ -244,7 +244,7 @@ function reset() {
 }
 
 function Dashboard() {
-  window.location = base_url + "admin/index.php";
+  window.location = "https: //admin.mystampmaker.com/index.php";
 }
 
 //Function for not a user on sign up form
