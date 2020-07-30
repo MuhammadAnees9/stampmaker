@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Database
 $servername = "localhost";
 $username = "root";
@@ -20,7 +21,7 @@ function CheckIfAdmin(){
      }
 }
 if(!isset($_SESSION['uid'])){
-      header("location:login.php");
+      header("location:https://admin.mystampmaker.com/login.php");
 }
 
 }

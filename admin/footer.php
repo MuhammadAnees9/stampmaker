@@ -18,7 +18,7 @@ function UpdatePassword(ele) {
                 "warning");
         } else
             $.ajax({
-                url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
+                url: "https://admin.mystampmaker.com/checkauth.php", //the page containing php script
                 type: "PUT", //request type,
                 dataType: 'json',
                 // contentType: "application/json; charset=utf-8",
@@ -48,7 +48,7 @@ function UpdatePassword(ele) {
 $('.delete').click(function() {
     var id = $(this).attr('id');
     $.ajax({
-        url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
+        url: "https://admin.mystampmaker.com/checkauth.php", //the page containing php script
         type: "DELETE", //request type,
         dataType: 'json',
         // contentType: "application/json; charset=utf-8",
@@ -85,7 +85,7 @@ function addUser() {
             "warning");
     } else
         $.ajax({
-            url: ".https://auth.mystampmaker.com/auth.php/register.php", //the page containing php script
+            url: "https://admin.mystampmaker.com/register.php", //the page containing php script
             type: "post", //request type,
             dataType: 'json',
             data: JSON.stringify({

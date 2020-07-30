@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['uid'])){
 	$data = $_SESSION['uid'];
 	if($data['role']=='admin'){
-		 header( 'Location:./index.php' );
+		 header( 'Location:.https://admin.mystampmaker.com/index.php');
 	}else{
 		 header('Location: https://test.mystampmaker.com/' );
 	}
@@ -102,7 +102,7 @@ function login() {
         $("#passLogin").css("border", "1px solid red");
         swal("Password Minimum 5 characher", "", "warning");
     } else $.ajax({
-        url: "https://auth.mystampmaker.com/auth.php", //the page containing php script
+        url: "https://admin.mystampmaker.com/checkauth.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
         data: JSON.stringify({
