@@ -226,7 +226,7 @@
        }
 
        //console.log(DeletedElements);
-     })
+     });
      $(document).on('click', '.card-body', function () {
        // debugger;
        $(".card-body").removeClass("all");
