@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Database{
     
     // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
