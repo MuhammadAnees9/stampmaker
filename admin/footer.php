@@ -18,7 +18,7 @@ function UpdatePassword(ele) {
                 "warning");
         } else
             $.ajax({
-                url: "./auth.php", //the page containing php script
+                url: "https://admin.mystampmaker.com/checkauth.php", //the page containing php script
                 type: "PUT", //request type,
                 dataType: 'json',
                 // contentType: "application/json; charset=utf-8",
