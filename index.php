@@ -413,7 +413,7 @@ include_once('header.php');
                         </div>
                     </div>
                     <center>
-                        <button class="btn btn-md btn-success modals" id="login">Log Inn</button>
+                        <button class="btn btn-md btn-success modals" id="login">Log In</button>
                     </center>
                 </form>
 
