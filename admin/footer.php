@@ -151,6 +151,7 @@ window.onload = () => {
     //datatables
     $('#table').DataTable({
         dom: 'Bfrtip',
+        'autocomplete': 'off',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
