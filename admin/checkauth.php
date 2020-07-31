@@ -168,6 +168,8 @@ else:
                          $returnData = msg(0,422,'Please check your email and activate account!');
                 elseif($row['isLogin']=='true'):
                             $returnData = msg(0,422,'User already logged in!');
+                elseif($row['role']=='user'):
+                        $returnData = msg(0,422,'Only admin Allow here!');
                             
                 elseif($check_password):
                        

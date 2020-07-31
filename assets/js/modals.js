@@ -1,3 +1,6 @@
+window.onload = function () {
+  toggleinstruction();
+};
 base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
 
 function ajaxCall() {
@@ -181,7 +184,7 @@ function login() {
   } else
 
     $.ajax({
-      url: "https://test.mystampmaker.com/login.php", //the page containing php script
+      url: base_url + "login.php", //the page containing php script
 
       type: "post", //request type,
       dataType: 'json',
@@ -263,6 +266,7 @@ function togglesuggestions() {
 function toggleinstruction() {
 
   $("#suggestIns").slideToggle();
+
 }
 
 function suggestion() {

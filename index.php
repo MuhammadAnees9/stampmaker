@@ -95,7 +95,7 @@ include_once('header.php');
         <br>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
             <div class="guide">
-                <u><b>Create a round stampp</b></u><br>
+                <u><b>Create a round stamp</b></u><br>
                 Select <b>Circle</b> element to add a stamp circle<br>
                 Edit the circle, change its radius and stroke width<br>
                 Select <b>Round</b> Text element to add a text around the circle<br>

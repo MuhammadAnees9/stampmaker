@@ -4,9 +4,9 @@ session_start();
 if(isset($_SESSION['uid'])){
 	$data = $_SESSION['uid'];
 	if($data['role']=='admin'){
-		 header( 'Location:.https://admin.mystampmaker.com/index.php');
+		 header( 'Location:https://admin.mystampmaker.com/index.php');
 	}else{
-		 header('Location: https://test.mystampmaker.com/' );
+		 header('Location:https://test.mystampmaker.com/' );
 	}
 }
 ?>
@@ -67,7 +67,7 @@ html {
                 <div class="field-group">
                     <div><input type="checkbox" name="remember" id="remember"
                             <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
-                        <label for="remember-me">Remember mee</label>
+                        <label for="remember-me">Remember me</label>
                     </div>
                 </div>
                 <button class="my-button btn my-block my-green my-section my-padding" id="login">Login</button>
@@ -83,6 +83,8 @@ html {
 
 </body>
 <script type="text/javascript">
+base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+
 function login() {
 
 
