@@ -107,9 +107,6 @@ function getUserIpAddr(){
 }
 
 
-<<<<<<< HEAD
-?>
-=======
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/classes/JwtHandler.php';
 $now = new DateTime();
@@ -271,4 +268,3 @@ endif;
 echo json_encode($returnData);
 
 ?>
->>>>>>> e93412c75e1c2696812d31511639d39202952fd1
