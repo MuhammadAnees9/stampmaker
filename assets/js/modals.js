@@ -1,5 +1,5 @@
 window.onload = function () {
-  toggleinstruction();
+  // toggleinstruction();
 };
 base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
 
