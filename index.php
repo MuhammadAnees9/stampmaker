@@ -438,7 +438,7 @@ include_once('header.php');
     Delete elements clicking on <b>delete x</b> <br>
     <b>Download</b> your stamp
 </div>
-<div class='demo bottomleft' id='howto' onclick='toggleinstruction()' style='display:none'>
+<div class='demo bottomleft' id='howto' onclick='toggleinstruction()'>
     To view Instruction or 'How To'.<b>Click Here</b>
 </div>
 

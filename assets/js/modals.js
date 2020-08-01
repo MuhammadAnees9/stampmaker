@@ -1,6 +1,3 @@
-window.onload = function () {
-  // toggleinstruction();
-};
 base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
 
 function ajaxCall() {
