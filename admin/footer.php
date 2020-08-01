@@ -5,6 +5,7 @@
 </html>
 <script type="text/javascript">
 base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+
 // update password
 function UpdatePassword(ele) {
     if (event.key === 'Enter') {
@@ -19,7 +20,7 @@ function UpdatePassword(ele) {
                 "warning");
         } else
             $.ajax({
-                url: base_url + "checkauth.php", //the page containing php script
+                url: "./checkauth.php", //the page containing php script
                 type: "PUT", //request type,
                 dataType: 'json',
                 // contentType: "application/json; charset=utf-8",
@@ -49,7 +50,7 @@ function UpdatePassword(ele) {
 $('.delete').click(function() {
     var id = $(this).attr('id');
     $.ajax({
-        url: base_url + "checkauth.php", //the page containing php script
+        url: "./checkauth.php", //the page containing php script
         type: "DELETE", //request type,
         dataType: 'json',
         // contentType: "application/json; charset=utf-8",
@@ -86,7 +87,7 @@ function addUser() {
             "warning");
     } else
         $.ajax({
-            url: base_url + "register.php", //the page containing php script
+            url: "./register.php", //the page containing php script
             type: "post", //request type,
             dataType: 'json',
             data: JSON.stringify({
@@ -123,7 +124,7 @@ function addUser() {
 
 function logout() {
     $.ajax({
-        url: base_url + "logout.php", //the page containing php script
+        url: "./logout.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
         success: function(response) {
