@@ -155,9 +155,7 @@ window.onload = () => {
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
-    $('.dataTables_filter input').attr({
-        'autocomplete': 'off'
-    });
+
     $('#tablesession').DataTable({
         "order": [
             [0, 'desc']
@@ -166,9 +164,6 @@ window.onload = () => {
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
-    });
-    $('.dataTables_filter input').attr({
-        'autocomplete': 'off'
     });
     $('#admintable').DataTable({
         dom: 'Bfrtip',
