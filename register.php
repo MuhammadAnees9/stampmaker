@@ -42,7 +42,7 @@ if($stmt->execute()){
                     $_SESSION["role"] = $row['role'];
                     $_SESSION["isLogin"] = $row['isLogin'];
                     $_SESSION['uid'] = $row;
-                    echo "<script>window.location.href = '../index.php';</script>";
+                    echo "<script>window.location.href = './';</script>";
                     }
              }
 }else{
