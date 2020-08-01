@@ -1,5 +1,7 @@
-<?php include "dbconfig.php";
-session_start();
+<?php
+session_start(); 
+include "dbconfig.php";
+
 
 if(isset($_SESSION['uid'])){
 	$data = $_SESSION['uid'];
