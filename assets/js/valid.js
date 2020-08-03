@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     setTimeout(function () {
         valid();
-    }, 3000);
+    }, 700);
 });
 
 function valid() {
