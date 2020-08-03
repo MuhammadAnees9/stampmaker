@@ -1,8 +1,13 @@
-$(document).ready(function () {
-    setTimeout(function () {
+// $(document).ready(function () {
+//     setTimeout(function () {
+//         valid();
+//     }, 3000);
+// });
+window.addEventListener('load',
+    function () {
+        alert('asdasda');
         valid();
-    }, 3000);
-});
+    }, false);
 
 function valid() {
     $('.dataTables_filter input').val('');
