@@ -4,6 +4,7 @@ $(document).ready(function () {
     }, 1000);
 });
 
+
 function valid() {
     $('.dataTables_filter input').val('');
     $('.dataTables_filter input').attr({
@@ -24,13 +25,16 @@ function valid() {
     $('#usernametext').attr({
         'autocomplete': 'off'
     });
+
     $('.password').val('');
     $('#email').attr({
         'autocomplete': 'off'
     });
+
     $('#pass').attr({
         'autocomplete': 'off'
     });
+
     $('.password').attr({
         'autocomplete': 'off'
     });

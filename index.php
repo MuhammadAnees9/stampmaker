@@ -87,6 +87,7 @@ function timeago($time, $tense='ago') {
                         </thead>
                         <tbody>
                             <?php
+                            
                                                     $sql = "SELECT id, username, email,userIP,isActive,regdate,DATE_ADD(regdate, INTERVAL +3 MONTH) as expdate FROM user where role != 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
