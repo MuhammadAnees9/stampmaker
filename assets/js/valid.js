@@ -17,9 +17,11 @@ function valid() {
     $('.pwd').attr({
         'autocomplete': 'off'
     });
+
     $('.pwd').attr({
         'autocomplete': 'off'
     });
+
     $('#usernametext').attr({
         'autocomplete': 'off'
     });
