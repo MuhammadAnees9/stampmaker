@@ -11,7 +11,7 @@ function valid() {
     });
 
     $('.pwd').val('');
-    $('.password').val('');
+
     $('#pwd').val('');
     $('#email').val('');
     $('#usernametext').val('');
@@ -24,6 +24,7 @@ function valid() {
     $('#usernametext').attr({
         'autocomplete': 'off'
     });
+    $('.password').val('sdsdsadfasdfsadfsadfadsfasfdas');
     $('#email').attr({
         'autocomplete': 'off'
     });
