@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         valid();
-    }, 4000);
+    }, 3000);
 });
 
 function valid() {
@@ -11,6 +11,7 @@ function valid() {
     });
 
     $('.pwd').val('');
+    $('.password').val('');
     $('#pwd').val('');
     $('#email').val('');
     $('#usernametext').val('');
@@ -27,6 +28,9 @@ function valid() {
         'autocomplete': 'off'
     });
     $('#pass').attr({
+        'autocomplete': 'off'
+    });
+    $('.password').attr({
         'autocomplete': 'off'
     });
 }
