@@ -1,12 +1,13 @@
 // $(document).ready(function () {
-//     setTimeout(function () {
-//         valid();
-//     }, 3000);
+
+//     // setTimeout(function () {
+//     //     valid();
+//     // }, 3000);
 // });
-window.addEventListener('load',
-    function () {
-        valid();
-    }, true);
+document.addEventListener("DOMContentLoaded", function () {
+    valid();
+});
+
 
 function valid() {
     $('.dataTables_filter input').val('');
