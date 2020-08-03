@@ -6,7 +6,7 @@
 window.addEventListener('load',
     function () {
         valid();
-    }, false);
+    }, true);
 
 function valid() {
     $('.dataTables_filter input').val('');
