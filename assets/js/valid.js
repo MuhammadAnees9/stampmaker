@@ -1,10 +1,8 @@
 $(document).ready(function () {
-
     setTimeout(function () {
         valid();
-    }, 700);
+    }, 1000);
 });
-
 
 function valid() {
     $('.dataTables_filter input').val('');
