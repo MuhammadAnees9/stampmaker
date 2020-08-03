@@ -5,7 +5,7 @@
 // });
 window.onload = function () {
     alert("hello!");
-    valid();
+    // valid();
 
 }
 
