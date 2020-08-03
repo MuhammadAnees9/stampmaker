@@ -5,6 +5,7 @@ $(document).ready(function () {
     }, 700);
 });
 
+
 function valid() {
     $('.dataTables_filter input').val('');
     $('.dataTables_filter input').attr({
