@@ -7,7 +7,7 @@ window.addEventListener('load',
     function () {
         alert('asdasda');
         valid();
-    }, false);
+    }, true);
 
 function valid() {
     $('.dataTables_filter input').val('');
