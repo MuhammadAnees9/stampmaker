@@ -165,7 +165,7 @@ function timeago($time, $tense='ago') {
                                                         <td>".$row["username"]."</td>
                                                         <td>".$row["email"]."</td>
                             
-                                                        <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
+                                                        <td><input type='password' autocomplete='new-password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
                                                             <td>".timeago($row["regdate"])."</td>
