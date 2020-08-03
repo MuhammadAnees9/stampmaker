@@ -9,15 +9,7 @@ function valid() {
     $('.dataTables_filter input').attr({
         'autocomplete': 'off'
     });
-
-    $('.pwd').val('');
-    $('#pwd').val('');
-    $('#email').val('');
-    $('#usernametext').val('');
-    $('.pwd').attr({
-        'autocomplete': 'off'
-    });
-    $('.pwd').attr({
+    $('.password').attr({
         'autocomplete': 'off'
     });
     $('#usernametext').attr({
@@ -29,4 +21,14 @@ function valid() {
     $('#pass').attr({
         'autocomplete': 'off'
     });
+    $('.pwd').attr({
+        'autocomplete': 'off'
+    });
+    $('.pwd').val('');
+    $('#pwd').val('');
+    $('.password').val('');
+    $('#email').val('');
+    $('#usernametext').val('');
+
+
 }
