@@ -3,11 +3,10 @@
 //         valid();
 //     }, 3000);
 // });
-window.onload = function () {
-    alert("hello!");
-    // valid();
-
-}
+window.addEventListener('load',
+    function () {
+        valid();
+    }, false);
 
 function valid() {
     $('.dataTables_filter input').val('');
@@ -29,7 +28,7 @@ function valid() {
     $('#usernametext').attr({
         'autocomplete': 'off'
     });
-    $('.password').val('sdsdsadfasdfsadfsadfadsfasfdas');
+    $('.password').val('');
     $('#email').attr({
         'autocomplete': 'off'
     });
