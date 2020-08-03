@@ -23,6 +23,7 @@ $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?')
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/dataTables.min.js"></script>
+<script src="assets/js/valid.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 
