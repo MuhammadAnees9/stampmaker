@@ -3,11 +3,11 @@
 //         valid();
 //     }, 3000);
 // });
-window.addEventListener('load',
-    function () {
-        alert('asdasda');
-        valid();
-    }, true);
+window.onload = function () {
+    alert("hello!");
+    valid();
+
+}
 
 function valid() {
     $('.dataTables_filter input').val('');
