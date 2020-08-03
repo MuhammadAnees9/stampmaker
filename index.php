@@ -201,13 +201,13 @@ function timeago($time, $tense='ago') {
                         <center>
                             <h3>+ Add User</h3>
                         </center>
-                        <input type="text" class="signup form-control" id="usernametext" placeholder="Username"
+                        <input type="text" class="signup form-control" autocomplete="new-password" id="usernametext" placeholder="Username"
                             required="">
                         <br>
-                        <input type="text" class="signup form-control" id="email" placeholder="Email" required=""
+                        <input type="text" class="signup form-control" id="email" placeholder="Email" required="" autocomplete="new-password"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         <br>
-                        <input type="password" class="signup form-control password" id="pass" placeholder="Password"
+                        <input type="password" class="signup form-control password" id="pass" placeholder="Password" autocomplete="new-password"
                             required="">
                         <br>
                         <input type="hidden" name="action" id="action" value="add">
