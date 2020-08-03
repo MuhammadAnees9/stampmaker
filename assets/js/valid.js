@@ -1,11 +1,8 @@
-// $(document).ready(function () {
+$(document).ready(function () {
 
-//     // setTimeout(function () {
-//     //     valid();
-//     // }, 3000);
-// });
-document.addEventListener("DOMContentLoaded", function () {
-    valid();
+    setTimeout(function () {
+        valid();
+    }, 3000);
 });
 
 
