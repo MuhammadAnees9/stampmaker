@@ -11,14 +11,22 @@ function valid() {
         'autocomplete': 'off'
     });
     $('.pwd').val('');
+
     $('#pwd').val('');
+
     $('#email').val('');
+
     $('#usernametext').val('');
+
     $('.pwd').attr({
         'autocomplete': 'off'
     });
 
     $('.pwd').attr({
+        'autocomplete': 'off'
+    });
+
+    $('.password').attr({
         'autocomplete': 'off'
     });
 
@@ -27,6 +35,7 @@ function valid() {
     });
 
     $('.password').val('');
+
     $('#email').attr({
         'autocomplete': 'off'
     });
@@ -35,7 +44,5 @@ function valid() {
         'autocomplete': 'off'
     });
 
-    $('.password').attr({
-        'autocomplete': 'off'
-    });
+
 }
