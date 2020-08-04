@@ -25,6 +25,7 @@ function valid() {
   $(".pwd").attr({
     autocomplete: "off",
   });
+
   $(".password").attr({
     autocomplete: "off",
   });
