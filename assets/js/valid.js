@@ -1,7 +1,7 @@
 $(document).ready(function () {
   setTimeout(function () {
     valid();
-  }, 900);
+  }, 1000);
 });
 
 function valid() {
