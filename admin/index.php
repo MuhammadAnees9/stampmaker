@@ -45,6 +45,7 @@ function timeago($time, $tense='ago') {
 <!-- Header -->
 <br>
 <br>
+
 <div class="my-container">
 
     <div class="my-bar">
@@ -86,6 +87,7 @@ function timeago($time, $tense='ago') {
                         </thead>
                         <tbody>
                             <?php
+                            
                                                     $sql = "SELECT id, username, email,userIP,isActive,regdate,DATE_ADD(regdate, INTERVAL +3 MONTH) as expdate FROM user where role != 'admin'";
                                                     $result = $conn->query($sql);
                                                     if ($result->num_rows > 0) {
@@ -163,7 +165,7 @@ function timeago($time, $tense='ago') {
                                                         <td>".$row["username"]."</td>
                                                         <td>".$row["email"]."</td>
                             
-                                                        <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
+                                                        <td><input type='password' autocomplete='new-password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
                                                         <td>".$row["userIP"]."</td>
                                                            <td>".$status."</td>
                                                             <td>".timeago($row["regdate"])."</td>
@@ -199,13 +201,14 @@ function timeago($time, $tense='ago') {
                         <center>
                             <h3>+ Add User</h3>
                         </center>
-                        <input type="text" class="signup form-control" id="usernametext" placeholder="Username"
+                        <input type="text" class="signup form-control" autocomplete="new-password" id="usernametext" placeholder="Username"
                             required="">
                         <br>
-                        <input type="text" class="signup form-control" id="email" placeholder="Email" required=""
+                        <input type="text" class="signup form-control" id="email" placeholder="Email" required="" autocomplete="new-password"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         <br>
-                        <input type="password" class="signup form-control" id="pass" placeholder="Password" required="">
+                        <input type="password" class="signup form-control password" id="pass" placeholder="Password" autocomplete="new-password"
+                            required="">
                         <br>
                         <input type="hidden" name="action" id="action" value="add">
                         <div class="form-group">
