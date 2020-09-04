@@ -15,8 +15,8 @@ $senderName = 'Test';
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
+$usernameSmtp = 'support@mystampmaker.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
 
