@@ -1,0 +1,583 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+:root {
+    --primary: #00438b;
+    --secondary:#ff8800;
+}
+#propertyParent{
+    flex:0 0 20%;
+}
+#properties input[type="text"]{
+    border:1px solid transparent;
+    border-bottom:1px solid var(--secondary);
+    background-color:transparent;
+    width:100%;
+}
+#properties input[type="file"]{
+    border:1px solid transparent;
+    border-bottom:1px solid var(--secondary);
+    background-color:transparent;
+    width:100%;
+}
+#abouts{
+    
+    display:flex;
+    flex-direction: row;
+}
+#about{
+    background-color:var(--primary);
+    color:white;
+    padding:20px;
+}
+#aboutText{
+    border:1px solid var(--primary);
+    border-bottom:1px solid var(--secondary);  
+    width:450px;
+    z-index: 100;
+    padding:10px;
+    background: white;
+}
+
+.slider{
+    margin-top:10px;
+}
+body{
+    background-color:white;
+}
+nav{
+    background-color: var(--primary);
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    padding-top:10px;
+    flex-wrap: wrap;
+    margin-bottom:10px;
+}
+nav button{
+    height:35px;
+    font-size:15px;
+    width:90px;
+    border-radius:3px;
+    padding:0px;
+}
+nav #signup{
+    background-color: var(--secondary);
+    color:white;
+    border:0px;
+    font-weight:lighter;
+}
+nav #buttons{
+    flex-grow: 2; 
+    padding:25px;
+}
+nav #login{
+    background-color: transparent;
+    color:white;
+    border:1px solid white;
+    font-weight:lighter;
+}
+
+nav img{
+    height:100px;
+    
+}
+nav h1{
+    flex-grow: 2; 
+    padding:20px;
+    padding-bottom:0px;
+    color:white;
+    font-size:40px;
+}
+#spacer-1{
+    flex-grow:5;
+}
+#mainContainer{
+    width:100vw;
+    display:flex;
+    gap:3px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+#mainContainer #bar{
+    width:150px;
+}
+#mainContainer #bar #pcIcons img{
+    padding-bottom:10px;
+    width:100%;
+}
+#mainContainer #bar img:hover{
+    filter: brightness(0.9);
+}
+#mainContainer #layers{
+    width:140px;
+}
+.layer{
+    color: var(--primary);
+    padding:10px;
+}
+#banner1 img{
+    height:60vh;
+    width:170px;
+}
+#canP{
+    padding:50px;
+    border:1px solid var(--primary);
+}
+#tools{
+    border-radius:5px;
+    border:1px solid #1c1c1c;
+    padding:3px;
+    width: 120px;
+}
+#tools span{
+    position: relative;
+    top: 1px;
+}
+.prop{
+    color:grey;
+
+}
+.prop select{
+    width: 47%;
+    border:2px solid #1c1c1c;
+    border-radius:4px;
+}
+.prop input[type=range],select{
+    width:100%;
+}
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+ /* Full-width */
+  height: 3px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: var(--secondary); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius:20px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#lineProps{
+    border-radius:5px;
+    border:2px solid #1c1c1c;
+    width:40%;
+    padding:5px;
+}
+#lineProps span{
+    padding:5px;
+}
+input[type=color]{
+    width:40%;
+
+}
+#properties{
+    width:100%;
+    padding:20px;
+    border-radius:20px;
+    background-color:#f8f8f8;
+
+}
+#propButtons{
+    display: flex;
+    flex-wrap: wrap;
+}
+#propButtons #lineProps{
+    flex: 0 40%;
+}
+#properties{
+    border-radius:2px;
+    padding:10px;
+    margin: 5px;
+    width:90%;
+    height: auto;
+}
+.hr{
+    border-top: 2px solid var(--primary);
+}
+#suggestions{
+    position: fixed;
+    width:400px;
+    bottom: 0px;
+    right: 0px;
+    background-color: var(--secondary);
+    color:white;
+}
+#instructions{
+    position: fixed;
+    width:400px;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--secondary);
+    color:white;
+}
+#top{
+    padding:20px;
+    background-color: var(--primary);
+}
+#content{
+    padding:20px;
+    color:rgb(95, 95, 95);
+    background-color:white;
+    border:1px solid var(--primary)
+}
+#suggestions #content input[type=text]{
+    width:100%;
+    border-radius:0px;
+    border:1px solid var(--primary);
+    padding:10px;
+}
+#suggestions button{
+    background-color: var(--secondary);
+    padding:10px;
+    color:white;
+    outline: none;
+    border:1px solid transparent;
+}
+#suggestions button:hover{
+    border:1px solid var(--primary);
+}
+#suggestions button:active{
+    background-color:orange;
+}
+#mainContainer #layers{
+    height:60vh;	
+    cursor: default;	
+    overflow-y:scroll;	
+}	
+#layers *{	
+    cursor: default;
+}
+.shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.048), 0 6px 20px 0 rgba(0, 0, 0, 0.048);
+}
+#mobileIcons{
+    padding:0px;
+    margin:0px;
+    display: none;
+}
+#DownloadButtonParent{
+    width:100%;
+    display: block;
+    margin-top:10px;
+}
+.sp-replacer{
+    background-color:transparent!important;
+    border:4px solid black;
+}
+#DownloadButtonParent button{
+    font-size:20px;
+    padding:20px;
+    border-radius:10px;
+    outline:0px;
+    border:0px;
+    display:block;
+    margin:auto;
+    background-color: var(--secondary);
+    color:white;
+}
+#mobileDownloadButtonParent{
+    display: none;
+}
+#propbuttons{
+    gap:10px;
+}
+#mobileInstructions{display:none}
+@media only screen and (max-device-width: 1000px){
+    #banner1{
+        display:none;
+    }
+}
+/*Tablet*/
+@media only screen and (min-device-width: 320px) 
+and (max-device-width: 768px){
+    .layer{
+        transform: rotate(90Deg);
+        right: 30px;
+        position: relative;
+        height: 90px;
+        width: 91px;
+        padding:0px;
+    }
+    .layer hr{
+        margin:0px;
+    }
+
+    .layer{
+        transform:rotate(90Deg);
+        left:-10px;
+        position: relative;
+    }
+    .up{
+        transform: rotate(-90Deg);
+    }
+    .down{
+        margin-left:2px;
+        transform:rotate(90Deg)!important;
+    }
+    #layers{
+        width:80px!important;
+    }
+    #buttons{
+        display: flex;
+        flex: 0 0 40%;
+        width: 100px;
+        margin:auto;
+        padding-top:0px!important;
+    }
+    #buttons #buttonPre{
+        margin:auto;
+    }
+    nav #spacer-1{
+        flex-grow:2;
+    }
+    #bar{
+        display:flex;
+        flex-direction: row;
+        height: 70px;
+        flex:0 0 100vw;
+        align-self: center;
+
+    }
+    #bar{
+        justify-content: center;
+    }
+    #bar img{
+        margin-top:auto;
+        width:90px!important;
+        height:50px;
+    }
+    nav{
+        margin-bottom:0px;
+    }
+    #lineProps{
+        padding:2px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+/*Mobile Large*/
+@media only screen and (min-device-width: 310px) 
+and (max-device-width: 425px){
+    .sp-replacer {
+        height: 30px!important;
+    }
+    .layer{
+        transform: rotate(90Deg);
+        right: 30px;
+        position: relative;
+        height: 90px;
+        width: 91px;
+        padding:0px;
+    }
+    .layer hr{
+        margin:0px;
+    }
+    .layer{
+        transform:rotate(90Deg);
+        left:-10px;
+        position: relative;
+    }
+    .up{
+        transform: rotate(-90Deg);
+    }
+    .down{
+        margin-left:2px;
+        transform:rotate(90Deg)!important;
+    }
+    #layers{
+        width:80px!important;
+        height:50vh!important;
+    }
+    #DownloadButtonParent{
+        display: none;
+    }
+    #mobileInstructions{
+        display:block;
+        padding:50px;
+        margin:auto;
+        font-size:15px;
+    }
+    #mobileInstructions center{
+        color:var(--secondary);
+        font-size: 30px;
+    }
+    #instructions{
+        display: none;
+    }
+    #suggestions{
+        width:100vw;
+    }
+    .prop{
+        display: flex;
+        width:100vw;
+        flex-direction: row;
+        gap:0px;
+    }
+    .prop #propButtons{
+        gap:5px;
+        order:1;
+    }
+    #properties{
+        width:45%;
+    }
+    #propButtons{
+        width:40%;
+    }
+    #lineProps{
+        padding:0px;
+        flex:0 0 43%!important;
+        height: 20px;
+    }
+    #mobileDownloadButtonParent{
+        flex: 0 0 100%;
+        display: flex;
+    }
+    #mobileDownloadButtonParent button{
+        padding:10px;
+        border-radius:10px;
+        outline:0px;
+        border:0px;
+        display:block;
+        margin:auto;
+        background-color: var(--secondary);
+        color:white;
+    }
+    #canP{
+        padding:10px;
+        margin:auto;
+    }
+    #pcIcons{
+        display:none!important;
+    }
+    #mobileIcons{
+        display:flex;
+        width:100vw;      
+        justify-content:center;
+    }
+    #mobileIcons img{
+        width:50px!important;
+        height:60px;
+        margin-top:0px;
+        margin-bottom:0px;
+    }
+    #bar{
+        display:flex;
+        flex-direction: row;
+        height: 70px;
+        flex:0 0 100vw;
+        align-self: center;
+
+    }
+    #bar{
+        justify-content: center;
+    }
+    
+    nav{
+        margin-bottom:0px;
+        padding:0px;
+    }
+
+     #buttons{
+         padding:0px 0px 10px 0px!important;
+        display: flex;
+        flex: 0 0 40%;
+        width: 100px;
+        margin:auto;
+    }
+    #buttons #buttonPre{
+        margin:auto;
+    }
+    #buttonPre button{
+        width:80px;
+    }
+    nav #spacer-1{
+        display:none;
+    } 
+    nav h1{
+        padding:0px;
+        font-size:25px;
+        display: flex;
+        align-items: center;
+    }
+    #lineProps span{
+        padding:0px;
+    }
+    #lineProps{
+        padding:2px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #tools{
+        padding:5px;
+ display:flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+}
+@media only screen and (max-width: 320px) {
+    .layer{
+        font-size:10px;
+        padding:0px;
+        padding-top:25px;
+        
+        margin-left:2px;
+        width:70px;
+    }
+    #propButtons input[type=color]{
+        display: flex;
+       flex-grow: 0 0 100%;
+    }
+    #tools{
+               padding:2px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #layers{
+        width:50px!important;
+        
+        height:50vh!important;
+    }
+    #lineProps span{
+        padding:0px;
+    }
+    #lineProps{
+        padding:2px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #canP{
+        padding:0px;
+    }
+  }
