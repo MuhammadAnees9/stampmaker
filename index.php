@@ -1,16 +1,18 @@
-<html>
-    <head>
-    <?php
+<?php
 include "dbConfig.php";
 session_start();
 ?>
+<!DOCTYPE html>
+<html>
+
+<head>
     <link rel="icon" type="image/png" href="logofav.png" sizes="32x32">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
     <script src="google_anylatic.js">
     </script>
 
-<meta name="viewport" content="initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,231 +20,142 @@ session_start();
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 
     <script type="text/javascript" src="customCircularLibrary.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="modals.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
     <title>Stamp Maker</title>
-        <link href="css/style.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <nav>
-            <div id="spacer-1">
+</head>
+
+<body>
+    <div id="measure"></div>
+    <div class="container shadow-sm bg-primary p-3 text-white">
+        <div class="row">
+
+                <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+
+            <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
+
+                <img class="d-inline d-lg-none" src="logo.png" />
+                <button class="btn o" id="addroundtext" title="Text Around The Circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path fill="#ffffff"
+                            d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
+                        </path>
+                    </svg>
+
+                    <br><span style="color:white;">Round Text</span>
+                </button>
+                <button class="btn o" id="addlinetext" title="Line Text">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path fill="#ffffff"
+                            d="M5 236l60 1 15 -38 45 0c-1,-20 3,-35 15,-50 1,-1 1,-2 2,-2l-41 -1 24 -59 22 54c1,0 7,-5 10,-7 13,-8 27,-11 43,-10l-45 -113 -60 0 -90 225zm180 -82l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
+                        </path>
+                    </svg>
+                    <br><span style="color:white;">Line Text</span>
+
+                </button>
+                <button class="btn o" id="addcircle" title="Circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path fill="#ffffff"
+                            d="M125 15c-61,0 -110,49 -110,110 0,61 49,110 110,110 7,0 13,0 20,-1 -7,-7 -12,-15 -16,-24 -1,0 -3,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,2 0,2 9,3 17,8 24,15 1,-6 1,-11 1,-17 0,-61 -49,-110 -110,-110zm60 139l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
+                        </path>
+                    </svg>
+                    <br><span style="color:white;">Circle</span>
+
+
+                </button>
+                <button class="btn o" id="addimage" title="Image">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path class="add_el_path" fill="#ffffff"
+                            d="M185 154l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12zm-83 -25c0,-11 -8,-20 -19,-20 -11,0 -20,9 -20,20 0,11 9,20 20,20 11,0 19,-9 19,-20zm-44 72l0 23 69 0c-2,-7 -4,-14 -4,-21 0,-22 12,-41 29,-53l-9 -12 -20 29 -25 -11 -40 45zm32 -174l-58 61 0 164 114 0c-5,-5 -9,-9 -12,-14l-88 0 0 -144 53 0 0 -53 101 0 0 99c5,1 9,3 14,5l0 -118 -124 0zm-5 26l0 27 -25 0 25 -27z">
+                        </path>
+                    </svg>
+                    <br><span style="color:white;">Image</span>
+
+                </button>
+
             </div>
-            <img src="img/logo.PNG">
-            <h1>My Stamp Maker</h1>
-            <div id="buttons">
-                <div id="buttonPre">
-                <?php
+            <div class="col-sm-4">
+                <center>
+                    <?php
       getNav();
       function getNav(){
       if(isset($_SESSION["username"]))
       {
-        echo "<h6 style='color:white'>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;'>Log Out</button>&nbsp;";
+        echo "<h6>Welcome, ".$_SESSION["username"]."</h6><button class='modals btn btn-danger btn-md' onclick='logout()' style='height:40px;'>Log Out</button>&nbsp;";
         if($_SESSION["username"] == "admin"){
           echo "<button class='modals btn btn-secondary btn-md' onclick='Dashboard()' style='height:40px;'>Dashboard</button>";
         }    
   
       }
       else{
-        echo "<button id='signup' data-toggle='modal' data-target='#myModal' >Sign Up</button> &nbsp;<button id='login' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Sign In</button>";
+        echo "<button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModal' style='height:40px;margin:20px;'>Sign Up</button><button type='button' class='btn btn-success btn-sm modals' data-toggle='modal' data-target='#myModalLogin' style='height:40px;margin:20px;' onclick='reset()'>Log In</button>";
       }
       }
 
       ?>
-             
-    
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Scrolling Wrapper End-->
+        <div class="row">
+            <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
+            </ul>
+            <div class="col-lg-6 canvas col-sm-3 col-10 col-md-4" style="margin-top:40px;">
+
+            </div>
+            <br>
+            <div class="col-lg-4 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
+                <div class="guide">
+                    <u><b>Create a round stamp</b></u><br>
+                    Select <b>Circle</b> element to add a stamp circle<br>
+                    Edit the circle, change its radius and stroke width<br>
+                    Select <b>Round</b> Text element to add a text around the circle<br>
+                    Enter and edit the text, change spacing and rotate it clockwise<br>
+                    Select <b>Line</b> Text element to add a text in the center<br>
+                    Enter and edit the text, move or rotate it<br>
+                    Select <b>Image</b> element to add an image<br>
+                    Upload the image, change its size and position<br>
+                    Add any numbers of elements<br>
+                    Delete elements clicking on <b>delete x</b> <br>
+                    <b>Download</b> your stamp
                 </div>
-                
-            </div>
-        </nav>
-        
-        <div id="mainContainer">
-            <div id="bar" class="shadow">
-                <div id="pcIcons">
-                    <img id="addlinetext" src="img/linetext.PNG"/>
-                    <img id="addroundtext" src="img/roundtext.PNG"/>
-                    <img class="addcircle" src="img/shape.PNG"/>
-                    <img id="addimage" src="img/image.PNG"/>    
-                    <div id="abouts">
-
-                    <center><h5 id="about">About</h5></center>
-                    <div id="aboutText">
-                       <p> Email:
-sayapingeorge@gmail.com
-
-Address: MyStampMaker
-
-Brentwood Street, 30709
-
-Southfield, MI 48076
-
-United States
-
-Company Name: My Stamp
-Maker
-</p>
-                        </div>
-                    </div>
-                    
-
-                </div>
-                <div id="mobileIcons">
-                    <img id="addlinetext" src="img/mobilelinetext.PNG"/>
-                    <img id="addroundtext" src="img/mobileround.PNG"/>
-                    <img class="addcircle" src="img/mobileshape.PNG"/>
-                    <img id="addimage" src="img/mobileimage.PNG"/>
-                    
-                </div>
-                
-            </div>
-            <div id="mobileDownloadButtonParent">
-                <button id="mobileDownloadButton" class="shadow">Download</button>
-            </div>
-    
-
-            <div id="layers" class="shadow">
-                
-            </div>
-            <div id="banner1">
-                <img src="img/1.png">
-            </div>
-            <div id="canP">
-                <div class="canvas">
-
-                </div>
-               
-                <br>
-                <br>
-                         
-            </div>
-     
-            <div id="banner1">
-                <img src="img/2.png">
-            </div>
-            <div id="propertyParent">
-               
             </div>
 
-            <!-- <input type='file' id='InputPictureSrc-" + (Pictures.length) + "' name='files' /></div>            <div class='slidecontainer'>      Horizontal Position:  <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='126' >      </div>           <div class='slidecontainer'>     Vertical Position:  <span class='range-slider__value'>0</span>    <input type='range' id='InputPictureVerticalPosition-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='126' >      </div>          <div class='slidecontainer'>   Size:  <span class='range-slider__value'>0</span>     <input type='range' id='InputPictureSize-" + (Pictures.length) + "'  class='slider' min='1' max='250' value='250' >      </div>           <div class='slidecontainer'>      Rotation:   <span class='range-slider__value'>0</span>  <input type='range' id='InputPictureRotation-" + (Pictures.length) + "'  class='slider' min='0' max='360' value='0' >      </div>  </div> -->
-                                    </div> 
-            
-            <div id="DownloadButtonParent">
-                <button id="DownloadButton" class="shadow">Download</button>
-            </div>
+
         </div>
-        <div id="measure">
-            
+        <br>
+        <div class="col-lg">
+            <?php $session = (isset($_SESSION['sessionid']))?$_SESSION['sessionid']:'null';?>
+            <center>
+                <button class="btn btn-lg btn-success shadow" id="downloads"
+                    onclick="down('<?php echo $session?>')">Download</button>
+            </center>
         </div>
-        
-        <div id="mobileInstructions">
-            <center>Instructions</center><br>
-
-Select Circle element to add a stamp circle<br>
-
-Edit the circle, change its radius and stroke
-width<br>
-
-Select Round Text element to add a text
-around the circle<br>
-
-Enter and edit the text, change spacing and
-rotate it clockwise<br>
-
-Select Line Text element to add a text in the
-center<br>
-
-Enter and edit the text, move or rotate it<br>
-
-Select Image element to add an image<br>
-
-Upload the image, change its size and
-position<br>
-
-Add any numbers of elements<br>
-
-Delete elements clicking on delete x<br>
-
-Download your stamp
-<br><br><br><br>
-        </div>
-       
-        <div id="instructions">
-            <div id="top">
-                To View Instructions or "How to". Click Here
-            </div>
-            <div id="content">
-                <center>Instructions</center><br>
-
-Select Circle element to add a stamp circle<br>
-
-Edit the circle, change its radius and stroke
-width<br>
-
-Select Round Text element to add a text
-around the circle<br>
-
-Enter and edit the text, change spacing and
-rotate it clockwise<br>
-
-Select Line Text element to add a text in the
-center<br>
-
-Enter and edit the text, move or rotate it<br>
-
-Select Image element to add an image<br>
-
-Upload the image, change its size and
-position<br>
-
-Add any numbers of elements<br>
-
-Delete elements clicking on delete x<br>
-
-Download your stamp
-            </div>
-           
-        </div>
-        <?php
-if(empty($_SESSION["username"])){
-
-}else{?>
-<div id="suggestions">
-            <div id="top">
-                Suggestions and Concerns Click Here
-            </div>
-            <div id="content">
-                <center>Enter your Concerns and Suggestions Below:</center><br>
-                <input type="text" id='suggestText'  required> 
-                <br>
-                <br>
-                <center><button onclick='suggestion()' class="modals">Send</button></center>
-            </div>
-           
-        </div>
+    </div>
 
 
-<?php } ?>
-        
-        <script src="js/jquery.js"></script>
-        <script>
-            $(document).ready(function(){
-                $("#content").slideToggle(1);
-                $("#suggestions #content").slideToggle(1);
-            });
-            $("#about").click(function(){
-                $("#aboutText").fadeToggle();
-            })
-            $("#instructions").click(function(){
-                $("#instructions #content").slideToggle();
-            })
-            $("#suggestions #top").click(function(){
-                $("#suggestions #content").slideToggle();
-            })
-        </script>
-         <div class="modal fade" id="myModal" role="dialog">
+
+    <script>
+    // $(document).click(function(){
+    // alert($("#colorpicker").spectrum("get").toHex());
+    // })
+    </script>
+    <!-- Modal Of Sign Up -->
+    <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -523,9 +436,134 @@ if(empty($_SESSION["username"])){
             </div>
         </div>
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css" rel="stylesheet"/>
-    <script type="text/javascript">
+    </div>
+    <div class='suggest  bottomleft' id='suggestIns'>
+        <center>
+            <h5>Instructions</h5>
+        </center>
+        Select <b>Circle</b> element to add a stamp circle<br>
+        Edit the circle, change its radius and stroke width<br>
+        Select <b>Round</b> Text element to add a text around the circle<br>
+        Enter and edit the text, change spacing and rotate it clockwise<br>
+        Select <b>Line</b> Text element to add a text in the center<br>
+        Enter and edit the text, move or rotate it<br>
+        Select <b>Image</b> element to add an image<br>
+        Upload the image, change its size and position<br>
+        Add any numbers of elements<br>
+        Delete elements clicking on <b>delete x</b> <br>
+        <b>Download</b> your stamp
+    </div>
+    <div class='demo bottomleft' id='howto' onclick='toggleinstruction()' style='display:none'>
+        To view Instruction or 'How To'.<b>Click Here</b>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <?php
+if(empty($_SESSION["username"])){
+
+}else{
+getSuggest();  
+}
+
+function getSuggest(){
+          echo "
+          
+          <div class='suggest bottomright' id='suggest'>
+          <center><h5>Leave Suggestion</h5></center>
+          <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
+          <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
+        </div>
+        
+<div class='demo bottomright' onclick='togglesuggestions()'>
+To send concerns or suggestions.<b>Click Here</b>
+</div>
+
+
+
+";
+}
+?>
+</body>
+
+<footer class="footer font-small blue pt-4" style="background-color:#007bff;color:white;">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">My Stamp Maker</h5>
+                <p>Create a round stamp easily.</p>
+
+            </div>
+            <!-- Grid column -->
+
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <ul class="list-unstyled">
+                    <li>
+                        <a style="color:white;" href="terms.php" target="_blank">
+                            Terms & conditions.
+                        </a>
+
+                    </li>
+                    <li>
+                        <a style="color:white;" href="privacy.php" target="_blank">Privacy Notice</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <ul class="list-unstyled">
+                    <li>
+                        <b style="color:white;">Email:</b> sayapingeorge@gmail.com
+                    </li>
+                    <li>
+                        <b style="color:white;">Address:</b> MyStampMaker <br>
+                        Brentwood Street, 30709<br>
+                        Southfield, MI 48076<br>
+                        United States<br>
+
+                    </li>
+                    <li>
+                        <b style="color:white;">Company Name:</b> My Stamp Maker
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#" style="color:white;"> MyStampMaker</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<br><br><br>
+
+</html>
+<script type="text/javascript">
 var idleTime = 0;
 $(document).ready(function() {
     //Increment the idle time counter every minute.
@@ -563,6 +601,3 @@ function timerIncrement() {
     }
 }
 </script>
-
-    </body>
-</html>
