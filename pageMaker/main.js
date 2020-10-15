@@ -63,36 +63,40 @@
    }
 
 
-   function updateLabels(element, show) {
-     $(".card-body").removeClass("all");
-     $("#labels").prepend("<li class='card elementlabel' id='" + element + "'><div class='card-body all' id='" + element + "'><p>" + show + "</p></div><center><button type='button' id='" + element + "' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'></span><i class='text-danger'>&times;</i></span></button><i class='far fa-caret-square-down' onclick='down(this)'></i>&nbsp;<i class='far fa-caret-square-up' onclick='up(this)'></i></center></li>");
-     $(".guide").css("display", "none");
-     $("#howto").css("display", "block");
+   function updateLabels(element, show,id) {
+       $(".layer").removeClass("all");
+
+
+
+       $("#layers").prepend("<div class='layer elementlabel all' id='" + element + "'>"+show+"<p>#"+id+"</p><hr><div style='display: flex;flex-direction: row;' id='layerContent'>Delete &nbsp;<span style='color:red' id='" + element + "'  class='closeL'>&times; </span> &nbsp;&nbsp;<img src='img/up.PNG' class='up' onclick='up(this)' style='width:10px;height: 10px;margin-top:5px;'><img src='img/up.PNG' class='down' onclick='down(this)' style='transform: rotate(180Deg);width:10px;height: 10px;margin-top:5px;'></div></div>");
+       $(".guide").css("display", "none");
+       $("#howto").css("display", "block");
        //hideallproperties();
-     }
+   }
 
 
-     function hideallproperties() {
-       $("#properties .property").attr("style", "display:none");
-     }
+   function hideallproperties() {
+       $(".prop").hide();
+   }
    //last is for the element type
    $(document).ready(function() {
      updateTheCanvas();
        //Adding circle
-       $("#addcircle").click(function() {
+       $(".addcircle").click(function() {
+        debugger;
          hideallproperties();
          if (checkAvailiblity(Circles, 5) == 0) {
            return;
          }
-         var moduleDiv = "<div id='Circle" + (Circles.length) + "' class='property'><h3>Circle: " + (Circles.length + 1) + "</h3><div class='slidecontainer' >Fill Color:<input id='CircleColorFill-" + (Circles.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='CircleColorStroke-" + (Circles.length) + "'  /></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" + (Circles.length) + "'  class='slider' min='1' max='20' value='5'></div><div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" + (Circles.length) + "'  class='slider' min='1' max='120' value='20'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputCircleCheckbox-" + (Circles.length) + "'><label class='custom-control-label' for='InputCircleCheckbox-" + (Circles.length) + "'>Fill?</label></div></div>";
+         var moduleDiv = "<div id='Circle" + (Circles.length) + "' class='prop'><div id='propButtons'><div class='slidecontainer' >Fill Color:<input id='CircleColorFill-" + (Circles.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='CircleColorStroke-" + (Circles.length) + "'  /></div></div><div id='properties' class='shadow'><center style='color:var(--primary)'>Properties</center><br><hr class='hr'><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" + (Circles.length) + "'  class='slider' min='1' max='20' value='5'></div><div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" + (Circles.length) + "'  class='slider' min='1' max='120' value='20'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputCircleCheckbox-" + (Circles.length) + "'><label class='custom-control-label' for='InputCircleCheckbox-" + (Circles.length) + "'>Fill?</label></div></div>";
 
 
-         $("#properties").append(moduleDiv);
+         $("#propertyParent").append(moduleDiv);
          var Circle = [$('#InputRadiusCircle-' + (Circles.length)).val(), $('#InputStrokeWidthCircle-' + (Circles.length)).val(), null, null, null, null, null, null, "circle", null, "#16264c","#16264c", $('#InputCircleCheckbox-' + (Circles.length)).is(":checked")];
            //console.log(Circle);
            Circles.push(Circle);
 
-           updateLabels("Circle #" + (Circles.length - 1), "Circle #" + (Circles.length));
+           updateLabels("Circle #" + (Circles.length - 1), "Circle #",(Circles.length));
 
            updateTheCanvas();
            updateColorPicker("CircleColorFill-" + (Circles.length - 1));
@@ -100,20 +104,20 @@
            updateFillProperty("InputCircleCheckbox-" + (Circles.length - 1));
 
          });
-       $("#addtriangle").click(function() {
+       $(".addtriangle").click(function() {
          hideallproperties();
          if (checkAvailiblity(Triangles, 5) == 0) {
            return;
          }
-         var moduleDiv = "<div id='Triangle" + (Triangles.length) + "' class='property'><h3>Triangle: " + (Triangles.length + 1) + "</h3><div class='slidecontainer' >Fill Color:<input id='TriangleColorFill-" + (Triangles.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='TriangleColorStroke-" + (Triangles.length) + "'  /></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthTriangle-" + (Triangles.length) + "'  class='slider' min='1' max='20' value='1'></div><div class='slidecontainer'>Size:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusTriangle-" + (Triangles.length) + "'  class='slider' min='1' max='80' value='20'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputTriangleCheckbox-" + (Triangles.length) + "'><label class='custom-control-label' for='InputTriangleCheckbox-" + (Triangles.length) + "'>Fill?</label></div></div>";
+         var moduleDiv = "<div id='Triangle" + (Triangles.length) + "' class='prop'><div id='propButtons'><div class='slidecontainer' >Fill Color:<input id='TriangleColorFill-" + (Triangles.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='TriangleColorStroke-" + (Triangles.length) + "'  /></div></div><div id='properties' class='shadow'><center style='color:var(--primary)'>Properties</center><br><hr class='hr'><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthTriangle-" + (Triangles.length) + "'  class='slider' min='1' max='20' value='1'></div><div class='slidecontainer'>Size:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusTriangle-" + (Triangles.length) + "'  class='slider' min='1' max='80' value='20'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputTriangleCheckbox-" + (Triangles.length) + "'><label class='custom-control-label' for='InputTriangleCheckbox-" + (Triangles.length) + "'>Fill?</label></div></div></div>";
 
 
-         $("#properties").append(moduleDiv);
+         $("#propertyParent").append(moduleDiv);
          var Triangle = [$('#InputRadiusTriangle-' + (Triangles.length)).val(), $('#InputStrokeWidthTriangle-' + (Triangles.length)).val(), null, null, null, null, null, null, "Triangle", null, "#16264c","#16264c", $('#InputTriangleCheckbox-' + (Triangles.length)).is(":checked")];
            //console.log(Triangle);
            Triangles.push(Triangle);
 
-           updateLabels("Triangle #" + (Triangles.length - 1), "Triangle #" + (Triangles.length));
+           updateLabels("Triangle #" + (Triangles.length - 1), "Triangle #" , (Triangles.length));
 
            updateColorPicker("TriangleColorFill-" + (Triangles.length - 1));
            updateColorPicker("TriangleColorStroke-" + (Triangles.length - 1));
@@ -121,19 +125,19 @@
 
            updateTheCanvas();
          });
-       $("#addsquare").click(function() {
+       $(".addsquare").click(function() {
          hideallproperties();
          if (checkAvailiblity(Squares, 5) == 0) {
            return;
          }
-         var moduleDiv = "<div id='Square" + (Squares.length) + "' class='property'><h3>Square: " + (Squares.length + 1) + "</h3><div class='slidecontainer' >Fill Color:<input id='SquareColorFill-" + (Squares.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='SquareColorStroke-" + (Squares.length) + "'  /></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthSquare-" + (Squares.length) + "'  class='slider' min='1' max='20' value='1'></div><div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusSquare-" + (Squares.length) + "'  class='slider' min='1' max='"+widthStage+"'' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightSquare-" + (Squares.length) + "'  class='slider' min='1' max='"+heightStage+"' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputSquareCheckbox-" + (Squares.length) + "'><label class='custom-control-label' for='InputSquareCheckbox-" + (Squares.length) + "'>Fill?</label></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputSquareAspect-" + (Squares.length) + "'><label class='custom-control-label' for='InputSquareAspect-" + (Squares.length) + "'>Maintain Aspect Ratio?</label></div></div>";
-         $("#properties").append(moduleDiv);
+         var moduleDiv = "<div id='Square" + (Squares.length) + "' class='prop'><div id='propButtons'><div class='slidecontainer' >Fill Color:<input id='SquareColorFill-" + (Squares.length) + "'  /></div><div class='slidecontainer' >Stroke Color:<input id='SquareColorStroke-" + (Squares.length) + "'  /></div></div><div id='properties' class='shadow'><center style='color:var(--primary)'>Properties</center><br><hr class='hr'><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthSquare-" + (Squares.length) + "'  class='slider' min='1' max='20' value='1'></div><div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusSquare-" + (Squares.length) + "'  class='slider' min='1' max='"+widthStage+"'' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightSquare-" + (Squares.length) + "'  class='slider' min='1' max='"+widthStage+"' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputSquareCheckbox-" + (Squares.length) + "'><label class='custom-control-label' for='InputSquareCheckbox-" + (Squares.length) + "'>Fill?</label></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputSquareAspect-" + (Squares.length) + "'><label class='custom-control-label' for='InputSquareAspect-" + (Squares.length) + "'>Maintain Aspect Ratio?</label></div></div></div>";
+         $("#propertyParent").append(moduleDiv);
          
          var Square = [$('#InputRadiusSquare-' + (Squares.length)).val(), $('#InputStrokeWidthSquare-' + (Squares.length)).val(), null, null, null, null, null, null, "Square", null, "#16264c","#16264c", $('#InputHeightSquare-' + (Squares.length)).val(), $('#InputSquareCheckbox-' + (Squares.length)).is(":checked"),$('#InputSquareAspect-' + (Squares.length)).is(":checked")];
            
            Squares.push(Square);
 
-           updateLabels("Square #" + (Squares.length - 1), "Square #" + (Squares.length));
+           updateLabels("Square #" + (Squares.length - 1), "Square #", (Squares.length));
 
            updateColorPicker("SquareColorFill-" + (Squares.length - 1));
            updateColorPicker("SquareColorStroke-" + (Squares.length - 1));
@@ -141,20 +145,20 @@
 
            updateTheCanvas();
          });
-       $("#addLine").click(function() {
+       $(".addLine").click(function() {
          hideallproperties();
          if (checkAvailiblity(Lines, 5) == 0) {
            return;
          }
-         var moduleDiv = "<div id='Line" + (Lines.length) + "' class='property'><h3>Line: " + (Lines.length + 1) + "</h3><div class='slidecontainer' >Fill Color:<input id='LineColorFillStroke-" + (Lines.length) + "'  /></div><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthLine-" + (Lines.length) + "'  class='slider' min='1' max='30' value='15'></div><div class='slidecontainer'>Length:<span class='range-slider__value'>0</span><input type='range' id='InputLenghtLine-" + (Lines.length) + "'  class='slider' min='1' max="+stage.width()+" value="+stage.width() / 2+"></div><div class='slidecontainer'>Type:<select class='form-control' id='InputTypeLine-" + (Lines.length) + "'><option value='0'>Simple</option><option value='1'>Dashed</option><option value='2'>Arrow</option></select></div></div>";
+         var moduleDiv = "<div id='Line" + (Lines.length) + "' class='prop'><div id='propButtons'><div class='slidecontainer' >Fill Color:<input id='LineColorFillStroke-" + (Lines.length) + "'  /></div></div><div id='properties' class='shadow'><center style='color:var(--primary)'>Properties</center><br><hr class='hr'><div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthLine-" + (Lines.length) + "'  class='slider' min='1' max='30' value='15'></div><div class='slidecontainer'>Length:<span class='range-slider__value'>0</span><input type='range' id='InputLenghtLine-" + (Lines.length) + "'  class='slider' min='1' max="+stage.width()+" value="+stage.width() / 2+"></div><div class='slidecontainer'>Type:<select class='form-control' style='width:100%' id='InputTypeLine-" + (Lines.length) + "'><option value='0'>Simple</option><option value='1'>Dashed</option><option value='2'>Arrow</option></select></div></div></div>";
 
 
-         $("#properties").append(moduleDiv);
+         $("#propertyParent").append(moduleDiv);
          var Line = [0,$('#InputStrokeWidthLine-' + (Lines.length)).val(),$('#InputLenghtLine-' + (Lines.length)).val(), "0", null, null, null, null, "Line", null, "#16264c","#16264c"];
            //console.log(Line);
            Lines.push(Line);
 
-           updateLabels("Line #" + (Lines.length - 1), "Line #" + (Lines.length));
+           updateLabels("Line #" + (Lines.length - 1), "Line #", (Lines.length));
 
            updateColorPicker("LineColorFillStroke-" + (Lines.length - 1));
 
@@ -188,43 +192,43 @@
         openBack= false;
       });
        //Adding Round text
-       $("#addroundtext").click(function() {
+       $(".addroundtext").click(function() {
          hideallproperties();
          if (checkAvailiblity(RoundTexts, 7) == 0) {
            return;
          }
            //var moduleDiv = "<div id='RoundText"+(RoundTexts.length)+"' class='property'><h3>Round Text: "+(RoundTexts.length)+"'</h3>Text:<div class='slidecontainer'>        <input type='text' id='InputTextRoundText-"+(RoundTexts.length)+"'  class='form-control' value='Text around the circle'>      </div>      Radius:      <div class='slidecontainer'>        <input type='range' id='InputRadiusRoundText-"+(RoundTexts.length)+"'  class='slider' min='30' max='406' value='406'></div>      Spacing:      <div class='slidecontainer'>        <input type='range' id='InputSpacingRoundText-"+(RoundTexts.length)+"'  class='slider' min='1' max='10' value='1'>      </div>      Start Point:      <div class='slidecontainer'>        <input type='range' id='InputStartingPointRoundText-"+(RoundTexts.length)+"'  class='slider' min='0' max='360' value='0'>      </div>      Font:      <div class='slidecontainer'>        <select id='InputFontRoundText-"+(RoundTexts.length)+"' class='form-control'>          <option value='Arial' style='font-family: Arial' selected=''>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>      </div>      Font Size:      <div class='slidecontainer'>        <select id='InputFontSizeRoundText-"+(RoundTexts.length)+"' class='form-control'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>    </div>    <div class='slidecontainer'>      <input id='InputBoldRoundText-"+(RoundTexts.length)+"' type='button' class='btn btn-secondary' value='bold'>    </div>    <div class='slidecontainer'>      <input id='InputItalicRoundText-"+(RoundTexts.length)+"' type='button' class='btn btn-secondary' value='Italic'>    </div>  </div>";
-           var moduleDiv = "<div id='RoundText" + (RoundTexts.length) + "' class='property'><h3>Round Text: " + (RoundTexts.length + 1) + "</h3>                <div class='row'>                 <select id='InputFontRoundText-" + (RoundTexts.length) + "' class='form-control col-sm'>          <option value='Arial' style='font-family: Arial' selected='>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>        <select id='InputFontSizeRoundText-" + (RoundTexts.length) + "' class='form-control col-sm'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>          <button id='InputBoldRoundText-" + (RoundTexts.length) + "' type='button' class='btn'>            <img src='svg/bold-solid.svg' width='20' height='20'>          </button>          <button id='InputItalicRoundText-" + (RoundTexts.length) + "' type='button' class='btn'>              <img src='svg/italic-solid.svg' width='20' height='20'>          </button>         <div class='slidecontainer'>Color:<input id='RoundColor-" + (RoundTexts.length) + "'  /></div>         </div>      Text:      <div class='slidecontainer'>        <input type='text' id='InputTextRoundText-" + (RoundTexts.length) + "'  class='text' value='Text around the circle'>              </div>            <div class='slidecontainer'>        Radius:        <span class='range-slider__value'>0</span>        <input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "'  class='slider' min='30' max='406' value='150'>      </div>           <div class='slidecontainer'>           Spacing:<span class='range-slider__value'>0</span>        <input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "'  class='slider' min='1.00' max='10.00' value='1'>      </div>            <div class='slidecontainer'>        Start Point:<span class='range-slider__value'>0</span>        <input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "'  class='slider' min='0' max='360' value='0'>      </div>        <div class='slidecontainer' style='display:none' >Width:<span class='range-slider__value' style='display:none' >0</span><input type='range' id='InputWidthRoundText-" + (RoundTexts.length) + "' style='display:none'  class='slider' min='1' max='200' value='100'></div><div class='slidecontainer' style='display:none' >Height:<span class='range-slider__value'>0</span><input type='range' style='display:none'  id='InputHeightRoundText-" + (RoundTexts.length) + "'  class='slider' min='1' max='200' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' style='display:none'  class='custom-control-input' id='InputRoundTextAspect-" + (RoundTexts.length) + "'><label style='display:none' class='custom-control-label' for='InputRoundTextAspect-" + (RoundTexts.length) + "'>Maintain Aspect Ratio?</label></div>        </div>";
-           $("#properties").append(moduleDiv);
+           var moduleDiv = "<div id='RoundText" + (RoundTexts.length) + "' class='prop'>                <div id='propButtons'>                     <select id='InputFontRoundText-" + (RoundTexts.length) + "' class='shadow'>                                   <option value='Arial' style='font-family: Arial' selected=''>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>                                </select>                      <div class='select'>  &nbsp;Size 🞃            <select id='InputFontSizeRoundText-" + (RoundTexts.length) + "'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>        </div>                              <div id='lineProps'>                        <span><img id='InputBoldRoundText-" + (RoundTexts.length) + "' src='img/bold.svg' height='10' width='10'></span>|<span><img id='InputItalicRoundText-" + (RoundTexts.length) + "'  src='img/italic.svg' height='10' width='10'></span>                    </div>                       <input id='RoundColor-" + (RoundTexts.length) + "'  />                </div>                    <div id='properties' class='shadow'>                        <center style='color:var(--primary)'>Properties</center>                        <br>                        <hr class='hr'>                                                <center>Text</center>                        <input type='text' id='InputTextRoundText-" + (RoundTexts.length) + "'  class='text' value='Text around the circle'>       <br><br><br>                   <div class='slidecontainer'>        Radius:        <span class='range-slider__value'>0</span>        <input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "'  class='slider' min='30' max='240' value='240'>      </div>           <div class='slidecontainer'>           Spacing:<span class='range-slider__value'>0</span>        <input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "'  class='slider' min='1.00' max='10.00' value='1'>      </div>            <div class='slidecontainer'>        Start Point:<span class='range-slider__value'>0</span>        <input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "'  class='slider' min='0' max='360' value='0'>      </div>                                      </div>                            </div>";
+           $("#propertyParent").append(moduleDiv);
            var RoundText = [$('#InputRadiusRoundText-' + (RoundTexts.length)).val(), $('#InputSpacingRoundText-' + (RoundTexts.length)).val(), $('#InputStartingPointRoundText-' + (RoundTexts.length)).val(), $('#InputTextRoundText-' + (RoundTexts.length)).val(), $('#InputFontRoundText-' + (RoundTexts.length)).val(), $('#InputFontSizeRoundText-' + (RoundTexts.length)).val(), "normal", "normal", "Round Text", null, "#16264c"];
 
            RoundTexts.push(RoundText);
 
-           updateLabels("RoundText #" + (RoundTexts.length - 1), "RoundText #" + (RoundTexts.length));
+           updateLabels("RoundText #" + (RoundTexts.length - 1), "RoundText #", (RoundTexts.length));
            updateTheCanvas();
            updateColorPicker("RoundColor-" + (RoundTexts.length - 1));
          });
        //Adding Line Text
-       $("#addlinetext").click(function() {
+       $(".addlinetext").click(function() {
 
          hideallproperties();
          if (checkAvailiblity(LineTexts, 10) == 0) {
            return;
          }
-         var moduleDiv = "<div id='LineText" + (LineTexts.length) + "' class='property'> <h3>Line Text: " + (LineTexts.length + 1) + "</h3> <div class='form-row'> <div class='col'> <select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control'> <option value='Arial' style='font-family: Arial' selected=''>Arial</option> <option value='Calibri' style='font-family: Calibri'>Calibri</option> <option value='Courier New' style='font-family: Courier New'>Courier New</option> <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option> <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option> <option value='Verdana' style='font-family: Verdana'>Verdana</option> <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option> <option value='Days' style='font-family: Days'>Days</option> <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option> <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option> </select> </div> <div class='col'> <select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control'> <option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option> <option>12</option> <option>14</option> <option>16</option> <option selected=''>18</option> <option>20</option> <option>22</option> <option>24</option> <option>28</option> <option>30</option> <option>32</option> <option>34</option> <option>36</option> <option>38</option> <option>40</option> <option>42</option> <option>44</option> <option>46</option> <option>48</option> <option>50</option> <option>52</option> <option>54</option> <option>56</option> <option>60</option> <option>64</option> <option>72</option> <option>80</option> </select> </div> <div class='col'> <button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn'> <img src='svg/bold-solid.svg' width='20' height='50'> </button> <button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn'> <img src='svg/italic-solid.svg' width='50' height='50'> </button> </div> <div class='col'> <div class='slidecontainer' id='co'><input style='width:100%;height:100%' id='LineColorText-" + (LineTexts.length) + "' /></div> </div> </div> Text: <div class='slidecontainer'> <input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text' value='Text on the line'> </div> <div class='slidecontainer'  style='display:none'> Horizontal Position: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='250' value='125'> </div> <div class='slidecontainer' style='display:none'> Vertical Position:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='280' value='120'> </div> <div class='slidecontainer' style='display:none;'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "' class='slider' min='0' max='360' value='0'> </div> <div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputWidthTextLine-" + (LineTexts.length) + "'  class='slider' min='1' max='"+widthStage+"'' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightTextLine-" + (LineTexts.length) + "'  class='slider' min='1' max='"+heightStage+"'' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputLineTextAspect-" + (LineTexts.length) + "'><label class='custom-control-label' for='InputLineTextAspect-" + (LineTexts.length) + "'>Maintain Aspect Ratio?</label></div> </div>";
-         $("#properties").append(moduleDiv);
+         var moduleDiv = "<div  class='prop' id='LineText" + (LineTexts.length) + "'>                <div id='propButtons'>                    <select id='InputFontLineText-" + (LineTexts.length) + "' >                         <option value='Arial' style='font-family: Arial' selected=''>Arial</option> <option value='Calibri' style='font-family: Calibri'>Calibri</option> <option value='Courier New' style='font-family: Courier New'>Courier New</option> <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option> <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option> <option value='Verdana' style='font-family: Verdana'>Verdana</option> <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option> <option value='Days' style='font-family: Days'>Days</option> <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option> <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>                     </select>               <div class='select'>  &nbsp;Size &#9660;   <select id='InputFontSizeLineText-" + (LineTexts.length) + "' >                          <option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option> <option>12</option> <option>14</option> <option>16</option> <option selected=''>18</option> <option>20</option> <option>22</option> <option>24</option> <option>28</option> <option>30</option> <option>32</option> <option>34</option> <option>36</option> <option>38</option> <option>40</option> <option>42</option> <option>44</option> <option>46</option> <option>48</option> <option>50</option> <option>52</option> <option>54</option> <option>56</option> <option>60</option> <option>64</option> <option>72</option> <option>80</option>                     </select>          </div>                          <div id='lineProps'>                        <span><img src='img/bold.svg' height='10' width='10' id='InputBoldLineText-" + (LineTexts.length) + "'></span>|<span><img src='img/italic.svg' id='InputItalicLineText-" + (LineTexts.length) + "' height='10' width='10'></span>                    </div>                  <input  id='LineColorText-" + (LineTexts.length) + "'/>                </div>                    <div id='properties' class='shadow'>                        <center style='color:var(--primary)'>Properties</center>                        <br>                        <hr class='hr'>                        <br>                        <center>Text</center>                        <input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text' value='Text on the line'>      <br><br><br>       <div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputWidthTextLine-" + (LineTexts.length) + "'  class='slider' min='1' max='"+widthStage+"'' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightTextLine-" + (LineTexts.length) + "'  class='slider' min='1' max='"+heightStage+"'' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputLineTextAspect-" + (LineTexts.length) + "'><label class='custom-control-label' for='InputLineTextAspect-" + (LineTexts.length) + "'>Maintain Aspect Ratio?</label></div> </div>   ";
+         $("#propertyParent").append(moduleDiv);
          var LineText = [$('#InputTextLineText-' + (LineTexts.length)).val(), $('#InputHorizontalPositionLineText-' + (LineTexts.length)).val(), $('#InputVerticalPositionLineText-' + (LineTexts.length)).val(), $('#InputRotationLineText-' + (LineTexts.length)).val(), $('#InputFontLineText-' + (LineTexts.length)).val(), $('#InputFontSizeLineText-' + (LineTexts.length)).val(), "normal", "normal", "Line Text", "#16264c"];
         LineText[12] = $("#InputWidthTextLine-" + (LineTexts.length)).val();
          LineText[13] = $("#InputHeightTextLine-" + (LineTexts.length)).val();
          LineTexts.push(LineText);
 
-         updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length));
+         updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" , (LineTexts.length));
          updateTheCanvas();
          rangeSlider();
          updateColorPicker("LineColorText-" + (LineTexts.length - 1));
        });      
 
-        $("#addimage").click(function() {
+        $(".addimage").click(function() {
          
            //debugger;
            var undeleted = 0;
@@ -239,21 +243,21 @@
               return;
             }
             hideallproperties();
-             var moduleDiv = "<div id='Picture" + (Pictures.length) + "' class='property'> <h3>Image: " + (Pictures.length + 1) + "</h3>Image:      <div class='slidecontainer'>        <input type='file' id='InputPictureSrc-" + (Pictures.length) + "' name='files' /></div><div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputWidthImage-" + (Pictures.length) + "'  class='slider' min='1' max='"+widthStage+"' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightImage-" + (Pictures.length) + "'  class='slider' min='1' max='"+heightStage+"' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputImageAspect-" + (Pictures.length) + "'><label class='custom-control-label' for='InputImageAspect-" + (Pictures.length) + "'>Maintain Aspect Ratio?</label></div><div class='slidecontainer'>Rotation:<span class='range-slider__value'>0</span><input type='range' id='InputPictureRotation-" + (Pictures.length) + "'  class='slider' min='0' max='360' value='0'></div></div>            ";
+             var moduleDiv = "<div id='Picture" + (Pictures.length) + "' class='prop'><div id='properties' class='shadow'><center style='color:var(--primary)'>Properties</center><br><hr class='hr'>Image:      <div class='slidecontainer'>        <input type='file' id='InputPictureSrc-" + (Pictures.length) + "' name='files' /></div><div class='slidecontainer'>Width:<span class='range-slider__value'>0</span><input type='range' id='InputWidthImage-" + (Pictures.length) + "'  class='slider' min='1' max='"+widthStage+"' value='100'></div><div class='slidecontainer'>Height:<span class='range-slider__value'>0</span><input type='range' id='InputHeightImage-" + (Pictures.length) + "'  class='slider' min='1' max='"+heightStage+"' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' id='InputImageAspect-" + (Pictures.length) + "'><label class='custom-control-label' for='InputImageAspect-" + (Pictures.length) + "'>Maintain Aspect Ratio?</label></div><div class='slidecontainer'>Rotation:<span class='range-slider__value'>0</span><input type='range' id='InputPictureRotation-" + (Pictures.length) + "'  class='slider' min='0' max='360' value='0'></div></div> </div>";
 
-             $("#properties").append(moduleDiv);
+             $("#propertyParent").append(moduleDiv);
              var Picture = [($('#InputPictureSrc-' + (Pictures.length)).val() == null ? null : $('#InputPictureSrc-' + (Pictures.length)).val()), $('#InputPictureSize-' + (Pictures.length)).val(), $('#InputPictureHorizontalPosition-' + (Pictures.length)).val(), $('#InputPictureVerticalPosition-' + (Pictures.length)).val(), $('#InputPictureRotation-' + (Pictures.length)).val(), "Picture"];
 
              Pictures.push(Picture);
               rangeSlider();
-             updateLabels("Picture #" + (Pictures.length - 1), "Image #" + (Pictures.length));
+             updateLabels("Picture #" + (Pictures.length - 1), "Image #", (Pictures.length));
            });
 
    stageBackground();
    function stageBackground(){
      hideallproperties();
      var moduleDiv = "<div style='display:none;' id='stageBackground0' class='property'> <h3>Background</h3><div class='slidecontainer'>Background Type:<select class='form-control' id='stagebackgroundtype-0'><option value='1'>Fill</option><option value='2'>Gradient</option><option value='3' selected>Image</option></select></div><div id='appends'></div> </div>";
-     $("#properties").append(moduleDiv);
+     $("#propertyParent").append(moduleDiv);
      stageBackgrounds.push("3","#ffffff"); 
      
      stageBackgrounds[5] = "data:image/svg+xml;base64,77u/PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPg0KICAgIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQogICAgICAgIGxpbmUgeyBzdHJva2U6ICNjY2M7IH0NCiAgICA8L3N0eWxlPg0KICAgIDxkZWZzPg0KICAgICAgICA8cGF0dGVybiBpZD0iZ3JpZCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1Ij4NCiAgICAgICAgICAgIDxsaW5lIHgxPSI3LjUiIHkxPSIwIiB4Mj0iNy41IiB5Mj0iMTUiLz4NCiAgICAgICAgICAgIDxsaW5lIHgxPSIwIiB5MT0iNy41IiB4Mj0iMTUiIHkyPSI3LjUiLz4NCiAgICAgICAgPC9wYXR0ZXJuPg0KICAgIDwvZGVmcz4NCiAgICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+DQo8L3N2Zz4=";
@@ -296,6 +300,8 @@
     $("#appends").append(entry);
 
     $("#stageFill").spectrum({
+
+      replacerClassName: 'spec shadow',
       color: "#eaeaea",
       move: function(color) {
         stageBackgrounds[0] = "1";  
@@ -319,6 +325,8 @@
     $("#appends").append(entry);
 
     $("#gradientFill2").spectrum({
+
+             replacerClassName: 'spec shadow',
       color: "#ffffff",
       move: function(color) {
        stageBackgrounds[2] = color.toHexString();
@@ -326,6 +334,8 @@
      }
    });
     $("#gradientFill1").spectrum({
+
+             replacerClassName: 'spec shadow',
       color: "#000000",
       move: function(color) {
        stageBackgrounds[3] = color.toHexString();
@@ -408,6 +418,8 @@
 
        function updateColorPicker(ele) {
          $("#" + ele).spectrum({
+          
+             replacerClassName: 'spec shadow',
            color: "#16264c",
            move: function(color) {
 
@@ -560,23 +572,23 @@
 
            //console.log(DeletedElements);
          })
-       $(document).on('click', '.card-body', function() {
+       $(document).on('click', '.layer', function() {
            // debugger;
-           $(".card-body").removeClass("all");
-           hideallproperties();
+           $(".layer").removeClass("all");
+         hideallproperties();
            var valueoflabel = $(this).attr("id");
            $(this).addClass('all');
            var elementtype = valueoflabel.split("#")[0];
            var elementindex = valueoflabel.split("#")[1];
            var propertywindowid = elementtype.trim() + elementindex;
-           $("#" + propertywindowid).attr("style", "display:block");
+           $("#" + propertywindowid).show();
 
          });
 
        $('.pickup').change(function() {
          updateTheCanvas();
        })
-       $(document).on('change input click', 'input[type=text],input[type=range], select, button:not(.close,.swal-button,.modals)', function() {
+       $(document).on('change input click', 'input[type=text],input[type=range],input[type=file], select, button:not(.close,.swal-button,.modals),img:not(.addlinetext,.addroundtext,.addcircle,.addimage,.up,.down)', function() {
 // debugger;
          var idofelement = $(this).attr("id");
          var valueofelement = $(this).val();
@@ -967,6 +979,7 @@
      }
    }
    function up(_obj){
+    debugger;
     var main = $(_obj).parent().parent();
     var prev = main.prev();
     if(main.index() == 0) return;
