@@ -1,0 +1,232 @@
+.header {
+  background-color: #00438a;
+  height: auto;
+}
+.list-group-item {
+  padding: 0px;
+  text-align: center;
+  border: none;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+}
+.list-group-item:nth-child(2) {
+  width: 70px;
+}
+.list-group-item .dropdown,
+.list-group-item .dropdown #dropdownMenuButton {
+  padding: 0;
+  margin: 0;
+}
+.btns-wrapper {
+  padding-top: 45px;
+}
+.btns-wrapper .btn {
+  width: 100px;
+  height: 35px;
+  line-height: 20px;
+  margin-left: 10px;
+  color: #fff;
+}
+.text-field {
+  height: 30px !important;
+}
+.hide {
+  /* visibility: hidden; */
+  display: none;
+}
+#stageparent {
+  width: 80% !important;
+  height: 35em !important;
+  border: 1px solid black;
+  padding-top: 1.5em;
+  position: relative;
+}
+#container {
+  width: 90% !important;
+  height: 30em !important;
+}
+#container .konvajs-content {
+  width: 100% !important;
+  height: 100% !important;
+}
+#container .konvajs-content canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.canvasBtns {
+  border: 1px solid #ddd;
+  width: 175px;
+  border-radius: 5px;
+  /* padding: 5px; */
+}
+.canvasBtns .btn {
+  border: none;
+  font-weight: 600;
+}
+.text-style-btns {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.slidecontainer input {
+  width: 100%;
+  height: 2px;
+  margin-bottom: 2em;
+}
+.btns {
+  padding: 0px;
+  position: relative;
+  z-index: 100;
+  width: 6.5em;
+}
+.canvas-btns {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 89px);
+}
+.properties-wrapper {
+  border: none;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #bfbfbf;
+  padding: 20px;
+}
+.download-btn {
+  position: absolute;
+  left: calc(50% - 68px);
+}
+#howto {
+  color: white;
+  background: #00438a;
+  padding: 6px;
+}
+.instruction {
+  position: absolute;
+  left: -100px;
+  z-index: 100;
+}
+.instr-btn {
+  position: absolute;
+  bottom: 11em;
+}
+.desktop-view {
+  display: block;
+}
+.mobile-view {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .instruction {
+    position: relative;
+    left: 0px;
+  }
+  #stageparent {
+    width: 100% !important;
+    height: 25em !important;
+  }
+  #container {
+    width: 90% !important;
+    height: 20.5em !important;
+  }
+  .btns {
+    position: absolute;
+    top: -5em;
+    left: calc(50% - 175px);
+  }
+  .list-group {
+    flex-direction: row;
+  }
+  .right-panel .editor-btn {
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .desktop-view {
+    display: none;
+  }
+  .mobile-view {
+    display: block;
+    position: relative;
+    left: 0px;
+    bottom: 0.8em;
+  }
+  .instruction .btn {
+    width: 12.5em;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .brand {
+    text-align: left !important;
+  }
+  .btns-wrapper {
+    padding-top: 0px;
+    margin-bottom: 10px;
+  }
+  .list-group {
+    flex-direction: row;
+  }
+  #stageparent {
+    width: 100% !important;
+    height: 21em !important;
+    padding-top: 0.5em;
+  }
+  #container {
+    width: 90% !important;
+    height: 18em !important;
+  }
+  .btns {
+    position: absolute;
+    top: -5em;
+    left: calc(50% - 170px);
+  }
+  #labels {
+    padding: 0px;
+  }
+  .canvas-btns {
+    bottom: 0;
+  }
+  .properties-wrapper h5 {
+    display: none;
+  }
+  .slidecontainer p,
+  .slidecontainer input {
+    margin: 0px;
+  }
+  .download-btn {
+    position: absolute;
+    top: -87px;
+    left: calc(50% - 68px);
+  }
+  .canvas {
+    margin-top: 80px;
+  }
+  .right-panel {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.5em !important;
+  }
+  .brand {
+    padding: 0px;
+  }
+  #stageparent {
+    width: 100% !important;
+    height: 16em !important;
+    padding-top: 0.5em;
+  }
+  #container {
+    width: 90% !important;
+    height: 13em !important;
+  }
+  .instruction {
+    position: relative;
+    top: -85px !important;
+  }
+  .instruction .btn {
+    width: 10em !important;
+  }
+}
