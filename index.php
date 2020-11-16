@@ -5,7 +5,7 @@ include_once('header.php');
 
 ?>
 
-<div id="measure"></div>
+<!-- <div id="measure"></div> -->
 <header class="header">
     <div class="container-fluid" style="margin: 0px; padding: 0px;">
         <div class="row" style="margin: 0px; padding: 0px;">
@@ -32,8 +32,6 @@ include_once('header.php');
                         }
                     }
                     ?>
-                    <button type="button" class="btn btn-outline-warning">Sign Up</button>
-                    <button type="button" class="btn btn-outline-warning">Sign In</button>
                 </div>
             </div>
         </div>
@@ -96,7 +94,7 @@ include_once('header.php');
 
                 </div>
             </div>
-            <div class="instruction desktop-view" id="instruction">
+            <!-- <div class="instruction desktop-view" id="instruction">
                 <button type="button" onclick="toggleinstruction()" class="btn btn-primary">To
                     view instructions click
                     here</button>
@@ -117,21 +115,20 @@ include_once('header.php');
                         <b>Download</b> your stamp
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="card-body" id="labels"></div> -->
         </div>
 
-        <div class="col-lg-6 canvas col-sm-8 col-md-6 col-9">
+        <div class="col-lg-6 col-sm-8 col-md-6 col-9">
+
 
             <center>
                 <div id="stageparent">
                     <div id="parent_sub">
-                        <div id="container"></div>
-                        <!-- <div id="container"></div  -->
+                        <!-- <div id="container"></div> -->
+                        <div class="canvas"></div>
                         <center class="canvas-btns">
-                            <!-- <h6 class="current-layout">Current Layout: <span>Portriat</span></h6> -->
-                            <!-- <button class="btn btn-outline-secondary btn-sm modals"
-                                    onclick="switchStage()">Switch</button> -->
+
                             <div class="canvasBtns">
                                 <button class="btn btn-outline-secondary btn-sm modals" onclick="plusStage()">+</button> |
 
@@ -165,7 +162,7 @@ include_once('header.php');
 
         </div>
 
-        <div class="instruction mobile-view" id="instruction">
+        <!-- <div class="instruction mobile-view" id="instruction">
             <button type="button" onclick="toggleinstruction()" class="btn btn-primary">To
                 view instructions click
                 here</button>
@@ -186,7 +183,7 @@ include_once('header.php');
                     <b>Download</b> your stamp
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 </div>
@@ -501,25 +498,33 @@ include_once('header.php');
     </div>
 </div>
 </div>
-<!-- <div class='suggest  bottomleft' id='suggestIns'>
-    <center>
-        <h5>Instructions</h5>
-    </center>
-    Select <b>Circle</b> element to add a stamp circle<br>
-    Edit the circle, change its radius and stroke width<br>
-    Select <b>Round</b> Text element to add a text around the circle<br>
-    Enter and edit the text, change spacing and rotate it clockwise<br>
-    Select <b>Line</b> Text element to add a text in the center<br>
-    Enter and edit the text, move or rotate it<br>
-    Select <b>Image</b> element to add an image<br>
-    Upload the image, change its size and position<br>
-    Add any numbers of elements<br>
-    Delete elements clicking on <b>delete x</b> <br>
-    <b>Download</b> your stamp
+<div class='demo bottomleft' style="width:25em; margin-top:4em">
+    <div id='howto' style="width:20em" onclick='toggleinstruction()'>
+        To view Instruction or 'How To'.<b>Click Here</b>
+    </div>
+    <div class='suggest  bottomleft' id='suggestIns'>
+        <div class="card">
+            <div class="card-body">
+
+                <!-- <center> -->
+                <h5>Instructions</h5>
+                <!-- </center> -->
+                Select <b>Circle</b> element to add a stamp circle<br>
+                Edit the circle, change its radius and stroke width<br>
+                Select <b>Round</b> Text element to add a text around the circle<br>
+                Enter and edit the text, change spacing and rotate it clockwise<br>
+                Select <b>Line</b> Text element to add a text in the center<br>
+                Enter and edit the text, move or rotate it<br>
+                Select <b>Image</b> element to add an image<br>
+                Upload the image, change its size and position<br>
+                Add any numbers of elements<br>
+                Delete elements clicking on <b>delete x</b> <br>
+                <b>Download</b> your stamp
+            </div>
+        </div>
+    </div>
 </div>
-<div class='demo bottomleft' id='howto' onclick='toggleinstruction()'>
-    To view Instruction or 'How To'.<b>Click Here</b>
-</div> -->
+
 
 <!-- Footer -->
 <!-- Footer -->

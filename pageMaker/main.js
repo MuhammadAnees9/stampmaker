@@ -254,7 +254,6 @@ $(document).ready(function () {
     LineText[12] = $("#InputWidthTextLine-" + (LineTexts.length)).val();
     LineText[13] = $("#InputHeightTextLine-" + (LineTexts.length)).val();
     LineTexts.push(LineText);
-    console.log("helllllooo==>>>", "LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length))
     updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length));
     // updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length));
     updateTheCanvas();

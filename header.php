@@ -29,7 +29,7 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 
     <script type="text/javascript" src="assets/js/customCircularLibrary.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/stampMakerStyle.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">

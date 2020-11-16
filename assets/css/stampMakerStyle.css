@@ -73,6 +73,11 @@
   height: 2px;
   margin-bottom: 2em;
 }
+.slidecontainer input[type="file"] {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 2em;
+}
 .btns {
   padding: 0px;
   position: relative;
@@ -98,6 +103,7 @@
   color: white;
   background: #00438a;
   padding: 6px;
+  width: 20em;
 }
 .instruction {
   position: absolute;
