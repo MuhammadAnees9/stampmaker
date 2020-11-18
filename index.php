@@ -5,7 +5,7 @@ include_once('header.php');
 
 ?>
 
-<!-- <div id="measure"></div> -->
+<div id="measure"></div>
 <header class="header">
     <div class="container-fluid" style="margin: 0px; padding: 0px;">
         <div class="row" style="margin: 0px; padding: 0px;">
@@ -43,6 +43,7 @@ include_once('header.php');
         <div class="btns" style="padding:0px;">
             <ul class="list-group">
                 <li class="list-group-item">
+
                     <button class="btn o" id="addroundtext" title="Text Around The Circle">
                         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px" height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <path fill="#000000" d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
@@ -86,7 +87,7 @@ include_once('header.php');
 
             </ul>
         </div>
-
+        <!--Labels -->
         <div class="col-lg-2 col-sm-2 col-md-3 col-3" id="labels-container" style="border: none; ">
             <div class="card elementlabel" style="border: none; background-color: 
                         #f8f8f8;box-shadow: 0 0 10px #BFBFBF; height: 100%;">
@@ -94,113 +95,57 @@ include_once('header.php');
 
                 </div>
             </div>
-            <!-- <div class="instruction desktop-view" id="instruction">
-                <button type="button" onclick="toggleinstruction()" class="btn btn-primary">To
-                    view instructions click
-                    here</button>
-                <div class="card" id="suggestIns" style="width: 25em;">
-                    <div class="card-body">
 
-                        <u><b>Instructions</b></u><br>
-                        Select <b>Circle</b> element to add a stamp circle<br>
-                        Edit the circle, change its radius and stroke width<br>
-                        Select <b>Round</b> Text element to add a text around the circle<br>
-                        Enter and edit the text, change spacing and rotate it clockwise<br>
-                        Select <b>Line</b> Text element to add a text in the center<br>
-                        Enter and edit the text, move or rotate it<br>
-                        Select <b>Image</b> element to add an image<br>
-                        Upload the image, change its size and position<br>
-                        Add any numbers of elements<br>
-                        Delete elements clicking on <b>delete x</b> <br>
-                        <b>Download</b> your stamp
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="card-body" id="labels"></div> -->
         </div>
 
+        <!-- Canvas -->
         <div class="col-lg-6 col-sm-8 col-md-6 col-9">
+            <div class="row">
+                <!-- <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
+        </ul> -->
+                <div class="col-lg-3 col-md-3 left-banner" style="padding:0px">
+                    <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%">
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6 col-12 ">
+                    <center>
+                        <div id="stageparent" class="canvas-stageparent">
+                            <div id="parent_sub">
+                                <!-- <div id="container"></div> -->
+                                <div class="canvas"></div>
+                                <center class="canvas-btns">
 
+                                    <div class="canvasBtns">
+                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="plusStage()">+</button> |
 
-            <center>
-                <div id="stageparent">
-                    <div id="parent_sub">
-                        <!-- <div id="container"></div> -->
-                        <div class="canvas"></div>
-                        <center class="canvas-btns">
+                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="minusStage()">-</button> |
 
-                            <div class="canvasBtns">
-                                <button class="btn btn-outline-secondary btn-sm modals" onclick="plusStage()">+</button> |
+                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="real()">100%</button> |
 
-                                <button class="btn btn-outline-secondary btn-sm modals" onclick="minusStage()">-</button> |
+                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="fit()">[ ]</button>
+                                    </div>
+                                </center>
 
-                                <button class="btn btn-outline-secondary btn-sm modals" onclick="real()">100%</button> |
-
-                                <button class="btn btn-outline-secondary btn-sm modals" onclick="fit()">[ ]</button>
                             </div>
-                        </center>
+                        </div>
+                    </center>
+                    <center class=" mt-2 download-btn">
+                        <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
+                        <button class="btn btn-lg btn-warning shadow" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
 
-                    </div>
+                    </center>
                 </div>
-            </center>
-            <center class=" mt-2 download-btn">
-                <!-- <button class="btn btn-lg btn-success shadow" id="downloads" onclick="downloadKonva()">Download</button> -->
-                <div class="dropdown">
-                    <button class="btn btn-lg btn-warning shadow dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Download
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <a class="dropdown-item" href="javascript:void(0);" onclick="downloadKonvaImage()">Image</a>
-                        <a class="dropdown-item" href="javascript:void(0);" onclick="downloadKonvaPDF()">PDF</a>
-                    </div>
+                <div class="col-lg-3 col-md-3 right-banner" style="padding:0px;">
+                    <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%" />
                 </div>
-            </center>
 
+            </div>
         </div>
-
         <div class="col-lg-3 col-sm-12 col-md-3 col-12 right-panel" id="properties" style="height:auto;">
 
         </div>
 
-        <!-- <div class="instruction mobile-view" id="instruction">
-            <button type="button" onclick="toggleinstruction()" class="btn btn-primary">To
-                view instructions click
-                here</button>
-            <div class="card hide" id="suggestIns" style="width: 25em;">
-                <div class="card-body">
-
-                    <u><b>Instructions</b></u><br>
-                    Select <b>Circle</b> element to add a stamp circle<br>
-                    Edit the circle, change its radius and stroke width<br>
-                    Select <b>Round</b> Text element to add a text around the circle<br>
-                    Enter and edit the text, change spacing and rotate it clockwise<br>
-                    Select <b>Line</b> Text element to add a text in the center<br>
-                    Enter and edit the text, move or rotate it<br>
-                    Select <b>Image</b> element to add an image<br>
-                    Upload the image, change its size and position<br>
-                    Add any numbers of elements<br>
-                    Delete elements clicking on <b>delete x</b> <br>
-                    <b>Download</b> your stamp
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>
-</div>
-
-<!-- <div class="container">
- 
-  
-    <br>
-    <div class="col-lg">
-        <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
-        <center>
-            <button class="btn btn-lg btn-success shadow" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
-        </center>
-    </div>
-</div> -->
-
-
 
 <script>
     // $(document).click(function(){
@@ -498,33 +443,25 @@ include_once('header.php');
     </div>
 </div>
 </div>
-<div class='demo bottomleft' style="width:25em; margin-top:4em">
-    <div id='howto' style="width:20em" onclick='toggleinstruction()'>
-        To view Instruction or 'How To'.<b>Click Here</b>
-    </div>
-    <div class='suggest  bottomleft' id='suggestIns'>
-        <div class="card">
-            <div class="card-body">
-
-                <!-- <center> -->
-                <h5>Instructions</h5>
-                <!-- </center> -->
-                Select <b>Circle</b> element to add a stamp circle<br>
-                Edit the circle, change its radius and stroke width<br>
-                Select <b>Round</b> Text element to add a text around the circle<br>
-                Enter and edit the text, change spacing and rotate it clockwise<br>
-                Select <b>Line</b> Text element to add a text in the center<br>
-                Enter and edit the text, move or rotate it<br>
-                Select <b>Image</b> element to add an image<br>
-                Upload the image, change its size and position<br>
-                Add any numbers of elements<br>
-                Delete elements clicking on <b>delete x</b> <br>
-                <b>Download</b> your stamp
-            </div>
-        </div>
-    </div>
+<div class='suggest  bottomleft' id='suggestIns'>
+    <center>
+        <h5>Instructions</h5>
+    </center>
+    Select <b>Circle</b> element to add a stamp circle<br>
+    Edit the circle, change its radius and stroke width<br>
+    Select <b>Round</b> Text element to add a text around the circle<br>
+    Enter and edit the text, change spacing and rotate it clockwise<br>
+    Select <b>Line</b> Text element to add a text in the center<br>
+    Enter and edit the text, move or rotate it<br>
+    Select <b>Image</b> element to add an image<br>
+    Upload the image, change its size and position<br>
+    Add any numbers of elements<br>
+    Delete elements clicking on <b>delete x</b> <br>
+    <b>Download</b> your stamp
 </div>
-
+<div class='demo bottomleft' id='howto' onclick='toggleinstruction()'>
+    To view Instruction or 'How To'.<b>Click Here</b>
+</div>
 
 <!-- Footer -->
 <!-- Footer -->

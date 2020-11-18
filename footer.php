@@ -1,6 +1,6 @@
 </body>
 
-<footer class="footer font-small blue pt-4" style="background-color:#007bff;color:white;">
+<footer class="footer font-small blue mt-4 pt-4" style="background-color:#007bff;color:white;">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -78,52 +78,52 @@
 
 </html>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#langS').select2({
-        width: '100%',
-        placeholder: "Select Native / Source Language",
-        allowClear: true,
-    });
-    $('#langTarget').select2({
-        width: '100%',
-        placeholder: "Select Target Language",
-        allowClear: true,
-    });
-});
-var idleTime = 0;
-$(document).ready(function() {
-    //Increment the idle time counter every minute.
-    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
-
-    //Zero the idle timer on mouse movement.
-    $(this).mousemove(function(e) {
-        idleTime = 0;
-    });
-    $(this).keypress(function(e) {
-        idleTime = 0;
-    });
-});
-
-function timerIncrement() {
-    idleTime = idleTime + 1;
-    if (idleTime > 240) {
-        $.ajax({
-            url: "logout.php", //the page containing php script
-            type: "post", //request type,
-            dataType: 'json',
-            success: function(response) {
-                if (response.abc == "done") {
-
-                    swal("You Have Been Logout",
-                        "You have been logout, Reason: Inactive for about 4 hours.", "warning").then(
-                        function() {
-
-                            location.reload();
-                        });
-                }
-            }
+    $(document).ready(function() {
+        $('#langS').select2({
+            width: '100%',
+            placeholder: "Select Native / Source Language",
+            allowClear: true,
         });
+        $('#langTarget').select2({
+            width: '100%',
+            placeholder: "Select Target Language",
+            allowClear: true,
+        });
+    });
+    var idleTime = 0;
+    $(document).ready(function() {
+        //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
 
+        //Zero the idle timer on mouse movement.
+        $(this).mousemove(function(e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function(e) {
+            idleTime = 0;
+        });
+    });
+
+    function timerIncrement() {
+        idleTime = idleTime + 1;
+        if (idleTime > 240) {
+            $.ajax({
+                url: "logout.php", //the page containing php script
+                type: "post", //request type,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.abc == "done") {
+
+                        swal("You Have Been Logout",
+                            "You have been logout, Reason: Inactive for about 4 hours.", "warning").then(
+                            function() {
+
+                                location.reload();
+                            });
+                    }
+                }
+            });
+
+        }
     }
-}
 </script>
