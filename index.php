@@ -443,8 +443,8 @@ include_once('header.php');
     </div>
 </div>
 </div>
-<div class='demo bottomleft' style="width:25em; margin-top:0px">
-    <div id='howto' style="width:20em" onclick='toggleinstruction()'>
+<div class='demo bottomleft seggestions-section'>
+    <div id='howto' onclick='toggleinstruction()'>
         To view Instruction or 'How To'.<b>Click Here</b>
     </div>
     <div class='suggest  bottomleft' id='suggestIns'>

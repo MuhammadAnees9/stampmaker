@@ -134,6 +134,15 @@
 .mobile-view {
   display: none;
 }
+.seggestions-section {
+  width: 19.5em;
+  margin-top: 0px;
+  position: relative;
+  bottom: 16em;
+}
+.seggestions-section #howto {
+  width: 100%;
+}
 
 @media screen and (max-width: 768px) {
   canvas {
@@ -168,6 +177,10 @@
   }
   .canvas-col {
     margin-top: 1em;
+  }
+  .seggestions-section {
+    width: 16em;
+    bottom: 16em;
   }
 }
 
@@ -244,6 +257,10 @@
   }
   .right-panel {
     margin-top: 20px;
+  }
+  .seggestions-section {
+    width: 100%;
+    bottom: 0px;
   }
 }
 
