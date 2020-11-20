@@ -2,6 +2,7 @@
   background-color: #00438a;
   height: auto;
 }
+
 .list-group-item {
   padding: 0px;
   text-align: center;
@@ -30,6 +31,8 @@
 }
 .text-field {
   height: 30px !important;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .hide {
   /* visibility: hidden; */
@@ -37,9 +40,9 @@
 }
 #stageparent {
   width: 100% !important;
-  height: 21em !important;
+  height: 25em !important;
   border: 1px solid black;
-  padding-top: 1em;
+  padding-top: 3em;
   position: relative;
 }
 #container {
@@ -95,6 +98,16 @@
   background-color: #f8f8f8;
   box-shadow: 0 0 10px #bfbfbf;
   padding: 20px;
+  border-radius: 20px;
+}
+.labels-card {
+  border: none;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #bfbfbf;
+  max-height: 21em;
+  height: 100%;
+  border-radius: 20px;
+  overflow-y: auto;
 }
 .download-btn {
   position: absolute;
@@ -121,15 +134,22 @@
 .mobile-view {
   display: none;
 }
+
 @media screen and (max-width: 768px) {
+  canvas {
+    width: 200px;
+  }
+  .wrapper {
+    margin-top: 6em;
+  }
   .instruction {
     position: relative;
     left: 0px;
   }
   #stageparent {
     width: 100% !important;
-    height: 15em !important;
-    padding-top: 0.5em;
+    height: 20em !important;
+    padding-top: 1.5em;
   }
   #container {
     width: 95% !important;
@@ -146,9 +166,18 @@
   .right-panel .editor-btn {
     padding: 0px;
   }
+  .canvas-col {
+    margin-top: 1em;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .wrapper {
+    margin-top: 6em;
+  }
+  .canvas-col {
+    margin-top: 6em;
+  }
   .desktop-view {
     display: none;
   }
@@ -211,7 +240,7 @@
     left: calc(50% - 68px);
   }
   .canvas {
-    margin-top: 80px;
+    margin-top: 10px;
   }
   .right-panel {
     margin-top: 20px;

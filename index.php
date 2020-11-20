@@ -5,7 +5,7 @@ include_once('header.php');
 
 ?>
 
-<div id="measure"></div>
+<!-- <div id="measure"></div> -->
 <header class="header">
     <div class="container-fluid" style="margin: 0px; padding: 0px;">
         <div class="row" style="margin: 0px; padding: 0px;">
@@ -39,7 +39,7 @@ include_once('header.php');
     </div>
 </header>
 <div class="container-fluid">
-    <div class="row" style="margin-top: 6em; position: relative;">
+    <div class="row mt-lg-4 wrapper" style="position: relative;">
         <div class="btns" style="padding:0px;">
             <ul class="list-group">
                 <li class="list-group-item">
@@ -89,8 +89,8 @@ include_once('header.php');
         </div>
         <!--Labels -->
         <div class="col-lg-2 col-sm-2 col-md-3 col-3" id="labels-container" style="border: none; ">
-            <div class="card elementlabel" style="border: none; background-color: 
-                        #f8f8f8;box-shadow: 0 0 10px #BFBFBF; height: 100%;">
+            <div class="card labels-card elementlabel">
+                <h5 class="text-center">Labels</h5>
                 <div class="card-body" id="labels">
 
                 </div>
@@ -99,14 +99,14 @@ include_once('header.php');
         </div>
 
         <!-- Canvas -->
-        <div class="col-lg-6 col-sm-8 col-md-6 col-9">
+        <div class="col-lg-6 col-sm-8 col-md-6 col-9 canvas-col">
             <div class="row">
                 <!-- <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul> -->
-                <div class="col-lg-3 col-md-3 left-banner" style="padding:0px">
+                <div class="col-lg-2 col-md-2 left-banner" style="padding:0px; height:21em">
                     <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%">
                 </div>
-                <div class="col-lg-6 col-sm-12 col-md-6 col-12 ">
+                <div class="col-lg-8 col-sm-12 col-md-8 col-12 ">
                     <center>
                         <div id="stageparent" class="canvas-stageparent">
                             <div id="parent_sub">
@@ -134,7 +134,7 @@ include_once('header.php');
 
                     </center>
                 </div>
-                <div class="col-lg-3 col-md-3 right-banner" style="padding:0px;">
+                <div class="col-lg-2 col-md-2 right-banner" style="padding:0px; height:21em">
                     <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%" />
                 </div>
 
@@ -443,25 +443,33 @@ include_once('header.php');
     </div>
 </div>
 </div>
-<div class='suggest  bottomleft' id='suggestIns'>
-    <center>
-        <h5>Instructions</h5>
-    </center>
-    Select <b>Circle</b> element to add a stamp circle<br>
-    Edit the circle, change its radius and stroke width<br>
-    Select <b>Round</b> Text element to add a text around the circle<br>
-    Enter and edit the text, change spacing and rotate it clockwise<br>
-    Select <b>Line</b> Text element to add a text in the center<br>
-    Enter and edit the text, move or rotate it<br>
-    Select <b>Image</b> element to add an image<br>
-    Upload the image, change its size and position<br>
-    Add any numbers of elements<br>
-    Delete elements clicking on <b>delete x</b> <br>
-    <b>Download</b> your stamp
+<div class='demo bottomleft' style="width:25em; margin-top:0px">
+    <div id='howto' style="width:20em" onclick='toggleinstruction()'>
+        To view Instruction or 'How To'.<b>Click Here</b>
+    </div>
+    <div class='suggest  bottomleft' id='suggestIns'>
+        <div class="card">
+            <div class="card-body">
+
+                <!-- <center> -->
+                <h5>Instructions</h5>
+                <!-- </center> -->
+                Select <b>Circle</b> element to add a stamp circle<br>
+                Edit the circle, change its radius and stroke width<br>
+                Select <b>Round</b> Text element to add a text around the circle<br>
+                Enter and edit the text, change spacing and rotate it clockwise<br>
+                Select <b>Line</b> Text element to add a text in the center<br>
+                Enter and edit the text, move or rotate it<br>
+                Select <b>Image</b> element to add an image<br>
+                Upload the image, change its size and position<br>
+                Add any numbers of elements<br>
+                Delete elements clicking on <b>delete x</b> <br>
+                <b>Download</b> your stamp
+            </div>
+        </div>
+    </div>
 </div>
-<div class='demo bottomleft' id='howto' onclick='toggleinstruction()'>
-    To view Instruction or 'How To'.<b>Click Here</b>
-</div>
+
 
 <!-- Footer -->
 <!-- Footer -->
