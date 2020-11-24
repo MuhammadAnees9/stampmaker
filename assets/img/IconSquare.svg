@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-IconSquare);
+      }
+
+      .cls-2, .cls-4 {
+        fill: #1b1b1b;
+      }
+
+      .cls-3, .cls-5, .cls-7 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #1b1b1b;
+      }
+
+      .cls-5 {
+        stroke: #f80;
+      }
+
+      .cls-6 {
+        stroke: none;
+      }
+
+      .cls-8 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-IconSquare">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="IconSquare" class="cls-1">
+    <rect class="cls-8" width="50" height="50"/>
+    <g id="IconSquare-2" data-name="IconSquare" transform="translate(9 7)">
+      <g id="Group_10" data-name="Group 10" transform="translate(-1774.875 -851.875)">
+        <path id="Path_87" data-name="Path 87" class="cls-2" d="M115.63,96H97.636A1.636,1.636,0,0,0,96,97.636V115.63a1.636,1.636,0,0,0,1.636,1.636H115.63a1.636,1.636,0,0,0,1.636-1.636V97.636A1.636,1.636,0,0,0,115.63,96Zm0,19.63H97.636V97.636H115.63Z" transform="translate(1688.749 770.749)"/>
+        <path id="Path_89" data-name="Path 89" class="cls-3" d="M4430.524,1200.134l3.659-5.594,5.594,5.594" transform="translate(-2644.177 -313.758)"/>
+        <path id="Path_90" data-name="Path 90" class="cls-3" d="M4438.807,1196.063l4.862-6.168,7.162,8.521" transform="translate(-2646.029 -312.719)"/>
+        <g id="Ellipse_7" data-name="Ellipse 7" class="cls-4" transform="translate(1800.692 873.375)">
+          <circle class="cls-6" cx="0.776" cy="0.776" r="0.776"/>
+          <circle class="cls-7" cx="0.776" cy="0.776" r="0.276"/>
+        </g>
+      </g>
+      <path id="Icon_ionic-ios-add-circle" data-name="Icon ionic-ios-add-circle" class="cls-5" d="M10.139,3.375A6.764,6.764,0,1,0,16.9,10.139,6.763,6.763,0,0,0,10.139,3.375Zm2.943,7.285H10.66v2.423a.52.52,0,0,1-1.041,0V10.66H7.2a.52.52,0,1,1,0-1.041H9.619V7.2a.52.52,0,1,1,1.041,0V9.619h2.423a.52.52,0,1,1,0,1.041Z" transform="translate(-3.375 -3.375)"/>
+    </g>
+  </g>
+</svg>

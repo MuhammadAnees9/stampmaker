@@ -1,3 +1,6 @@
+* {
+  outline: none !important;
+}
 .header {
   background-color: #00438a;
   height: auto;
@@ -144,6 +147,24 @@
 .seggestions-section #howto {
   width: 100%;
 }
+.brand {
+  justify-content: flex-end;
+  align-items: center;
+}
+.brand h1 {
+  font-size: 5em;
+  margin-left: 10px;
+}
+.icon-btn {
+  display: flex;
+  align-items: center;
+}
+.round-color {
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
 
 @media screen and (max-width: 768px) {
   canvas {
@@ -182,6 +203,13 @@
   .seggestions-section {
     width: 16em;
     bottom: 1em;
+  }
+  .brand h1 {
+    font-size: 2.5em;
+    margin-left: 10px;
+  }
+  .icon-btn {
+    flex-direction: column;
   }
 }
 
@@ -262,6 +290,10 @@
   .seggestions-section {
     width: 100%;
     bottom: 0px;
+  }
+  .brand h1 {
+    font-size: 1.6em;
+    margin-left: 10px;
   }
 }
 

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-IconArrows);
+      }
+
+      .cls-2, .cls-4 {
+        fill: #f80;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-IconArrows">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="IconArrows" class="cls-1">
+    <rect class="cls-5" width="50" height="50"/>
+    <g id="IconArrow" transform="translate(9 18)">
+      <g id="Polygon_10" data-name="Polygon 10" class="cls-2">
+        <path class="cls-3" d="M 15.16666507720947 14.5 L 0.83333420753479 14.5 L 7.999999523162842 1.062502503395081 L 15.16666507720947 14.5 Z"/>
+        <path class="cls-4" d="M 7.999999523162842 2.124996185302734 L 1.666664123535156 14 L 14.33333492279053 14 L 7.999999523162842 2.124996185302734 M 7.999999523162842 0 L 16 15 L -9.5367431640625e-07 15 L 7.999999523162842 0 Z"/>
+      </g>
+      <g id="Polygon_11" data-name="Polygon 11" class="cls-2" transform="translate(32 15) rotate(180)">
+        <path class="cls-3" d="M 15.16666507720947 14.5 L 0.83333420753479 14.5 L 7.999999523162842 1.062502503395081 L 15.16666507720947 14.5 Z"/>
+        <path class="cls-4" d="M 7.999999523162842 2.124996185302734 L 1.666664123535156 14 L 14.33333492279053 14 L 7.999999523162842 2.124996185302734 M 7.999999523162842 0 L 16 15 L -9.5367431640625e-07 15 L 7.999999523162842 0 Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
