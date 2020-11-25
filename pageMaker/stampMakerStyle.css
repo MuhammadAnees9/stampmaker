@@ -1,3 +1,6 @@
+* {
+  outline: none !important;
+}
 .header {
   background-color: #00438a;
   height: auto;
@@ -20,7 +23,10 @@
   margin: 0;
 }
 .btns-wrapper {
-  padding-top: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 .btns-wrapper .btn {
   width: 100px;
@@ -42,12 +48,12 @@
   width: 100% !important;
   height: 25em !important;
   border: 1px solid black;
-  padding-top: 3em;
+  padding-top: 2em;
   position: relative;
 }
 #container {
   width: 90% !important;
-  height: 17em !important;
+  height: 20em !important;
 }
 #container .konvajs-content {
   width: 100% !important;
@@ -110,14 +116,14 @@
   overflow-y: auto;
 }
 .download-btn {
-  position: absolute;
-  left: calc(50% - 68px);
+  position: relative;
+  /* left: calc(50% - 210px); */
 }
 #howto {
   color: white;
   background: #00438a;
   padding: 6px;
-  width: 20em;
+  width: 100%;
 }
 .instruction {
   position: absolute;
@@ -134,13 +140,57 @@
 .mobile-view {
   display: none;
 }
-
+.seggestions-section {
+  width: 19.5em;
+  margin-top: 0px;
+  position: relative;
+  bottom: 5em;
+  z-index: 100;
+}
+.seggestions-section #howto {
+  width: 100%;
+}
+.brand {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.brand h1 {
+  font-size: 5em;
+  margin-left: 10px;
+}
+.icon-btn {
+  display: flex;
+  align-items: center;
+}
+.round-color {
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.bottomleft {
+  width: 19.7em;
+  margin-top: 0px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+}
+.color-picker {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.canvas-col {
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   canvas {
     width: 200px;
   }
   .wrapper {
-    margin-top: 6em;
+    margin-top: 7em;
   }
   .instruction {
     position: relative;
@@ -153,11 +203,11 @@
   }
   #container {
     width: 95% !important;
-    height: 12em !important;
+    height: 15em !important;
   }
   .btns {
     position: absolute;
-    top: -5em;
+    top: -7em;
     left: calc(50% - 175px);
   }
   .list-group {
@@ -169,6 +219,17 @@
   .canvas-col {
     margin-top: 1em;
   }
+  .seggestions-section {
+    width: 16em;
+    bottom: 1em;
+  }
+  .brand h1 {
+    font-size: 2.5em;
+    margin-left: 10px;
+  }
+  .icon-btn {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -176,7 +237,10 @@
     margin-top: 6em;
   }
   .canvas-col {
-    margin-top: 6em;
+    margin-top: 8em;
+  }
+  #labels-container {
+    margin-top: 8em;
   }
   .desktop-view {
     display: none;
@@ -239,11 +303,19 @@
     top: -87px;
     left: calc(50% - 68px);
   }
-  .canvas {
+  /* .canvas {
     margin-top: 10px;
-  }
+  } */
   .right-panel {
     margin-top: 20px;
+  }
+  .seggestions-section {
+    width: 100%;
+    bottom: 0px;
+  }
+  .brand h1 {
+    font-size: 1.6em;
+    margin-left: 10px;
   }
 }
 

@@ -12,6 +12,7 @@ include_once('header.php');
             <div class="col-lg-9 col-md-8 col-sm-5 text-center d-flex text-white brand">
                 <img class="d-inline" src="assets/img/Logo.svg" width="120px" />
                 <h1 class="d-inline">My Stamp Maker</h1>
+                <a href="pageMaker/"></a>
 
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6" style="display: flex; align-items:center">
@@ -113,7 +114,7 @@ include_once('header.php');
         </div>
 
         <!-- Canvas -->
-        <div class="col-lg-6 col-sm-8 col-md-6 col-9 canvas-col">
+        <div class="col-lg-6 col-sm-8 col-md-6 col-9 mb-lg-2  canvas-col">
             <div class="row">
                 <!-- <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul> -->
@@ -461,7 +462,7 @@ include_once('header.php');
     <div id='howto' onclick='toggleinstruction()'>
         To view Instruction or 'How To'.<b>Click Here</b>
     </div>
-    <div class='suggest  bottomleft' id='suggestIns'>
+    <div class='suggest' id='suggestIns'>
         <div class="card">
             <div class="card-body">
 
