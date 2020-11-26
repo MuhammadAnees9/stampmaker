@@ -12,7 +12,7 @@ include_once('header.php');
             <div class="col-lg-9 col-md-8 col-sm-5 text-center d-flex text-white brand">
                 <img class="d-inline" src="assets/img/Logo.svg" width="120px" />
                 <h1 class="d-inline">My Stamp Maker</h1>
-                <a href="pageMaker/"></a>
+                <!-- <a href="pageMaker/index.html">Second Page</a> -->
 
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6" style="display: flex; align-items:center">
