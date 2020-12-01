@@ -36,13 +36,16 @@
     <header class="header">
         <div class="container-fluid" style="margin: 0px; padding: 0px;">
             <div class="row" style="margin: 0px; padding: 0px;">
-                <div class="col-lg-9 col-md-8 col-sm-5 text-center text-white brand">
+                <div class="col-lg-8 col-md-7 col-sm-5 text-center text-white brand">
                     <img class="d-inline" src="../assets/img/Logo.svg" width="120px" />
-                    <h1 class="d-inline">My Stamp Maker</h1>
+                    <h1 class="d-inline">My Page Maker</h1>
 
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="col-lg-4 col-md-5 col-sm-6 text-center">
                     <div class="btns-wrapper">
+                        <p class="mt-4">
+                            <a href="../" class="text-white" style="text-decoration: none;">Create Stamp</a>
+                        </p>
                         <button type="button" class="btn btn-outline-warning">Sign Up</button>
                         <button type="button" class="btn btn-outline-warning">Sign In</button>
                     </div>
@@ -373,10 +376,6 @@
                 <!-- Content -->
                 <h5 class="text-uppercase">My Page Maker</h5>
                 <p>Create a page easily.</p>
-                <p>Explore its more features on this page.
-                    <a href="../" class="text-white"> <br>
-                        <button class="btn btn-warning">Stamp Maker</button></a>
-                </p>
 
             </div>
             <!-- Grid column -->
@@ -437,7 +436,7 @@
     <!-- Copyright -->
 
 </footer>
-<br><br><br>
+
 <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
 
 </html>

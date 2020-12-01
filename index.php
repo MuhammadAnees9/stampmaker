@@ -9,14 +9,17 @@ include_once('header.php');
 <header class="header">
     <div class="container-fluid" style="margin: 0px; padding: 0px;">
         <div class="row" style="margin: 0px; padding: 0px;">
-            <div class="col-lg-9 col-md-8 col-sm-5 text-center d-flex text-white brand">
+            <div class="col-lg-8 col-md-7 col-sm-5 text-center d-flex text-white brand">
                 <img class="d-inline" src="assets/img/Logo.svg" width="120px" />
                 <h1 class="d-inline">My Stamp Maker</h1>
                 <!-- <a href="pageMaker/index.html">Second Page</a> -->
 
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" style="display: flex; align-items:center">
+            <div class="col-lg-4 col-md-5 col-sm-6" style="display: flex; align-items:center">
                 <div class="btns-wrapper">
+                    <p class="mt-4">
+                        <a href="pageMaker/" class="text-white" style="text-decoration: none;">Create Page</a>
+                    </p>
                     <?php
                     getNav();
                     function getNav()

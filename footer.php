@@ -14,13 +14,6 @@
                 <!-- Content -->
                 <h5 class="text-uppercase">My Stamp Maker</h5>
                 <p>Create a round stamp easily.</p>
-
-                <p>Explore its more features on this page.
-                    <a href="pageMaker/" class="text-white"> <br>
-                        <button class="btn btn-warning">Stamp Maker</button></a>
-                </p>
-
-
             </div>
             <!-- Grid column -->
 
@@ -80,7 +73,6 @@
     <!-- Copyright -->
 
 </footer>
-<br><br><br>
 
 </html>
 <script type="text/javascript">
