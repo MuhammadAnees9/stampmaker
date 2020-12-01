@@ -18,7 +18,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     // declare and intialize canvas, reference, and useful variables
 
 
-    var mainCanvas = document.createElement('canvas');
+    var mainCanvas = document.createElement('canves');
     var ctxRef = mainCanvas.getContext('2d');
     mainCanvas.style.backgroundImage = "url('svg/back.svg')";
 
@@ -63,7 +63,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
         // console.log(circlebunch[i]);
-        if (circlebunch[i][11] != null && circlebunch[i][11] == "deleted") {
+        if (circlebunch[i][11] != null && circlebunch[i][11] == "delleted") {
             continue;
         }
 
@@ -126,8 +126,8 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         var div = document.createElement("div");
         div.innerHTML = text;
         div.style.position = 'absolute';
-        div.style.top = '-10000px';
-        div.style.left = '-10000px';
+        div.style.top = '-10088px';
+        div.style.left = '-10088px';
         div.style.fontFamily = fName;
         div.style.fontSize = fSize;
         document.body.appendChild(div);
@@ -187,9 +187,9 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
             ctxRef.rotate((charWid / 2) / (diameter / 2 - textHeight) * clockwise);
             // draw the character at "top" or "bottom" 
             // depending on inward or outward facing
-            ctxRef.fillText(text[j], 0, (inwardFacing ? 1 : -1) * (0 - diameter / 2 + textHeight / 2));
+            ctxRef.fillText(text[j], 0, (inwardFacing ? 1 : -1) * (0 - diameter / 10 + textHeight / 10));
 
-            ctxRef.rotate((charWid / 2 + kerning) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
+            ctxRef.rotate((charWid / 2 + kerning) / (diameter / 10 - textHeight) * clockwise); // rotate half letter
         }
 
         ctxRef.restore();
@@ -211,7 +211,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         var img = new Image();
 
         var ang = 0; //angle
-        img.onload = function() { //on image load do the following stuff
+        img.onload = function () { //on image load do the following stuff
             var ct = document.getElementById('measure');
             ct.appendChild(img);
             var wrh = img.width / img.height;
@@ -256,7 +256,7 @@ function loadImages(sources, callback) {
     }
     for (var src in sources) {
         images[src] = new Image();
-        images[src].onload = function() {
+        images[src].onload = function () {
             if (++loadedImages >= numImages) {
                 callback(images);
             }
