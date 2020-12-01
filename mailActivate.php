@@ -8,15 +8,15 @@ require_once "PHPMailer/Exception.php";
 
 $to = $_POST["email"];
 $id = $_POST["id"];
-$link = "http://stamp-maker-test.us-east-1.elasticbeanstalk.com/";
+$link = "http://stamp-maker-test.us-east-1.elasticalk.com/";
 $senderName = 'Test';
 
 
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
+$usernameSmtp = 'sayaping@gmail.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'bsffegtswupk';            // This is you gmail password
 
 
 
@@ -66,5 +66,3 @@ $mail->Body = $message;
 } catch (Exception $e) {
      echo json_encode(array("abc"=>'not-done',"msg" => "Email not sent. {$mail->ErrorInfo}"));
 }
-
-?>

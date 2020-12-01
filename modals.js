@@ -1,16 +1,16 @@
 function ajaxCall() {
     var Txtemail = $("#email").val();
     var Txtpass = $("#pass").val();
-    var TxtlangSource = $("#langS").val();
+    var TxtlangSource = $("#lang").val();
     var TxtlangTarget = $("#langTarget").val();
     var TxtReason = $("#reason").val();
     var TxtUsername = $("#usernametext").val();
 
     if (TxtlangSource == null || TxtlangSource == "" || TxtlangSource == undefined) {
-        TxtlangSource = $("#lang2").val();
+        TxtlangSource = $("#lang").val();
     }
     if (TxtlangTarget == null || TxtlangTarget == "" || TxtlangTarget == undefined) {
-        TxtlangTarget = $("#lang3").val();
+        TxtlangTarget = $("#lang").val();
     }
     if ($('input[id="notatranslator"]').is(':checked')) {
 
@@ -26,7 +26,7 @@ function ajaxCall() {
         type: "post", //request type,
         dataType: 'json',
         data: { email: Txtemail, pass: Txtpass, langS: TxtlangSource, langT: TxtlangTarget, username: TxtUsername, reason: TxtReason },
-        success: function(response) {
+        success: function (response) {
             console.log(response);
             var iduser = response.id;
             if (response.abc == "done") {
@@ -40,22 +40,22 @@ function ajaxCall() {
                     type: "post", //request type,
                     dataType: 'json',
                     data: { email: Txtemail, id: iduser },
-                    success: function(response) {
+                    success: function (response) {
                         $.ajax({
                             url: "mailAdmin.php", //the page containing php script
                             type: "post", //request type,
                             dataType: 'json',
                             data: { id: iduser },
-                            success: function(response) {
+                            success: function (response) {
                                 location.href = location.href;
                             },
-                            error: function(jqXHR, textStatus, errorThrown) {
+                            error: function (jqXHR, textStatus, errorThrown) {
                                 console.log(JSON.stringify(jqXHR));
                                 console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                             }
                         });
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         console.log(JSON.stringify(jqXHR));
                         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                     }
@@ -78,7 +78,7 @@ function ajaxCall() {
 
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
             console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
         }
@@ -90,8 +90,8 @@ function logout() {
         url: "logout.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
-        success: function(response) {
-            swal("Logout", "You are log out successfully.", "success").then(function() {
+        success: function (response) {
+            swal("Logout", "You are log out successfully.", "success").then(function () {
                 location.reload();
             });
 
@@ -101,19 +101,19 @@ function logout() {
 
 function login() {
     var txtusername = $("#usernameLogin").val();
-    var txtpassword = $("#passLogin").val();
+    var txtpassword = $("#passlogin").val();
     $.ajax({
         url: "login.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
         data: { username: txtusername, password: txtpassword },
-        success: function(response) {
+        success: function (response) {
             console.log(response.abc);
             if (response.abc == "done") {
-                $('#myModalLogin').modal('hide');
-                $("#usernameLogin").css("border", "1px solid green");
+                $('#myModallogin').modal('hide');
+                $("#usernamelogin").css("border", "1px solid green");
                 $("#passLogin").css("border", "1px solid green");
-                swal("Welcome!", "You have loged in successfully.", "success").then(function() {
+                swal("Welcome!", "You have loged in successfully.", "success").then(function () {
                     if ($("#info").html() != "") {
                         download();
                     } else {
@@ -123,11 +123,11 @@ function login() {
 
             } else if (response.abc == "fail") {
 
-                $("#usernameLogin").css("border", "1px solid red");
+                $("#usernamelogin").css("border", "1px solid red");
                 $("#passLogin").css("border", "1px solid red");
                 swal("incorrect Credentials", "The credentials you provide are incorrect.", "warning");
             } else if (response.abc == "admin") {
-                swal("Welcome! Admin", "You have loged in successfully.", "success").then(function() {
+                swal("Welcome! Admin", "You have loged in successfully.", "success").then(function () {
 
                     if ($("#info").html() != "") {
                         download();
@@ -184,7 +184,7 @@ function togglesuggestions() {
 
 function toggleinstruction() {
 
-    $("#suggestIns").slideToggle();
+    $("#suggestins").slideToggle();
 }
 
 function suggestion() {
@@ -203,7 +203,7 @@ function suggestion() {
             type: "post", //request type,
             dataType: 'json',
             data: { text: suggestText },
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
 
 

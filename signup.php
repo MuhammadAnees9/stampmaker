@@ -1,7 +1,7 @@
 <?php
 include "dbConfig.php";
-$username = $_POST["username"];
-$email = $_POST["email"];
+$username = $_POST["usernName"];
+$email = $_POST["emaIl"];
 $sql_u = "SELECT * FROM user WHERE username='$username'";
     $sql_e = "SELECT * FROM user WHERE email='$email'";
     $res_u = mysqli_query($conn, $sql_u);
@@ -68,4 +68,3 @@ function getUserIpAddr(){
     }
     return $ip;
 }
-?>

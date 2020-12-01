@@ -95,8 +95,8 @@ function logout() {
   });
 }
 function login() {
-  var txtusername = $("#usernameLogin").val();
-  var txtpassword = $("#passLogin").val();
+  var txtusername = $("#usernamelogin").val();
+  var txtpassword = $("#passlogin").val();
   $.ajax({
     url: "login.php", //the page containing php script
     type: "post", //request type,
@@ -105,8 +105,8 @@ function login() {
     success: function (response) {
       console.log(response.abc);
       if (response.abc == "done") {
-        $('#myModalLogin').modal('hide');
-        $("#usernameLogin").css("border", "1px solid green");
+        $('#myModallogin').modal('hide');
+        $("#usernamelogin").css("border", "1px solid green");
         $("#passLogin").css("border", "1px solid green");
         swal("Welcome!", "You have loged in successfully.", "success").then(function () {
           //Checking if the user turn from the  download
@@ -178,7 +178,7 @@ function togglesuggestions() {
 }
 function suggestion() {
 
-  var suggestText = $("#suggestText").val();
+  var suggestText = $("#suggesttext").val();
   $.ajax({
     url: "suggest.php", //the page containing php script
     type: "post", //request type,
