@@ -8,54 +8,12 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
-        <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+        <img class="col-lg-3 col-md-5" src="logo.png" />
             <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
 
-                <img class="d-inline d-lg-none" src="logo.png" />
-                <button class="btn o" id="addroundtext" title="Text Around The Circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
-                        </path>
-                    </svg>
-
-                    <br><span style="color:white;">Round Text</span>
-                </button>
-                <button class="btn o" id="addlinetext" title="Line Text">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M5 236l60 1 15 -38 45 0c-1,-20 3,-35 15,-50 1,-1 1,-2 2,-2l-41 -1 24 -59 22 54c1,0 7,-5 10,-7 13,-8 27,-11 43,-10l-45 -113 -60 0 -90 225zm180 -82l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Line Text</span>
-
-                </button>
-                <button class="btn o" id="addcircle" title="Circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path fill="#ffffff"
-                            d="M125 15c-61,0 -110,49 -110,110 0,61 49,110 110,110 7,0 13,0 20,-1 -7,-7 -12,-15 -16,-24 -1,0 -3,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,2 0,2 9,3 17,8 24,15 1,-6 1,-11 1,-17 0,-61 -49,-110 -110,-110zm60 139l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Circle</span>
-
-
-                </button>
-                <button class="btn o" id="addimage" title="Image">
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
-                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path class="add_el_path" fill="#ffffff"
-                            d="M185 154l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12zm-83 -25c0,-11 -8,-20 -19,-20 -11,0 -20,9 -20,20 0,11 9,20 20,20 11,0 19,-9 19,-20zm-44 72l0 23 69 0c-2,-7 -4,-14 -4,-21 0,-22 12,-41 29,-53l-9 -12 -20 29 -25 -11 -40 45zm32 -174l-58 61 0 164 114 0c-5,-5 -9,-9 -12,-14l-88 0 0 -144 53 0 0 -53 101 0 0 99c5,1 9,3 14,5l0 -118 -124 0zm-5 26l0 27 -25 0 25 -27z">
-                        </path>
-                    </svg>
-                    <br><span style="color:white;">Image</span>
-
-                </button>
-
-            </div>
-
+				<h3 class="d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+        </div>
+        
         <div class="col-sm-4">
             <center>
                 <?php
