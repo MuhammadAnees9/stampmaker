@@ -96,13 +96,13 @@ include_once('header.php');
         <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul>
 	<div class="col-lg-1 col-sm-3 col-10 col-md-4" style="margin-top:40px;">
-
+		<img src="image.png" />
         </div>
         <div class="col-lg-4 canvas col-sm-3 col-10 col-md-4" style="margin-top:40px;">
 
         </div>
 	<div class="col-lg-1 col-sm-3 col-10 col-md-4" style="margin-top:40px;">
-
+		<img src="image2.png" />
         </div>
         <br>
         <div class="col-lg-2 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
