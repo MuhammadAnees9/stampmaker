@@ -50,8 +50,8 @@ include_once('header.php');
 <div class="container">
     <!-- Scrolling Wrapper End-->
     <div class="row">
-	<ul class="col-lg-1">
-		<li><button class="btn o" id="addroundtext" title="Text Around The Circle">
+	<ul class="col-lg-2">
+		<button class="btn o" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
@@ -60,8 +60,8 @@ include_once('header.php');
                     </svg>
 
                     <br><span style="color:white;">Round Text</span>
-			</button></li>
-               <li> <button class="btn o" id="addlinetext" title="Line Text">
+			</button>
+                <button class="btn o" id="addlinetext" title="Line Text">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#ffffff"
@@ -70,15 +70,15 @@ include_once('header.php');
                     </svg>
                     <br><span style="color:white;">Line Text</span>
 
-		       </button></li>
+		       </button>
 	</ul>
-        <ul class="bookmarks col-lg-1 col-sm-2 col-md-3 col-2" id="labels">
+        <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul>
         <div class="col-lg-4 canvas col-sm-3 col-10 col-md-4" style="margin-top:40px;">
 
         </div>
         <br>
-        <div class="col-lg-3 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
+        <div class="col-lg-4 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
             <div class="guide">
                 <u><b>Create a round stamp</b></u><br>
                 Select <b>Circle</b> element to add a stamp circle<br>
