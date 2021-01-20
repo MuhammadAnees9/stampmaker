@@ -6,7 +6,7 @@ include_once('header.php');
 ?>
 
 <div id="measure"></div>
-<div class="container shadow-sm p-3 text-white" style="background-color:#331C6F">
+<div class="container shadow-sm p-3 text-white w-100" style="background-color:#331C6F">
     <div class="row no-gutter">
 	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
 		    <div class="row no-gutters">
