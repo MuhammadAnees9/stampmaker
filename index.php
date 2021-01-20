@@ -10,11 +10,11 @@ include_once('header.php');
     <div class="row no-gutter">
 	    <div class="col-sm-8 col-lg-7 col-md-7 col-xs-7">
 		    <div class="row no-gutters">
-			    <div class="col-sm-4 col-lg-5 col-md-4 col-xs-4">
+			    <div class="col-sm-4 col-lg-6 col-md-4 col-xs-4">
 				<img style="float:right" src="logo.png" />
 			    </div>
-			    <div class="col-sm-8 col-lg-7 col-md-7 col-xs-8">
-				<h2 style="padding:10px; font-size: 40px">My Stamp Maker</h2>
+			    <div class="col-sm-8 col-lg-6 col-md-7 col-xs-8">
+				<h2 style="padding:7px; font-size: 40px">My Stamp Maker</h2>
 			    </div>
 		    </div>
 		  
