@@ -6,7 +6,7 @@ include_once('header.php');
 ?>
 
 <div id="measure"></div>
-<div class="container shadow-sm bg-primary p-3 text-white">
+<div class="container shadow-sm bg-primary p-3 text-white" style="background-color:#331C6F">
     <div class="row no-gutter">
 	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
 		    <div class="row no-gutters">
@@ -14,7 +14,7 @@ include_once('header.php');
 				<img style="float:right" src="logo.png" />
 			    </div>
 			    <div class="col-sm-8 col-lg-5 col-md-7 col-xs-8">
-				<h2 style="padding-top:30px; font-size: 30px">My Stamp Maker</h2>
+				<h2 style="padding-top:25px; font-size: 40px">My Stamp Maker</h2>
 			    </div>
 		    </div>
 		  
