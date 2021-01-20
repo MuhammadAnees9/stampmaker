@@ -14,7 +14,7 @@ include_once('header.php');
 				<img  style="float:right" src="logo.png" />
 			    </div>
 			    <div class="col-sm-6 col-lg-5 col-md-6">
-				<h3 class="d-none d-lg-inline">My Stamp Maker</h3>
+				<h3 >My Stamp Maker</h3>
 			    </div>
 		    </div>
 		  
