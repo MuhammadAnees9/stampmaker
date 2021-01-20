@@ -8,7 +8,7 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm p-3 text-white" style="background-color:#331C6F">
     <div class="row no-gutter">
-	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
+	    <div class="col-sm-8 col-lg-7 col-md-7 col-xs-7">
 		    <div class="row no-gutters">
 			    <div class="col-sm-4 col-lg-5 col-md-4 col-xs-4">
 				<img style="float:right" src="logo.png" />
@@ -19,7 +19,7 @@ include_once('header.php');
 		    </div>
 		  
 	    </div>
-        <div class="col-sm-4 col-lg-4 col-md-5 col-xs-5">
+        <div class="col-sm-4 col-lg-5 col-md-5 col-xs-5">
             <center>
                 <?php
                                 getNav();
@@ -35,8 +35,8 @@ include_once('header.php');
                                 
                                 }
                                 else{
-                                echo "<button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModal' style='width:80px;height:40px;margin:10px;background-color:#F89833;font-size:20px;text-color:white'>Sign Up</button>
-				<button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModalLogin' style='width:80px;height:40px;margin:10px;background-color:transparent;font-size:20px;text-color:white;corder:1px solid white' onclick='reset()'>Log In</button>";
+                                echo "<button type='button' class='btn btn-sm modals' data-toggle='modal' data-target='#myModal' style='margin:10px;background-color:#F89833;font-size:20px;font-color:white'>Sign Up</button>
+				<button type='button' class='btn btn-sm modals' data-toggle='modal' data-target='#myModalLogin' style='margin:10px;background-color:transparent;font-size:20px;font-color:white;corder:1px solid white' onclick='reset()'>Log In</button>";
                                 }
                                 
                                 }
