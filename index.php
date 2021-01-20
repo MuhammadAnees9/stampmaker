@@ -13,7 +13,7 @@ include_once('header.php');
 
         <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
 
-            <img class="d-inline d-lg-none" src="logo.png" />
+            <img class="d-inline" src="logo.png" />
             <button class="btn o" id="addroundtext" title="Text Around The Circle">
                 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                     height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
