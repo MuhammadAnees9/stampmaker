@@ -9,12 +9,12 @@ include_once('header.php');
 <div class="container shadow-sm p-3 text-white" style="background-color:#331C6F">
     <div class="row no-gutter">
 	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
-		    <div class="row no-gutters">
+		    <div class="row">
 			    <div class="col-sm-4 col-lg-5 col-md-4 col-xs-4">
 				<img style="float:right" src="logo.png" />
 			    </div>
 			    <div class="col-sm-8 col-lg-7 col-md-7 col-xs-8">
-				<h2 style="padding-top:25px; font-size: 40px">My Stamp Maker</h2>
+				<h2 style="padding-top:15px; font-size: 40px">My Stamp Maker</h2>
 			    </div>
 		    </div>
 		  
