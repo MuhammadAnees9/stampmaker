@@ -10,10 +10,10 @@ include_once('header.php');
     <div class="row">
 	    <div class="col-sm-8">
 		    <div class="row">
-			    <div class="col-sm-6" > 
+			    <div class="col-sm-6 col-lg-5 col-md-6" > 
 				<img  style="float:right" src="logo.png" />
 			    </div>
-			    <div class="col-sm-6">
+			    <div class="col-sm-6 col-lg-5 col-md-6">
 				<h3 class="d-none d-lg-inline">My Stamp Maker</h3>
 			    </div>
 		    </div>
