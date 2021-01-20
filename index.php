@@ -8,8 +8,10 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
-        <img src="logo.png" />
-        <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+        <div class="col-lg-3 col-md-5">
+            <img src="logo.png" />
+        </div>
+        <h3 class="col-sm-8 col-lg-5 col-md-7 col-xs-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
 
         <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
             <button class="btn o" id="addroundtext" title="Text Around The Circle">
