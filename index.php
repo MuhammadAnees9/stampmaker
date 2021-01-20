@@ -8,7 +8,9 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
-        <img class="col-sm-6" src="logo.png" />
+	    <div class="col-sm-6 col-lg-3">
+        	<img  src="logo.png" />
+	    </div>
             <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
 
 				<h3 class="d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
