@@ -6,7 +6,7 @@ include_once('header.php');
 ?>
 
 <div id="measure"></div>
-<div style="background-color:#331C6F">
+<div class="text-white" style="background-color:#331C6F">
     <div class="row no-gutter">
 	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
 		    <div class="row no-gutters">
@@ -50,7 +50,7 @@ include_once('header.php');
 <div>
     <!-- Scrolling Wrapper End-->
     <div class="row">
-	<ul class="col-lg-2">
+	<ul class="col-lg-1">
 		<button class="btn o" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
