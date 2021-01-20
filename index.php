@@ -8,7 +8,7 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
-	    <div class="col-sm-8">
+	    <div class="col-sm-8 col-lg-8 col-md-7 col-xs-7">
 		    <div class="row">
 			    <div class="col-sm-7 col-lg-7 col-md-7 col-xs-6" > 
 				<img  style="float:right" src="logo.png" />
@@ -19,7 +19,7 @@ include_once('header.php');
 		    </div>
 		  
 	    </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-lg-4 col-md-5 col-xs-5">
             <center>
                 <?php
                                 getNav();
