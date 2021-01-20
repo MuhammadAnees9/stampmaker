@@ -97,14 +97,10 @@ include_once('header.php');
         </ul>
         <div class="col-lg-6 col-sm-3 col-6 col-md-4" style="margin-top:40px;">
 		<div class="row">
-			<div class="col-lg-4 col-sm-3 col-3 col-md-4" style="height: 200px">
-				<img src="Image1.png" />
-			</div>
+				<img class="col-lg-4 col-sm-3 col-3 col-md-4" style="height: 200px" src="Image1.png" />
 			<div class="canvas col-lg-4 col-sm-3 col-6 col-md-4" style="">
 			</div>
-			<div class="col-lg-4 col-sm-3 col-3 col-md-4" style="height: 200px">
-			<img src="image2.png" />
-			</div>
+			<img class="col-lg-4 col-sm-3 col-3 col-md-4" style="height: 200px" src="image2.png" />
 		</div>
         </div>
         <br>
