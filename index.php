@@ -50,7 +50,7 @@ include_once('header.php');
 <div>
     <!-- Scrolling Wrapper End-->
     <div class="row">
-	<ul class="col-lg-1 col-sm-1 col-md-2 col-1" style="margin-top:40px;>
+	<ul class="col-lg-1 col-sm-1 col-md-2 col-1" style="margin-top:40px;">
 		<button class="btn o" id="addroundtext" title="Text Around The Circle">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
                         height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -71,6 +71,27 @@ include_once('header.php');
                     <br><span style="color:black;">Line Text</span>
 
 		       </button>
+		<button class="btn o" id="addcircle" title="Circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path fill="#F89833"
+                            d="M125 15c-61,0 -110,49 -110,110 0,61 49,110 110,110 7,0 13,0 20,-1 -7,-7 -12,-15 -16,-24 -1,0 -3,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,2 0,2 9,3 17,8 24,15 1,-6 1,-11 1,-17 0,-61 -49,-110 -110,-110zm60 139l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
+                        </path>
+                    </svg>
+                    <br><span style="color:black;">Circle</span>
+
+
+                </button>
+                <button class="btn o" id="addimage" title="Image">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px"
+                        height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path class="add_el_path" fill="#F89833"
+                            d="M185 154l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12zm-83 -25c0,-11 -8,-20 -19,-20 -11,0 -20,9 -20,20 0,11 9,20 20,20 11,0 19,-9 19,-20zm-44 72l0 23 69 0c-2,-7 -4,-14 -4,-21 0,-22 12,-41 29,-53l-9 -12 -20 29 -25 -11 -40 45zm32 -174l-58 61 0 164 114 0c-5,-5 -9,-9 -12,-14l-88 0 0 -144 53 0 0 -53 101 0 0 99c5,1 9,3 14,5l0 -118 -124 0zm-5 26l0 27 -25 0 25 -27z">
+                        </path>
+                    </svg>
+                    <br><span style="color:black;">Image</span>
+
+                </button>
 	</ul>
         <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul>
