@@ -8,7 +8,7 @@ include_once('header.php');
 <div id="measure"></div>
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
-        <div class="col-lg-3 col-md-5" style="padding:150px;">
+        <div class="col-lg-3 col-md-5" style="margin-left:50%">
             <img src="logo.png" />
         </div>
         <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5 d-none d-lg-inline" style="padding:20px;">
