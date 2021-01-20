@@ -95,17 +95,18 @@ include_once('header.php');
 	</ul>
         <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
         </ul>
-	<div class="col-lg-2 col-sm-3 col-10 col-md-4" style="margin-top:40px; height: auto">
-		<img src="image1.png" />
-        </div>
-        <div class="col-lg-3 col-sm-3 col-10 col-md-4" style="margin-top:40px;">
-
-        </div>
-	<div class="col-lg-2 col-sm-3 col-10 col-md-4" style="margin-top:40px;height: auto">
-		<img src="image2.png" />
+        <div class="col-lg-6 col-sm-3 col-6 col-md-4" style="margin-top:40px;">
+		<div class="row">
+			<div class="col-lg-4 col-sm-3 col-10 col-md-4" style="margin-top:40px; height: auto">
+				<img src="image1.png" />
+			</div>
+			<div class="col-lg-4 col-sm-3 col-10 col-md-4" style="margin-top:40px;height: auto">
+			<img src="image2.png" />
+			</div>
+		</div>
         </div>
         <br>
-        <div class="col-lg-1 col-sm-12 col-md-12 col-xs-3" id="properties" style="height:auto;margin-top:40px;">
+        <div class="col-lg-2 col-sm-12 col-md-12 col-xs-3 col-2" id="properties" style="height:auto;margin-top:40px;">
             <div class="guide">
                 <u><b>Create a round stamp</b></u><br>
                 Select <b>Circle</b> element to add a stamp circle<br>
