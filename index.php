@@ -35,7 +35,8 @@ include_once('header.php');
                                 
                                 }
                                 else{
-                                echo "<button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModal' style='width:50px;height:40px;margin:10px;background-color:#F89833'>Sign Up</button><button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModalLogin' style='width:50px;height:40px;margin:10px;background-color:transparent' onclick='reset()'>Log In</button>";
+                                echo "<button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModal' style='width:80px;height:40px;margin:10px;background-color:#F89833;font-size:20px;text-color:white'>Sign Up</button>
+				<button type='button' class='btn btn-lg modals' data-toggle='modal' data-target='#myModalLogin' style='width:80px;height:40px;margin:10px;background-color:transparent;font-size:20px;text-color:white;corder:1px solid white' onclick='reset()'>Log In</button>";
                                 }
                                 
                                 }
