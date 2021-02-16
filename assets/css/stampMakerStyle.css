@@ -259,6 +259,27 @@ input[type="range"]::-ms-thumb {
   margin-bottom: 2em;
 }
 
+/* bottons override */
+.btn-warning {
+  color: #212529;
+  background-color: #ff8800;
+  border-color: #241c06
+}
+.btn-warning:hover {
+  color: #212529;
+  background-color: #e0a800;
+  border-color: #ff8800
+}
+.btn-outline-warning {
+  color: #ff8800;
+  border-color: #ff8800
+}
+
+.btn-outline-warning:hover {
+  color: #212529;
+  background-color: #ff8800;
+  border-color: #212529
+
 /* Spectrum class overlap */
 .sp-replacer {
   border: none !important;

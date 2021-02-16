@@ -9,6 +9,7 @@ function ajaxCall() {
   var TxtUsername = $("#usernametext").val();
   var remember = $("#remember").is(":checked");
   var reason = $("#reason").val();
+  console.log('ajax')
   if (TxtlangSource == null || TxtlangSource == "" || TxtlangSource == undefined) {
     TxtlangSource = $("#lang2").val();
   }

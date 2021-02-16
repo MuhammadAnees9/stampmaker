@@ -17,9 +17,9 @@ include_once('header.php');
             </div>
             <div class="col-lg-4 col-md-5 col-sm-6" style="display: flex; align-items:center">
                 <div class="btns-wrapper">
-                    <p class="mt-4">
+                    <!-- <p class="mt-4">
                         <a href="pageMaker/" class="text-white" style="text-decoration: none;">Create Page</a>
-                    </p>
+                    </p> -->
                     <?php
                     getNav();
                     function getNav()
@@ -148,7 +148,7 @@ include_once('header.php');
                     </center>
                     <center class=" mt-2 download-btn">
                         <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
-                        <button class="btn btn-lg btn-warning shadow" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
+                        <button class="btn btn-lg btn-warning shadow" style="color: white" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
 
                     </center>
                 </div>
@@ -515,8 +515,4 @@ To send concerns or suggestions.<b>Click Here</b>
 
 ";
 }
-?>
-
-<?php
-include_once('footer.php')
 ?>
