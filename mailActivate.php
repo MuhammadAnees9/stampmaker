@@ -8,21 +8,21 @@ require_once "PHPMailer/Exception.php";
 
 $to = $_POST["email"];
 $id = $_POST["id"];
-$link = "http://stamp-maker-test.us-east-1.elasticalk.com/";
+$link = "https://user.mystampmaker.com/";
 $senderName = 'Test';
 
 
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayaping@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtswupk';            // This is you gmail password
+$usernameSmtp = 'support@mystampmaker.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
 
 
 // The subject line of the email
-$subject = 'Confirm Your Account';
+$subject = 'Confirm your Stampmaker account';
 
 $sql = "SELECT adminmail,messageforactivation FROM settings";
 $result = $conn->query($sql);
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
    $message = $row["messageforactivation"];
   }
 }
-$message .= "<br> <a href='".$link."/register.php?id=".$id."'>Click Here</a>";
+$message .= "<br>Please <a href='".$link."register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
 
 $mail = new PHPMailer(true);
 
@@ -66,3 +66,5 @@ $mail->Body = $message;
 } catch (Exception $e) {
      echo json_encode(array("abc"=>'not-done',"msg" => "Email not sent. {$mail->ErrorInfo}"));
 }
+
+?>

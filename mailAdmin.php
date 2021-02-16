@@ -66,3 +66,5 @@ $mail->Body = $message;
 } catch (Exception $e) {
      echo json_encode(array("abc"=>'not-done',"msg" => "Email not sent. {$mail->ErrorInfo}"));
 }
+
+?>

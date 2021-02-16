@@ -1,7 +1,10 @@
 <?php
 include "dbConfig.php";
-$username = $_POST["usernName"];
-$email = $_POST["emaIl"];
+$username = $_POST["username"];
+$email = $_POST["email"];
+$now = new DateTime();
+$now->setTimezone(new DateTimeZone('America/Detroit'));
+
 $sql_u = "SELECT * FROM user WHERE username='$username'";
     $sql_e = "SELECT * FROM user WHERE email='$email'";
     $res_u = mysqli_query($conn, $sql_u);
@@ -17,28 +20,35 @@ $sql_u = "SELECT * FROM user WHERE username='$username'";
     else{
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO user (username, email, password, nativeLanguage, userIP,isActive) VALUES (?, ?, ?,?,?,?)");
-$stmt->bind_param("sssssi",$username,$email,$password,$langS,$ip,$active);
+$stmt = $conn->prepare("INSERT INTO user (username, email, password, nativeLanguage, userIP,isActive,regdate) VALUES (?, ?, ?,?,?,?,?)");
+$stmt->bind_param("sssssis",$username,$email,$password,$langS,$ip,$active,$regdate);
 
 //Saving Data
+$password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
  $username = $_POST["username"];
 $email = $_POST["email"];
-$password = $_POST["pass"];
+$password = $password;
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
+$regdate =  $now->format('Y-m-d H:i:s');
+// $regdate = date("Y-m-d H:i:s");
 $active = 0;
 $stmt->execute();
 
 
 $userid1 = $stmt->insert_id;
-$stmt2 = $conn->prepare("insert into tbltranslation (sourceLang,TargetLang,userid) VALUES (?,?,?)");
-$stmt2->bind_param('ssi',$langS,$langT,$userid);
+$stmt2 = $conn->prepare("insert into tbltranslation (sourceLang,TargetLang,userid,reason) VALUES (?,?,?,?)");
+$stmt2->bind_param('ssis',$langS,$langT,$userid,$reason);
 $langS = $_POST["langS"];
 $langT = $_POST["langT"];
+$reason = $_POST["reason"];
 $userid = $userid1;
 $stmt2->execute();
-
+ if(!empty($_POST["remember"])) {
+               setcookie("usernameLogin",$email,time() + (3*30*24*3600), "/");
+                setcookie("passLogin",$_POST["pass"],time()+  (3*30*24*3600), "/");
+			}
  echo json_encode(array("abc"=>'done',"id"=> $userid));
 
 

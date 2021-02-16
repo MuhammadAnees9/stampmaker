@@ -18,43 +18,92 @@ $(function () {
 
     var RGBtoHSV = function (r, g, b) {
       r = r / 255, g = g / 255, b = b / 255;
-      var max = Math.max(r, g, b), min = Math.min(r, g, b);
+      var max = Math.max(r, g, b),
+        min = Math.min(r, g, b);
       var h, s, v = max;
 
       var d = max - min;
       s = max == 0 ? 0 : d / max;
 
-      h /= 6;
-    }
+      if (max == min) {
+        h = 0;
+      } else {
+        switch (max) {
+          case r:
+            h = (g - b) / d + (g < b ? 6 : 0);
+            break;
+          case g:
+            h = (b - r) / d + 2;
+            break;
+          case b:
+            h = (r - g) / d + 4;
+            break;
+        }
+        h /= 6;
+      }
 
-    return [Math.round(h * 360), Math.round((s * 100) * 10) / 10, Math.round((v * 100) * 10) / 10];
-  };
+      return [Math.round(h * 360), Math.round((s * 100) * 10) / 10, Math.round((v * 100) * 10) / 10];
+    };
+
+    var HSVtoRGB = function (h, s, v) {
+      h = h / 360, s = s / 100, v = v / 100;
+      var r, g, b;
 
 
-
-  switch (i % 6) {
-    case 0: r = v, g = t, b = p; break;
-    case 1: r = q, g = v, b = p; break;
-    case 2: r = p, g = v, b = t; break;
-    case 3: r = p, g = q, b = v; break;
-    case 4: r = t, g = p, b = v; break;
-    case 5: r = v, g = p, b = q; break;
-  }
+      switch (i % 6) {
+        case 0:
+          r = v, g = t, b = p;
+          break;
+        case 1:
+          r = q, g = v, b = p;
+          break;
+        case 2:
+          r = p, g = v, b = t;
+          break;
+        case 3:
+          r = p, g = q, b = v;
+          break;
+        case 4:
+          r = t, g = p, b = v;
+          break;
+        case 5:
+          r = v, g = p, b = q;
+          break;
+      }
 
   return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 })
 
-var sanitizeChannelValue = function (max) {
-  if (/^\d+$/.test(this.value)) {
+    var sanitizeChannelValue = function (max) {
+      if (/^\d+$/.test(this.value)) {
+        if (parseInt(this.value, 10) > max) {
+          $(this).val(max);
+        } else if (parseInt(this.value, 10) < 0) {
+          $(this).val(0);
+        }
+      } else if (/^[a-fA-F\d]{2}$/.test(this.value)) {
+        $(this).val(parseInt(this.value, 16));
+      } else {
+        $(this).val(0);
+      }
+    };
 
-  };
+    $('input[type="color"]').each(function (index) {
+      var startValue = $(this).attr('value') || '#000000';
+      var startRed = parseInt(startValue.substring(1, 3), 16);
+      var startGreen = parseInt(startValue.substring(3, 5), 16);
+      var startBlue = parseInt(startValue.substring(5, 7), 16);
+      var startHSV = RGBtoHSV(startRed, startGreen, startBlue);
 
-  $('input[type="color"]').each(function (index) {
-    var startValue = $(this).attr('value') || '#000000';
-    var startRed = parseInt(startValue.substring(1, 3), 16);
-    var startGreen = parseInt(startValue.substring(3, 5), 16);
-    var startBlue = parseInt(startValue.substring(5, 7), 16);
-    var startHSV = RGBtoHSV(startRed, startGreen, startBlue);
+      var hiddenField = document.createElement('input');
+      $(hiddenField).attr({
+        type: "hidden",
+        name: $(this).attr('name'),
+        value: startValue
+      });
+
+      var btnContainer = document.createElement('span');
+      $(btnContainer).addClass("color-picker-button-container");
 
     var hiddenField = document.createElement('input');
     $(hiddenField).attr({
@@ -158,156 +207,75 @@ var sanitizeChannelValue = function (max) {
     greenLI.appendChild(greenInput);
     sliderList.appendChild(greenLI);
 
-    var blueLI = document.createElement('li');
-    $(blueLI).addClass("blue-slider-li");
-    var blueSlider = document.createElement('div');
-    $(blueSlider).addClass("blue-color-slider");
-    var blueInput = document.createElement('input');
-    $(blueInput).attr({
-      type: 'text',
-      size: '3',
-      value: startBlue
-    });
-    blueLI.appendChild(blueSlider);
-    blueLI.appendChild(blueInput);
-    sliderList.appendChild(blueLI);
-
-    var hexInput = document.createElement('input');
-    $(hexInput).attr({
-      type: 'text',
-      size: '7',
-      value: startValue
-    });
-    iv;
-    $(hueSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 360,
-      range: "min",
-      value: $(hueInput).val()
-    });
-    $(satSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 100,
-      step: 0.1,
-      range: "min",
-      value: $(satInput).val()
-    });
-    $(valSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 100,
-      step: 0.1,
-      range: "min",
-      value: $(valInput).val()
-    });
-    $(redSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 255,
-      range: "min",
-      value: $(redInput).val()
-    });
-    $(greenSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 255,
-      range: "min",
-      value: $(greenInput).val()
-    });
-    $(blueSlider).slider({
-      orientation: "horizontal",
-      min: 0,
-      max: 255,
-      range: "min",
-      value: $(blueInput).val()
-    });
-
-    var HSVinputchange = function () {
-      var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseFloat($(satInput).val()), parseFloat($(valInput).val()));
-      var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
-      $(redSlider).slider("option", "value", RGBcolor[0]);
-      $(greenSlider).slider("option", "value", RGBcolor[1]);
-      $(blueSlider).slider("option", "value", RGBcolor[2]);
-      $(redInput).val(RGBcolor[0]);
-      $(greenInput).val(RGBcolor[1]);
-      $(blueInput).val(RGBcolor[2]);
-      $(hexInput).val(newColor);
-      bigSwatch.style.backgroundColor = newColor;
-      colorSwatch.style.backgroundColor = newColor;
-      $(hiddenField).val(newColor.toLowerCase());
-    };
-    var RGBinputchange = function () {
-      var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      $(hueSlider).slider("option", "value", HSVcolor[0]);
-      $(satSlider).slider("option", "value", HSVcolor[1]);
-      $(valSlider).slider("option", "value", HSVcolor[2]);
-      $(hueInput).val(HSVcolor[0]);
-      $(satInput).val(HSVcolor[1]);
-      $(valInput).val(HSVcolor[2]);
-      $(hexInput).val(newColor);
-      bigSwatch.style.backgroundColor = newColor;
-      colorSwatch.style.backgroundColor = newColor;
-      $(hiddenField).val(newColor.toLowerCase());
-    };
-    var HSVslide = function () {
-      var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
-      olor;
-      $(hexInput).val(newColor);
-    };
-    var HSVslidechange = function () {
-      var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
-      var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
-      $(redSlider).slider("option", "value", RGBcolor[0]);
-      $(greenSlider).slider("option", "value", RGBcolor[1]);
-      $(blueSlider).slider("option", "value", RGBcolor[2]);
-      $(redInput).val(RGBcolor[0]);
-      $(greenInput).val(RGBcolor[1]);
-      $(blueInput).val(RGBcolor[2]);
-      bigSwatch.style.backgroundColor = newColor;
-      $(hexInput).val(newColor);
-      colorSwatch.style.backgroundColor = newColor;
-      $(hiddenField).val(newColor.toLowerCase());
-    };
-    var RGBslide = function () {
-      var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      $(hueSlider).slider("option", "value", HSVcolor[0]);
-      $(satSlider).slider("option", "value", HSVcolor[1]);
-      $(valSlider).slider("option", "value", HSVcolor[2]);
-      $(hueInput).val(HSVcolor[0]);
-      $(satInput).val(HSVcolor[1]);
-      $(valInput).val(HSVcolor[2]);
-      $(hexInput).val(newColor);
-      bigSwatch.style.backgroundColor = newColor;
-    };
-    var RGBslidechange = function () {
-      var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
-      $(hueSlider).slider("option", "value", HSVcolor[0]);
-      $(satSlider).slider("option", "value", HSVcolor[1]);
-      $(valSlider).slider("option", "value", HSVcolor[2]);
-
-      $(valInput).val(HSVcolor[2]);
-      bigSwatch.style.backgroundColor = newColor;
-      colorSwatch.style.backgroundColor = newColor;
-      $(hiddenField).val(newColor.toLowerCase());
-    };
-
-    $(hexInput).change(function () {
-      if (/^[a-fA-F\d]{6}$/.test(this.value)) {
-        $(this).val("#" + this.value);
-      }
-      if (/^#[a-fA-F\d]{6}$/.test(this.value)) {
-        var redVal = parseInt(this.value.substring(1, 3), 16);
-        var greenVal = parseInt(this.value.substring(3, 5), 16);
-        var blueVal = parseInt(this.value.substring(5, 7), 16);
-        var HSVcolor = RGBtoHSV(redVal, greenVal, blueVal);
-        bigSwatch.style.backgroundColor = this.value;
-        $(greenInput).val(greenVal);
-        $(blueInput).val(blueVal);
+      var HSVinputchange = function () {
+        var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseFloat($(satInput).val()), parseFloat($(valInput).val()));
+        var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
+        $(redSlider).slider("option", "value", RGBcolor[0]);
+        $(greenSlider).slider("option", "value", RGBcolor[1]);
+        $(blueSlider).slider("option", "value", RGBcolor[2]);
+        $(redInput).val(RGBcolor[0]);
+        $(greenInput).val(RGBcolor[1]);
+        $(blueInput).val(RGBcolor[2]);
+        $(hexInput).val(newColor);
+        bigSwatch.style.backgroundColor = newColor;
+        colorSwatch.style.backgroundColor = newColor;
+        $(hiddenField).val(newColor.toLowerCase());
+      };
+      var RGBinputchange = function () {
+        var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
+        var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
+        $(hueSlider).slider("option", "value", HSVcolor[0]);
+        $(satSlider).slider("option", "value", HSVcolor[1]);
+        $(valSlider).slider("option", "value", HSVcolor[2]);
+        $(hueInput).val(HSVcolor[0]);
+        $(satInput).val(HSVcolor[1]);
+        $(valInput).val(HSVcolor[2]);
+        $(hexInput).val(newColor);
+        bigSwatch.style.backgroundColor = newColor;
+        colorSwatch.style.backgroundColor = newColor;
+        $(hiddenField).val(newColor.toLowerCase());
+      };
+      var HSVslide = function () {
+        var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
+        var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
+        $(redSlider).slider("option", "value", RGBcolor[0]);
+        $(greenSlider).slider("option", "value", RGBcolor[1]);
+        $(blueSlider).slider("option", "value", RGBcolor[2]);
+        $(redInput).val(RGBcolor[0]);
+        $(greenInput).val(RGBcolor[1]);
+        $(blueInput).val(RGBcolor[2]);
+        bigSwatch.style.backgroundColor = newColor;
+        $(hexInput).val(newColor);
+      };
+      var HSVslidechange = function () {
+        var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseInt($(satInput).val(), 10), parseInt($(valInput).val(), 10));
+        var newColor = makeHexCode(RGBcolor[0], RGBcolor[1], RGBcolor[2]);
+        $(redSlider).slider("option", "value", RGBcolor[0]);
+        $(greenSlider).slider("option", "value", RGBcolor[1]);
+        $(blueSlider).slider("option", "value", RGBcolor[2]);
+        $(redInput).val(RGBcolor[0]);
+        $(greenInput).val(RGBcolor[1]);
+        $(blueInput).val(RGBcolor[2]);
+        bigSwatch.style.backgroundColor = newColor;
+        $(hexInput).val(newColor);
+        colorSwatch.style.backgroundColor = newColor;
+        $(hiddenField).val(newColor.toLowerCase());
+      };
+      var RGBslide = function () {
+        var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
+        var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
+        $(hueSlider).slider("option", "value", HSVcolor[0]);
+        $(satSlider).slider("option", "value", HSVcolor[1]);
+        $(valSlider).slider("option", "value", HSVcolor[2]);
+        $(hueInput).val(HSVcolor[0]);
+        $(satInput).val(HSVcolor[1]);
+        $(valInput).val(HSVcolor[2]);
+        $(hexInput).val(newColor);
+        bigSwatch.style.backgroundColor = newColor;
+      };
+      var RGBslidechange = function () {
+        var HSVcolor = RGBtoHSV(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
+        var newColor = makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10));
         $(hueSlider).slider("option", "value", HSVcolor[0]);
         $(satSlider).slider("option", "value", HSVcolor[1]);
         $(valSlider).slider("option", "value", HSVcolor[2]);
@@ -428,7 +396,11 @@ var sanitizeChannelValue = function (max) {
         pickerDiv.className = "color-picker-dialog color-picker-closed";
         $(colorBtn).click(function () {
           $(pickerDiv).unbind('transitionend');
-
+          $(pickerDiv).unbind('oTransitionEnd');
+          $(pickerDiv).unbind('webkitTransitionEnd');
+          $(pickerDiv).unbind('MSTransitionEnd');
+          pickerDiv.style.display = 'block';
+          $(pickerDiv).css('opacity');
           pickerDiv.className = "color-picker-dialog color-picker-open";
           return false;
         });
@@ -467,5 +439,6 @@ var sanitizeChannelValue = function (max) {
         $(pickerDiv).mouseleave(closeFunc);
         $(okButton).click(closeFunc);
       }
-    })
-
+    });
+  }
+});

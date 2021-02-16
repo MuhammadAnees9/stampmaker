@@ -1,7 +1,7 @@
 <?php
 $to = $_POST["to"];
 $from = $_POST["from"];
-$subject = 'Confirm Your Account';
+$subject = 'Please confirm your Stampmaker account';
 $message =$_POST["message"];
 // $message ="Click below link to confirm your account <br> <a href='http://localhost/StampMaker%20Super%20Final/StampMaker/register.php?id=8'>Click Here</a>";
 $headers  = 'MIME-Version: 1.0' . "\r\n";

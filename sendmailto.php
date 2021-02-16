@@ -13,12 +13,12 @@
   //if "email" variable is not filled out, display the form
   else  {
 ?>
- <form method="post">
-  Email: <input name="email" type="text" required/><br />
-  Subject: <input name="subject" type="text" required/><br />
-  Message:<br />
-  <textarea name="comment" rows="15" cols="40"></textarea><br />
-  <input type="submit" value="Submit" />
-  </form>
+<form method="post">
+    Email: <input name="email" type="text" required /><br />
+    Subject: <input name="subject" type="text" required /><br />
+    Message:<br />
+    <textarea name="comment" rows="15" cols="40"></textarea><br />
+    <input type="submit" value="Submit" />
+</form>
 <?php
   }
