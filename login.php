@@ -105,8 +105,6 @@ function getUserIpAddr(){
     }
     return $ip;
 }
-if ($num_rows > 0) {
-
 
 
 require __DIR__.'/classes/Database.php';

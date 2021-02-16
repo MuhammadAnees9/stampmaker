@@ -78,3 +78,4 @@ function getUserIpAddr(){
     }
     return $ip;
 }
+?>

@@ -28,7 +28,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    $message .= "<b>Mother Fucker:</b>'".$row['name']."'<br><b>Email:</b>'".$row['mail']."'<br><b>Source Language:</b>'".$row['slang']."'<br><b>Target Language:</b>'".$row['tlang']."'<br>";
+    $message .= "<b>Name:</b>'".$row['name']."'<br><b>Email:</b>'".$row['mail']."'<br><b>Source Language:</b>'".$row['slang']."'<br><b>Target Language:</b>'".$row['tlang']."'<br>";
   }
 }
 

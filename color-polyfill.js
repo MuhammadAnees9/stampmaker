@@ -49,6 +49,11 @@ $(function () {
       h = h / 360, s = s / 100, v = v / 100;
       var r, g, b;
 
+      var i = Math.floor(h * 6);
+      var f = h * 6 - i;
+      var p = v * (1 - s);
+      var q = v * (1 - f * s);
+      var t = v * (1 - (1 - f) * s);
 
       switch (i % 6) {
         case 0:
@@ -71,8 +76,8 @@ $(function () {
           break;
       }
 
-  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-})
+      return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+    };
 
     var sanitizeChannelValue = function (max) {
       if (/^\d+$/.test(this.value)) {
@@ -105,107 +110,171 @@ $(function () {
       var btnContainer = document.createElement('span');
       $(btnContainer).addClass("color-picker-button-container");
 
-    var hiddenField = document.createElement('input');
-    $(hiddenField).attr({
-      type: "hidden",
-      name: $(this).attr('name'),
-      value: startValue
-    });
+      var colorBtn = document.createElement('button');
+      var colorSwatch = document.createElement('div');
+      colorBtn.appendChild(colorSwatch);
+      $(colorBtn).addClass("color-picker-button");
+      colorSwatch.style.backgroundColor = startValue;
+      $(this).replaceWith(hiddenField);
+      btnContainer.appendChild(colorBtn);
+      $(btnContainer).insertAfter(hiddenField);
 
-    var btnContainer = document.createElement('span');
-    $(btnContainer).addClass("color-picker-button-container");
+      var pickerDiv = document.createElement('div');
+      $(pickerDiv).addClass("color-picker-dialog");
+      pickerDiv.style.display = 'none';
 
-    var colorBtn = document.createElement('button');
-    var colorSwatch = document.createElement('div');
-    colorBtn.appendChild(colorSwatch);
-    $(colorBtn).addClass("color-picker-button");
-    colorSwatch.style.backgroundColor = startValue;
-    $(this).replaceWith(hiddenField);
-    btnContainer.appendChild(colorBtn);
-    $(btnContainer).insertAfter(hiddenField);
+      var swatchDiv = document.createElement('div');
+      $(swatchDiv).addClass("color-swatch-container");
 
-    var pickerDiv = document.createElement('div');
-    $(pickerDiv).addClass("color-picker-dialog");
-    pickerDiv.style.display = 'none';
+      var bigSwatch = document.createElement('div');
+      $(bigSwatch).addClass("color-swatch");
+      bigSwatch.style.backgroundColor = startValue;
 
-    var swatchDiv = document.createElement('div');
-    $(swatchDiv).addClass("color-swatch-container");
+      var sliderList = document.createElement('ul');
 
-    var bigSwatch = document.createElement('div');
-    $(bigSwatch).addClass("color-swatch");
-    bigSwatch.style.backgroundColor = startValue;
+      var hueLI = document.createElement('li');
+      $(hueLI).addClass("hue-slider-li");
+      var hueSlider = document.createElement('div');
+      $(hueSlider).addClass("hue-color-slider");
+      var hueInput = document.createElement('input');
+      $(hueInput).attr({
+        type: 'text',
+        size: '3',
+        value: startHSV[0]
+      });
+      hueLI.appendChild(hueSlider);
+      hueLI.appendChild(hueInput);
+      sliderList.appendChild(hueLI);
 
-    var sliderList = document.createElement('ul');
+      var satLI = document.createElement('li');
+      $(satLI).addClass("sat-slider-li");
+      var satSlider = document.createElement('div');
+      $(satSlider).addClass("sat-color-slider");
+      var satInput = document.createElement('input');
+      $(satInput).attr({
+        type: 'text',
+        size: '3',
+        value: startHSV[1]
+      });
+      satLI.appendChild(satSlider);
+      satLI.appendChild(satInput);
+      sliderList.appendChild(satLI);
 
-    var hueLI = document.createElement('li');
-    $(hueLI).addClass("hue-slider-li");
-    var hueSlider = document.createElement('div');
-    $(hueSlider).addClass("hue-color-slider");
-    var hueInput = document.createElement('input');
-    $(hueInput).attr({
-      type: 'text',
-      size: '3',
-      value: startHSV[0]
-    });
-    hueLI.appendChild(hueSlider);
-    hueLI.appendChild(hueInput);
-    sliderList.appendChild(hueLI);
+      var valLI = document.createElement('li');
+      $(valLI).addClass("val-slider-li");
+      var valSlider = document.createElement('div');
+      $(valSlider).addClass("val-color-slider");
+      var valInput = document.createElement('input');
+      $(valInput).attr({
+        type: 'text',
+        size: '3',
+        value: startHSV[2]
+      });
+      valLI.appendChild(valSlider);
+      valLI.appendChild(valInput);
+      sliderList.appendChild(valLI);
 
-    var satLI = document.createElement('li');
-    $(satLI).addClass("sat-slider-li");
-    var satSlider = document.createElement('div');
-    $(satSlider).addClass("sat-color-slider");
-    var satInput = document.createElement('input');
-    $(satInput).attr({
-      type: 'text',
-      size: '3',
-      value: startHSV[1]
-    });
-    satLI.appendChild(satSlider);
-    satLI.appendChild(satInput);
-    sliderList.appendChild(satLI);
+      var redLI = document.createElement('li');
+      $(redLI).addClass("red-slider-li");
+      var redSlider = document.createElement('div');
+      $(redSlider).addClass("red-color-slider");
+      var redInput = document.createElement('input');
+      $(redInput).attr({
+        type: 'text',
+        size: '3',
+        value: startRed
+      });
+      redLI.appendChild(redSlider);
+      redLI.appendChild(redInput);
+      sliderList.appendChild(redLI);
 
-    var valLI = document.createElement('li');
-    $(valLI).addClass("val-slider-li");
-    var valSlider = document.createElement('div');
-    $(valSlider).addClass("val-color-slider");
-    var valInput = document.createElement('input');
-    $(valInput).attr({
-      type: 'text',
-      size: '3',
-      value: startHSV[2]
-    });
-    valLI.appendChild(valSlider);
-    valLI.appendChild(valInput);
-    sliderList.appendChild(valLI);
+      var greenLI = document.createElement('li');
+      $(greenLI).addClass("green-slider-li");
+      var greenSlider = document.createElement('div');
+      $(greenSlider).addClass("green-color-slider");
+      var greenInput = document.createElement('input');
+      $(greenInput).attr({
+        type: 'text',
+        size: '3',
+        value: startGreen
+      });
+      greenLI.appendChild(greenSlider);
+      greenLI.appendChild(greenInput);
+      sliderList.appendChild(greenLI);
 
-    var redLI = document.createElement('li');
-    $(redLI).addClass("red-slider-li");
-    var redSlider = document.createElement('div');
-    $(redSlider).addClass("red-color-slider");
-    var redInput = document.createElement('input');
-    $(redInput).attr({
-      type: 'text',
-      size: '3',
-      value: startRed
-    });
-    redLI.appendChild(redSlider);
-    redLI.appendChild(redInput);
-    sliderList.appendChild(redLI);
+      var blueLI = document.createElement('li');
+      $(blueLI).addClass("blue-slider-li");
+      var blueSlider = document.createElement('div');
+      $(blueSlider).addClass("blue-color-slider");
+      var blueInput = document.createElement('input');
+      $(blueInput).attr({
+        type: 'text',
+        size: '3',
+        value: startBlue
+      });
+      blueLI.appendChild(blueSlider);
+      blueLI.appendChild(blueInput);
+      sliderList.appendChild(blueLI);
 
-    var greenLI = document.createElement('li');
-    $(greenLI).addClass("green-slider-li");
-    var greenSlider = document.createElement('div');
-    $(greenSlider).addClass("green-color-slider");
-    var greenInput = document.createElement('input');
-    $(greenInput).attr({
-      type: 'text',
-      size: '3',
-      value: startGreen
-    });
-    greenLI.appendChild(greenSlider);
-    greenLI.appendChild(greenInput);
-    sliderList.appendChild(greenLI);
+      var hexInput = document.createElement('input');
+      $(hexInput).attr({
+        type: 'text',
+        size: '7',
+        value: startValue
+      });
+      var okButton = document.createElement('button');
+      $(okButton).text('OK');
+      $(okButton).addClass('color-picker-ok-button');
+      pickerDiv.appendChild(swatchDiv);
+      swatchDiv.appendChild(bigSwatch);
+      swatchDiv.appendChild(hexInput);
+      pickerDiv.appendChild(sliderList);
+      pickerDiv.appendChild(okButton);
+      btnContainer.appendChild(pickerDiv);
+      $(hueSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 360,
+        range: "min",
+        value: $(hueInput).val()
+      });
+      $(satSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 100,
+        step: 0.1,
+        range: "min",
+        value: $(satInput).val()
+      });
+      $(valSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 100,
+        step: 0.1,
+        range: "min",
+        value: $(valInput).val()
+      });
+      $(redSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 255,
+        range: "min",
+        value: $(redInput).val()
+      });
+      $(greenSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 255,
+        range: "min",
+        value: $(greenInput).val()
+      });
+      $(blueSlider).slider({
+        orientation: "horizontal",
+        min: 0,
+        max: 255,
+        range: "min",
+        value: $(blueInput).val()
+      });
 
       var HSVinputchange = function () {
         var RGBcolor = HSVtoRGB(parseInt($(hueInput).val(), 10), parseFloat($(satInput).val()), parseFloat($(valInput).val()));
@@ -279,20 +348,58 @@ $(function () {
         $(hueSlider).slider("option", "value", HSVcolor[0]);
         $(satSlider).slider("option", "value", HSVcolor[1]);
         $(valSlider).slider("option", "value", HSVcolor[2]);
-        $(redSlider).slider("option", "value", redVal);
-        $(greenSlider).slider("option", "value", greenVal);
-        $(blueSlider).slider("option", "value", blueVal);
-        colorSwatch.style.backgroundColor = this.value;
-        $(hiddenField).val(this.value.toLowerCase());
-      } else {
-        $(this).val(makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10)));
-      }
-    });
-    $(hueInput).change(function () {
-      sanitizeChannelValue.call(this, 360);
-      $(hueSlider).slider("option", "value", parseInt(this.value, 10));
-      HSVinputchange();
+        $(hexInput).val(newColor);
+        $(hueInput).val(HSVcolor[0]);
+        $(satInput).val(HSVcolor[1]);
+        $(valInput).val(HSVcolor[2]);
+        bigSwatch.style.backgroundColor = newColor;
+        colorSwatch.style.backgroundColor = newColor;
+        $(hiddenField).val(newColor.toLowerCase());
+      };
 
+      $(hexInput).change(function () {
+        if (/^[a-fA-F\d]{6}$/.test(this.value)) {
+          $(this).val("#" + this.value);
+        }
+        if (/^#[a-fA-F\d]{6}$/.test(this.value)) {
+          var redVal = parseInt(this.value.substring(1, 3), 16);
+          var greenVal = parseInt(this.value.substring(3, 5), 16);
+          var blueVal = parseInt(this.value.substring(5, 7), 16);
+          var HSVcolor = RGBtoHSV(redVal, greenVal, blueVal);
+          bigSwatch.style.backgroundColor = this.value;
+          $(hueInput).val(HSVcolor[0]);
+          $(satInput).val(HSVcolor[1]);
+          $(valInput).val(HSVcolor[2]);
+          $(redInput).val(redVal);
+          $(greenInput).val(greenVal);
+          $(blueInput).val(blueVal);
+          $(hueSlider).slider("option", "value", HSVcolor[0]);
+          $(satSlider).slider("option", "value", HSVcolor[1]);
+          $(valSlider).slider("option", "value", HSVcolor[2]);
+          $(redSlider).slider("option", "value", redVal);
+          $(greenSlider).slider("option", "value", greenVal);
+          $(blueSlider).slider("option", "value", blueVal);
+          colorSwatch.style.backgroundColor = this.value;
+          $(hiddenField).val(this.value.toLowerCase());
+        } else {
+          $(this).val(makeHexCode(parseInt($(redInput).val(), 10), parseInt($(greenInput).val(), 10), parseInt($(blueInput).val(), 10)));
+        }
+      });
+      $(hueInput).change(function () {
+        sanitizeChannelValue.call(this, 360);
+        $(hueSlider).slider("option", "value", parseInt(this.value, 10));
+        HSVinputchange();
+      });
+      $(satInput).change(function () {
+        sanitizeChannelValue.call(this, 100);
+        $(satSlider).slider("option", "value", parseInt(this.value, 10));
+        HSVinputchange();
+      });
+      $(valInput).change(function () {
+        sanitizeChannelValue.call(this, 100);
+        $(valSlider).slider("option", "value", parseInt(this.value, 10));
+        HSVinputchange();
+      });
       $(redInput).change(function () {
         sanitizeChannelValue.call(this, 255);
         $(redSlider).slider("option", "value", parseInt(this.value, 10));
