@@ -9,7 +9,7 @@ include_once('header.php');
 <div class="container shadow-sm bg-primary p-3 text-white">
     <div class="row">
 
-        <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker</h3>
+        <h3 class="col-lg-3 col-md-5 d-none d-lg-inline" style="padding:20px;">My Stamp Maker Test2</h3>
 
         <div class="col-sm-8 col-lg-5 col-md-7 col-xs-5">
 
