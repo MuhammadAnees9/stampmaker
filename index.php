@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once('header.php');
+include_once('inc/header.php');
 
 ?>
 
@@ -398,12 +398,12 @@ include_once('header.php');
                     <textarea class="form-control" placeholder="Reason of using (Not a translator)" id="reason"></textarea>
                     <br>
                     <label class="checkbox-inline">
-                        I have read and accept <a href="terms.php" target="_blank">Terms and Conditions.</a>
+                        I have read and accept <a href="inc/terms.php" target="_blank">Terms and Conditions.</a>
                         &nbsp;&nbsp;<input type="checkbox" id="accept" required="">
                     </label>
                     <br>
-                    <a href="terms.php" style="float:right;" target="_blank">Terms and conditions</a><br>
-                    <a href="privacy.php" style="float:right;" target="_blank">Privacy notice</a>
+                    <a href="inc/terms.php" style="float:right;" target="_blank">Terms and conditions</a><br>
+                    <a href="inc/privacy.php" style="float:right;" target="_blank">Privacy notice</a>
                     <div class="field-group">
                         <div><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
                             <label for="remember-me">Remember me</label>
@@ -490,6 +490,7 @@ include_once('header.php');
 
 
 <!-- Footer -->
+<?php include_once('inc/footer.php'); ?>
 <!-- Footer -->
 <?php
 if (empty($_SESSION["uid"])) {
