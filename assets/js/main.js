@@ -255,6 +255,7 @@ $(document).ready(function () {
   $(document).on('change input click', 'input[type=text],input[type=range],input[type=file], select, button:not(.close,.swal-button,.modals)', function () {
 
     var idofelement = $(this).attr("id");
+    if(idofelement){
     var valueofelement = $(this).val();
     var indexofelement = idofelement.split("-").pop();
     //Checking if the element is circle
@@ -351,6 +352,7 @@ $(document).ready(function () {
       }
       updateTheCanvas();
     }
+  }
     //console.log(idofelement);
   });
 })

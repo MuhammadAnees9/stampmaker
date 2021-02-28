@@ -1,6 +1,8 @@
 <?php
-session_start();
-if ($_POST['id']) {
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_POST['id'])) {
     $_SESSION['id']  = $_POST['id'];
     $_SESSION["username"] = $_POST['username'];
     $_SESSION["email"] = $_POST['email'];
