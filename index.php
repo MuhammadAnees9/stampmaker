@@ -411,7 +411,7 @@ include_once('inc/header.php');
                     </div>
                     <br><br>
                     <center>
-                        <button class="btn btn-md btn-success modals" id="signup">Sign Up</button>
+                        <button class="btn btn-md btn-success modals" id="signup">Register</button>
                     </center>
                 </form>
 
