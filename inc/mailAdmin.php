@@ -66,8 +66,12 @@ $headers = 'From: stampmaker' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
 
 
-mail($to,$subject,$message,$headers);
-    echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;
+
+if(mail($to,$subject,$message,$headers)){
+    echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));
+}else{
+    echo json_encode(array("abc"=>'not-done',"msg" => "Error!"));
+}
 } catch (phpmailerException $e) {
     echo json_encode(array("abc"=>'not-done',"msg" => "An error occurred. {$e->errorMessage()}"));
      //Catch errors from PHPMailer.

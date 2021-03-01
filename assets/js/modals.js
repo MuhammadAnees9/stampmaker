@@ -43,7 +43,6 @@ function ajaxCall() {
 
       },
       success: function (response) {
-            alert(base_url + "/inc/mailActivate.php");
             console.log(response);
         var iduser = response.id;
         if (response.abc == "done") {
@@ -70,8 +69,8 @@ function ajaxCall() {
                   id: iduser
                 },
                 success: function (response) {
-            alert('admin');
-            location.href = location.href;
+                  alert('admin');
+            // location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                   console.log(JSON.stringify(jqXHR));
