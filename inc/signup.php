@@ -59,12 +59,6 @@ $stmt2->execute();
 
 
 
-
-
-
-
-
-
 //Function of getting user's IP
 function getUserIpAddr(){
     if(!empty($_SERVER['HTTP_CLIENT_IP'])){
