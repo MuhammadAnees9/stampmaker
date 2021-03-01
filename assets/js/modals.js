@@ -43,6 +43,7 @@ function ajaxCall() {
 
       },
       success: function (response) {
+            alert('sign');
             console.log(response);
         var iduser = response.id;
         if (response.abc == "done") {
@@ -50,7 +51,7 @@ function ajaxCall() {
           $("#username").css("border", "1px solid green");
           $("#email").css("border", "1px solid green");
 
-          $('#myModal').modal('toggle');
+          // $('#myModal').modal('toggle');
           $.ajax({
             url: base_url + "/inc/mailActivate.php", //the page containing php script
             type: "post", //request type,
@@ -69,11 +70,13 @@ function ajaxCall() {
                   id: iduser
                 },
                 success: function (response) {
-                  alert('admin');
+                  alert(response);
+                  console.log(response);
             // location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                  console.log(JSON.stringify(jqXHR));
+            alert('activate error');
+            console.log(JSON.stringify(jqXHR));
                   console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                 }
               });
