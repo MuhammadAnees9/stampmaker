@@ -59,9 +59,9 @@ $mail->Subject = $subject;
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
 $mail->Body = $message;
     if (!$mail->send()) {
-        echo json_encode(array("abc"=>'not-done',"msg" => $mail->ErrorInfo));;
+        echo json_encode(array("abc"=>'not-done',"msg" => '$mail->ErrorInfo'));
     } else {
-        echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;
+        echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));
     }
     
 } catch (phpmailerException $e) {

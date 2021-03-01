@@ -39,29 +39,29 @@ if ($result->num_rows > 0) {
 
 try {
     // Specify the SMTP settings.
-$mail->isSMTP();
-$mail->CharSet = "UTF-8";
-$mail->SMTPSecure = 'tls';
-$mail->SMTPKeepAlive = true;
-$mail->Mailer = "smtp";
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->Username = $usernameSmtp;/*SMTP username*/
-$mail->Password = $passwordSmtp;/*SMTP password*/
-$mail->SMTPAuth = true;/*Enable SMTP authentication*/
-$mail->SMTPDebug = 0;//set debug
-$mail->From = $usernameSmtp;// from address to which mail is sent
-$mail->FromName = 'Stamp Maker (NO REPLY)';// specifying sender name
-$mail->AddAddress($recipient);// specifying to address
-$mail->AddReplyTo($usernameSmtp, 'Information');// specifying the mail address to which replay is sent
-$mail->IsHTML(true);
-$mail->Subject = $subject;
-$mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
-$mail->Body = $message;
+      $mail->isSMTP();
+      $mail->CharSet = "UTF-8";
+      $mail->SMTPSecure = 'tls';
+      $mail->SMTPKeepAlive = true;
+      $mail->Mailer = "smtp";
+      $mail->Host = 'smtp.gmail.com';
+      $mail->Port = 587;
+      $mail->Username = $usernameSmtp;/*SMTP username*/
+      $mail->Password = $passwordSmtp;/*SMTP password*/
+      $mail->SMTPAuth = true;/*Enable SMTP authentication*/
+      $mail->SMTPDebug = 0;//set debug
+      $mail->From = $usernameSmtp;// from address to which mail is sent
+      $mail->FromName = 'Stamp Maker (NO REPLY)';// specifying sender name
+      $mail->AddAddress($recipient);// specifying to address
+      $mail->AddReplyTo($usernameSmtp, 'Information');// specifying the mail address to which replay is sent
+      $mail->IsHTML(true);
+      $mail->Subject = $subject;
+      $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
+      $mail->Body = $message;
     if (!$mail->send()) {
-      echo json_encode(array("abc"=>'not-done',"msg" => $mail->ErrorInfo));;
+      echo json_encode(array("abc"=>'not-done',"msg" => '$mail->ErrorInfo'));
   } else {
-      echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;
+      echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));
   }
 } catch (phpmailerException $e) {
     echo json_encode(array("abc"=>'not-done',"msg" => "An error occurred. {$e->errorMessage()}"));
