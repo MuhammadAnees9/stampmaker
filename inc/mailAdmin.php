@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 
 
 
-// $mail = new PHPMailer(true);
+$mail = new PHPMailer(true);
 
 try {
     // Specify the SMTP settings.

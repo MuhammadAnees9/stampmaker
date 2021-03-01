@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 }
 $message .= "<br>Please <a href='".$link."register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
 
-// $mail = new PHPMailer(true);
+$mail = new PHPMailer(true);
 
 try {
     // Specify the SMTP settings.

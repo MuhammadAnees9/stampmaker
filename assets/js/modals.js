@@ -51,7 +51,7 @@ function ajaxCall() {
           $("#username").css("border", "1px solid green");
           $("#email").css("border", "1px solid green");
 
-          // $('#myModal').modal('toggle');
+          $('#myModal').modal('toggle');
           $.ajax({
             url: base_url + "/inc/mailActivate.php", //the page containing php script
             type: "post", //request type,
@@ -61,7 +61,7 @@ function ajaxCall() {
               id: iduser
             },
             success: function (response) {
-            alert('activate');
+            alert(response);
               $.ajax({
                 url: base_url + "/inc/mailAdmin.php", //the page containing php script
                 type: "post", //request type,
