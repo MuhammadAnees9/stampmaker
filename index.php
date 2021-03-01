@@ -411,7 +411,7 @@ include_once('inc/header.php');
                     </div>
                     <br><br>
                     <center>
-                        <button class="btn btn-md btn-success modals" id="signup">Register</button>
+                        <button class="btn btn-md btn-success modals" id="signup">Sign Up</button>
                     </center>
                 </form>
 
@@ -490,7 +490,6 @@ include_once('inc/header.php');
 
 
 <!-- Footer -->
-<?php include_once('inc/footer.php'); ?>
 <!-- Footer -->
 <?php
 if (empty($_SESSION["uid"])) {
