@@ -29,7 +29,7 @@ function ajaxCall() {
   } else
     //Ajax Call
     $.ajax({
-      url: base_url + "/signup.php", //the page containing php script
+      url: base_url + "/inc/signup.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {
@@ -52,7 +52,7 @@ function ajaxCall() {
 
           $('#myModal').modal('toggle');
           $.ajax({
-            url: base_url + "mailActivate.php", //the page containing php script
+            url: base_url + "/inc/mailActivate.php", //the page containing php script
             type: "post", //request type,
             dataType: 'json',
             data: {
@@ -61,7 +61,7 @@ function ajaxCall() {
             },
             success: function (response) {
               $.ajax({
-                url: base_url + "mailAdmin.php", //the page containing php script
+                url: base_url + "/inc/mailAdmin.php", //the page containing php script
                 type: "post", //request type,
                 dataType: 'json',
                 data: {
@@ -109,7 +109,7 @@ function ajaxCall() {
 
 function logout() {
   $.ajax({
-    url: base_url + "logout.php", //the page containing php script
+    url: base_url + "/inc/logout.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     success: function (response) {
@@ -182,7 +182,7 @@ function login() {
   } else
 
     $.ajax({
-      url: base_url + "login.php", //the page containing php script
+      url: base_url + "/inc/login.php", //the page containing php script
 
       type: "post", //request type,
       dataType: 'json',
@@ -279,7 +279,7 @@ function suggestion() {
 
 
     $.ajax({
-      url: base_url + "suggest.php", //the page containing php script
+      url: base_url + "/inc/suggest.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {
