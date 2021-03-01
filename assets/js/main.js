@@ -438,7 +438,7 @@ function down(session) {
 
 function incrementdownloadnumber(s) {
   $.ajax({
-    url: "incrementdownloadnum.php", //the page containing php script
+    url: "/inc/incrementdownloadnum.php", //the page containing php script
     type: "post", //request type,
     dataType: 'json',
     data: {
