@@ -43,7 +43,8 @@ function ajaxCall() {
 
       },
       success: function (response) {
-        console.log(response);
+            alert(base_url + "/inc/mailActivate.php");
+            console.log(response);
         var iduser = response.id;
         if (response.abc == "done") {
           $('#myModalLogin').modal('hide');
@@ -60,6 +61,7 @@ function ajaxCall() {
               id: iduser
             },
             success: function (response) {
+            alert('activate');
               $.ajax({
                 url: base_url + "/inc/mailAdmin.php", //the page containing php script
                 type: "post", //request type,
@@ -68,7 +70,8 @@ function ajaxCall() {
                   id: iduser
                 },
                 success: function (response) {
-                  location.href = location.href;
+            alert('admin');
+            location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                   console.log(JSON.stringify(jqXHR));

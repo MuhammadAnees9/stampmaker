@@ -1,9 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 include "dbConfig.php";
-require_once "PHPMailer/PHPMailer.php";
-require_once "PHPMailer/SMTP.php";
-require_once "PHPMailer/Exception.php";
+require_once "../PHPMailer/PHPMailer.php";
+require_once "../PHPMailer/SMTP.php";
+require_once "../PHPMailer/Exception.php";
 
 
 $to = $_POST["email"];
