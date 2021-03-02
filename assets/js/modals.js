@@ -43,7 +43,6 @@ function ajaxCall() {
 
       },
       success: function (response) {
-            alert('sign');
             console.log(response);
         var iduser = response.id;
         if (response.abc == "done") {
@@ -61,7 +60,6 @@ function ajaxCall() {
               id: iduser
             },
             success: function (response) {
-            alert(response);
               $.ajax({
                 url: base_url + "/inc/mailAdmin.php", //the page containing php script
                 type: "post", //request type,
@@ -70,12 +68,10 @@ function ajaxCall() {
                   id: iduser
                 },
                 success: function (response) {
-                  alert(response);
                   console.log(response);
             // location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-            alert('activate error');
             console.log(JSON.stringify(jqXHR));
                   console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                 }
@@ -187,7 +183,7 @@ function login() {
   } else
 
     $.ajax({
-      url: base_url + "/inc/login.php", //the page containing php script
+      url: base_url + "/login.php", //the page containing php script
 
       type: "post", //request type,
       dataType: 'json',
