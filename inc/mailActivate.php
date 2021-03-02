@@ -8,9 +8,9 @@ require_once "../PHPMailer/Exception.php";
 
 $to = $_POST["email"];
 $id = $_POST["id"];
-$link = "http://refactor.us-east-1.elasticbeanstalk.com/";
+$link = "http://refactor.us-east-1.elasticbeanstalk.com/inc/register.php";
 // $link = "https://user.mystampmaker.com/";
-$senderName = 'Test';
+$senderName = 'Stampmaker';
 
 
 
