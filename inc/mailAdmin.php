@@ -14,8 +14,8 @@ $senderName = 'Admin';
 
 $recipient = $to;
 
-$usernameSmtp = 'stampmaker7@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'stampMaker123';            // This is you gmail password
+$usernameSmtp = 'usmanbabar42@gmail.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'usmanbabar6205';            // This is you gmail password
 
 
 // The subject line of the email

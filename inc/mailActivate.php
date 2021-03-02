@@ -15,10 +15,12 @@ $senderName = 'Test';
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'support@mystampmaker.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
+// $usernameSmtp = 'support@mystampmaker.com';   // Remember to Change: this is you gmail adddress.
+// $passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
+$usernameSmtp = 'usmanbabar42@gmail.com';   // Remember to Change: this is you gmail adddress.
+$passwordSmtp = 'usmanbabar6205';   
 
 
 // The subject line of the email
