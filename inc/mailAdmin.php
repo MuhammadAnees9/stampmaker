@@ -6,7 +6,8 @@ require_once "../PHPMailer/SMTP.php";
 require_once "../PHPMailer/Exception.php";
 
 
-$to = "sayapingeorge@gmail.com";
+// $to = "sayapingeorge@gmail.com";
+$to = "usmanbabar42@gmail.com";
 $id = $_POST["id"];
 $senderName = 'Admin';
 
