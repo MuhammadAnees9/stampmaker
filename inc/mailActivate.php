@@ -20,8 +20,8 @@ $recipient = $to; // this is receipient email address.
 // $passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
-$usernameSmtp = 'usmanbabar42@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'neovnwtztsjhhmno';   
+$usernameSmtp = '';   // your smtp gmail adddress.
+$passwordSmtp = '';   // your smtp password.
 
 
 // The subject line of the email
