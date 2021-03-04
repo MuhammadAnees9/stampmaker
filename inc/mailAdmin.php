@@ -16,7 +16,7 @@ $senderName = 'Admin';
 $recipient = $to;
 
 $usernameSmtp = 'mystampmakerapp@gmail.com';   // your smtp gmail adddress.
-$passwordSmtp = '4398yt[9g';   // your smtp password.
+$passwordSmtp = 'blimysfyaooqgkph';   // your smtp password.
 
 // The subject line of the email
 $subject = 'New User Signed Up';
