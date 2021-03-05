@@ -20,8 +20,8 @@ $recipient = $to; // this is receipient email address.
 // $passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
-$usernameSmtp = 'usmanbabar42@gmail.com';   // your smtp gmail adddress.
-$passwordSmtp = 'vhsfgsmzfjwcdham';   // your smtp password.
+$usernameSmtp = 'stampmakerapp@gmail.com';   // your smtp gmail adddress.
+$passwordSmtp = 'lqskseipjrxwtikv';   // your smtp password.
 
 //blimysfyaooqgkph
 //4398yt[9g
