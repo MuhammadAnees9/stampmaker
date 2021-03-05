@@ -7,7 +7,7 @@ require_once "../PHPMailer/Exception.php";
 
 
 // $to = "sayapingeorge@gmail.com";
-$to = "mystampmakerapp@gmail.com"; // also your email
+$to = "usmanbabar42@gmail.com"; // also your email
 $id = $_POST["id"];
 $senderName = 'Admin';
 
@@ -15,8 +15,8 @@ $senderName = 'Admin';
 
 $recipient = $to;
 
-$usernameSmtp = 'mystampmakerapp@gmail.com';   // your smtp gmail adddress.
-$passwordSmtp = 'blimysfyaooqgkph';   // your smtp password.
+$usernameSmtp = 'usmanbabar42@gmail.com';   // your smtp gmail adddress.
+$passwordSmtp = 'vhsfgsmzfjwcdham';   // your smtp password.
 
 // The subject line of the email
 $subject = 'New User Signed Up';
