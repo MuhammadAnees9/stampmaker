@@ -7,7 +7,7 @@ require_once "../PHPMailer/Exception.php";
 
 
 // $to = "sayapingeorge@gmail.com";
-$to = "usmanbabar42@gmail.com"; // also your email
+$to = "stampmakerapp@gmail.com"; // also your email
 $id = $_POST["id"];
 $senderName = 'Admin';
 
