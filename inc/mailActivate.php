@@ -1,25 +1,30 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 include "dbConfig.php";
-require_once "PHPMailer/PHPMailer.php";
-require_once "PHPMailer/SMTP.php";
-require_once "PHPMailer/Exception.php";
+require_once "../PHPMailer/PHPMailer.php";
+require_once "../PHPMailer/SMTP.php";
+require_once "../PHPMailer/Exception.php";
 
 
 $to = $_POST["email"];
 $id = $_POST["id"];
-$link = "http://test.mystampmaker.com/";
-$senderName = 'Test';
+$link = "http://refactor.us-east-1.elasticbeanstalk.com/inc/";
+// $link = "https://user.mystampmaker.com/";
+$senderName = 'Stampmaker';
 
 
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
+// $usernameSmtp = 'support@mystampmaker.com';   // Remember to Change: this is you gmail adddress.
+// $passwordSmtp = 'BMxidVcVbFY3PUnClJQNS60Oj5INeMU4frltCz45ggoB';            // This is you gmail password
 
 
+$usernameSmtp = 'stampmakerapp@gmail.com';   // your smtp gmail adddress.
+$passwordSmtp = 'ppasoxlcdihmznry';   // your smtp password.
 
+//blimysfyaooqgkph
+//4398yt[9g
 
 // The subject line of the email
 $subject = 'Confirm your Stampmaker account';
@@ -33,7 +38,7 @@ if ($result->num_rows > 0) {
    $message = $row["messageforactivation"];
   }
 }
-$message .= "<br>Please <a href='".$link."st   amp/register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
+$message .= "<br>Please <a href='".$link."register.php?id=".$id."'>Click Here</a> to activate your Stampmaker account";
 
 $mail = new PHPMailer(true);
 
@@ -58,8 +63,12 @@ $mail->IsHTML(true);
 $mail->Subject = $subject;
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
 $mail->Body = $message;
-    $mail->Send();
-    echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));;
+    if (!$mail->send()) {
+        echo json_encode(array("abc"=>'not-done',"msg" => '$mail->ErrorInfo'));
+    } else {
+        echo json_encode(array("abc"=>'done',"msg" => "Email sent!"));
+    }
+    
 } catch (phpmailerException $e) {
     echo json_encode(array("abc"=>'not-done',"msg" => "An error occurred. {$e->errorMessage()}"));
      //Catch errors from PHPMailer.

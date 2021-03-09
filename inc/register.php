@@ -42,6 +42,11 @@ if($stmt->execute()){
                     $_SESSION["role"] = $row['role'];
                     $_SESSION["isLogin"] = $row['isLogin'];
                     $_SESSION['uid'] = $row;
+                    
+                    //login true
+                    $update = $conn->prepare("UPDATE `user` SET isLogin='true' WHERE email='".$_SESSION["email"]."'");
+                    $update->execute();
+                    
                     echo "<script>window.location.href = '../';</script>";
                     }
              }
