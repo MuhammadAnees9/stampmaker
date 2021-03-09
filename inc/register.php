@@ -21,6 +21,9 @@ $stmt2->bind_param("i", $id);
 
 
 if($stmt->execute()){
+                //login true
+                $update = $conn->prepare("UPDATE `user` SET isLogin='true' WHERE email='".$_SESSION["email"]."'");
+                $update->execute();
 
                 $insert_query = $conn->prepare("INSERT INTO `tblsession`(`start`,`end`,`sessionIP`,`downloads`,`userid`) VALUES(?,?,?,?,?)");
                 $insert_query->bind_param("sssii",$start,$end,$sessionIP,$downloads,$userid);
