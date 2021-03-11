@@ -151,33 +151,7 @@ function timeago($time, $tense='ago') {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role = 'admin'";
-                                                    $result = $conn->query($sql);
-                                                    if ($result->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $status = ($row['isActive']==1)?'Active':'Not active';
-                                                    echo "<tr>
-                                                        <th scope='row'>".$row["id"]."</th>
-                                                        <td>".$row["username"]."</td>
-                                                        <td>".$row["email"]."</td>
-                            
-                                                        <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
-                                                        <td>".$row["userIP"]."</td>
-                                                           <td>".$status."</td>
-                                                            <td>".timeago($row["regdate"])."</td>
-                                                        <td>
-                                                      
-                                                        <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
-                                                        </td>
-                                                       
-                                                    </tr>";
-                                                    }
-                                                    } else {
-                                                    echo "0 results";
-                                                    }
-                                                    ?>
+                          
                         </tbody>
                     </table>
                 </div>
