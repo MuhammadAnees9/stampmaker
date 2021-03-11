@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 //Database
 $servername = "localhost";
 $username = "root";
@@ -17,11 +19,11 @@ $conn = new mysqli("stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com", "admin
 function CheckIfAdmin(){
     if(isset($_SESSION['uid'])){
      if($_SESSION['role']!="admin"){
-         header("location:https://test.mystampmaker.com/");
+         header("location:/");
      }
 }
 if(!isset($_SESSION['uid'])){
-      header("location:https://admin.mystampmaker.com/login.php");
+      header("location:login.php");
 }
 
 }
