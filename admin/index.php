@@ -6,9 +6,9 @@ function timeago($time, $tense='ago') {
     static $periods = array('year', 'month', 'day', 'hour', 'minute', 'second');
 
   
-    // if(!(strtotime($time)>0)) {
-    //     return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
-    // }
+    if(!(strtotime($time)>0)) {
+        return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
+    }
    
     $now  = new DateTime('now');
     $time = new DateTime($time);
