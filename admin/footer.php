@@ -123,6 +123,7 @@ function addUser() {
 }
 
 function logout() {
+    alert('dsfds');
     $.ajax({
         url: "./logout.php", //the page containing php script
         type: "post", //request type,

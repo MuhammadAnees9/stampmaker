@@ -59,7 +59,7 @@ function timeago($time, $tense='ago') {
                 <span class="my-button my-hide-large my-xxlarge my-hover-text-grey" onclick="my_open()"><i
                         class="fa fa-bars"></i></span>
                 <div class="my-container">
-                    <h1><b>Users Details</b></h1>
+                    <h1><b>Users Detail</b></h1>
                 </div>
             </header>
 
