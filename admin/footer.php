@@ -124,7 +124,7 @@ function addUser() {
 
 function logout() {
     $.ajax({
-        url: "logout.php", //the page containing php script
+        url: "./abc/logout.php", //the page containing php script
         type: "post", //request type,
         dataType: 'json',
         success: function(response) {
