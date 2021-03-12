@@ -26,6 +26,14 @@ if(!isset($_SESSION['uid'])){
       header("location:login.php");
 }
 
-}
+Global $conn; 
+$logged_email = $_SESSION['email'];
+$fetch_user = mysqli_query($conn, "SELECT isLogin FROM `user` WHERE `email`= '$logged_email'");
+$row = mysqli_fetch_assoc($fetch_user);
 
+if($row['isLogin']=='false'){
+    session_destroy();
+    header("location:login.php");
+}
+}
 ?>
