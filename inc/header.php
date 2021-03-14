@@ -13,7 +13,8 @@ if (isset($_POST['id'])) {
 
 $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"] . '?') . '/';
 if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
-    header('location:https://admin.mystampmaker.com/index.php');
+    // header('location:https://admin.mystampmaker.com/index.php');
+    header( 'Location:index.php');
 }
 ?>
 <!DOCTYPE html>

@@ -11,7 +11,8 @@ if(isset($_SESSION['uid'])){
 		//  header( 'Location:https://admin.mystampmaker.com/index.php');
 		 header( 'Location:index.php');
 	}else{
-		 header('Location:https://test.mystampmaker.com/' );
+		//  header('Location:https://test.mystampmaker.com/' );
+        header( 'Location:index.php');
 	}
 }
 ?>
