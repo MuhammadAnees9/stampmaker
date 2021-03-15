@@ -29,7 +29,8 @@ include_once('inc/header.php');
                             $d = $_SESSION["uid"];
                             echo "<h6 style='margin:20px;'>Welcome, " . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='height:40px;margin:20px;'>Log Out</button>";
                             if ($d['role'] == "admin") {
-                                echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
+                                // echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
+                                echo "<a class='btn btn-outline-warning' href='admin' style='height:40px;margin:20px;'>Dashboard</a>";
                             }
                         } else {
                             echo "<button type='button' class='btn btn-outline-warning' data-toggle='modal' data-target='#myModal' style='height:40px;margin:20px;'>Sign Up</button><button type='button' class='btn btn-outline-warning' data-toggle='modal' data-target='#myModalLogin' style='height:40px;margin:20px;' onclick='reset()'>Log In</button>";
