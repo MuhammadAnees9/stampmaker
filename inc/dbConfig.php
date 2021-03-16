@@ -17,11 +17,12 @@ $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?')
 function CheckIfAdmin(){
     if(isset($_SESSION['uid'])){
      if($_SESSION['role']!="admin"){
-         header("location:https://test.mystampmaker.com/index.php");
+        //  header("location:https://test.mystampmaker.com/index.php");
+         header("location:index.php");
      }
 }
 if(!isset($_SESSION['uid'])){
-      header("location:https://test.mystampmaker.com/index.php");
+      header("location:index.php");
 }
 
 }

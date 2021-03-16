@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 class Database{
     
     // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
