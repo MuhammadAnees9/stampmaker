@@ -48,7 +48,7 @@ function updateLabels(element, show) {
   let showText = showVal[0]
   let showNumber = showVal[1]
   $(".card-item").removeClass("all");
-  $("#labels").prepend("<div class='elementlabel mt-2' id='" + element + "'><div class=' card-item all' id='" + element + "'><p style='border-bottom: 1px solid #0e4075; color: #0e4075; font-weight: 600;margin-bottom: 2px;'>" + showText + " <br /> " + showNumber + " </p></div><div style='display: flex; justify-content:space-between'> <button type='button' class='closeL btn' aria-label='Close'style='background: transparent; border: none; padding: 0px; color: #0e4075; font-weight: 600;'>Delete<img width='15px' height='15px' src='assets/img/IconCross.svg' /></button><img width='30px' height='30px' src='assets/img/IconArrows.svg' alt='icons' /></div></div>");
+  $("#labels").prepend("<div class='elementlabel mt-2' id='" + element + "'><div class=' card-item card-item-n all' id='" + element + "'><p style='border-bottom: 1px solid #0e4075; color: #0e4075; font-weight: 600;margin-bottom: 2px;'>" + showText + " <br /> " + showNumber + " </p></div><div style='display: flex; justify-content:space-between'> <button type='button' id='LineText' class='closeL btn' aria-label='Close'style='background: transparent; border: none; padding: 0px; color: #0e4075; font-weight: 600;'>Delete<img width='15px' height='15px' src='assets/img/IconCross.svg' /></button><span class='move-up-element'><i style='color: #0e4075;' class='fa fa-chevron-up'></i></span><span class='move-down-element'><i style='color: #0e4075;' class='fa fa-chevron-down'></i></span></div></div>");    //two buttons usman
   $(".guide").css("display", "none");
 
   //hideallproperties();
@@ -96,10 +96,10 @@ $(document).ready(function () {
     hideallproperties();
     if (checkAvailiblity(RoundTexts, 7) == 0) {
       return;
-    }
+    } //bold italic id in btn usman
     //var moduleDiv = "<div id='RoundText"+(RoundTexts.length)+"' class='property'><h3>Round Text: "+(RoundTexts.length)+"'</h3>Text:<div class='slidecontainer'>        <input type='text' id='InputTextRoundText-"+(RoundTexts.length)+"'  class='form-control' value='Text around the circle'>      </div>      Radius:      <div class='slidecontainer'>        <input type='range' id='InputRadiusRoundText-"+(RoundTexts.length)+"'  class='slider' min='30' max='240' value='260'></div>      Spacing:      <div class='slidecontainer'>        <input type='range' id='InputSpacingRoundText-"+(RoundTexts.length)+"'  class='slider' min='1' max='10' value='1'>      </div>      Start Point:      <div class='slidecontainer'>        <input type='range' id='InputStartingPointRoundText-"+(RoundTexts.length)+"'  class='slider' min='0' max='360' value='0'>      </div>      Font:      <div class='slidecontainer'>        <select id='InputFontRoundText-"+(RoundTexts.length)+"' class='form-control'>          <option value='Arial' style='font-family: Arial' selected=''>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>      </div>      Font Size:      <div class='slidecontainer'>        <select id='InputFontSizeRoundText-"+(RoundTexts.length)+"' class='form-control'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>    </div>    <div class='slidecontainer'>      <input id='InputBoldRoundText-"+(RoundTexts.length)+"' type='button' class='btn btn-secondary' value='bold'>    </div>    <div class='slidecontainer'>      <input id='InputItalicRoundText-"+(RoundTexts.length)+"' type='button' class='btn btn-secondary' value='Italic'>    </div>  </div>";
     // var moduleDiv = "<div id='RoundText" + (RoundTexts.length) + "' class='property'><h3>Round Text: " + (RoundTexts.length + 1) + "</h3>                <div class='row'>                 <select id='InputFontRoundText-" + (RoundTexts.length) + "' class='form-control col-sm'>          <option value='Arial' style='font-family: Arial' selected='>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>        <select id='InputFontSizeRoundText-" + (RoundTexts.length) + "' class='form-control col-sm'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>          <button id='InputBoldRoundText-" + (RoundTexts.length) + "' type='button' class='btn'>            <img src='svg/bold-solid.svg' width='20' height='20'>          </button>          <button id='InputItalicRoundText-" + (RoundTexts.length) + "' type='button' class='btn'>              <img src='svg/italic-solid.svg' width='20' height='20'>          </button>         <div class='slidecontainer'>Color:<input id='RoundColor-" + (RoundTexts.length) + "'  /></div>         </div>      Text:      <div class='slidecontainer'>        <input type='text' id='InputTextRoundText-" + (RoundTexts.length) + "'  class='text' value='Text around the circle'>              </div>            <div class='slidecontainer'>        Radius:        <span class='range-slider__value'>0</span>        <input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "'  class='slider' min='30' max='240' value='240'>      </div>           <div class='slidecontainer'>           Spacing:<span class='range-slider__value'>0</span>        <input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "'  class='slider' min='1.00' max='10.00' value='1'>      </div>            <div class='slidecontainer'>        Start Point:<span class='range-slider__value'>0</span>        <input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "'  class='slider' min='0' max='360' value='0'>      </div>              </div>";
-    var moduleDiv = " <div id='RoundText" + (RoundTexts.length) + "' class='property'><div class='row'><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-6 editor-btn'><div> <select id='InputFontRoundText-" + (RoundTexts.length) + "'class='form-control col-sm'><option value='Arial' style='font-family: Arial'selected='>Arial</option><option value=' Calibri'style='font-family: Calibri'>Calibri</option><option value='Courier New' style='font-family: Courier New'>Courier New</option><option value='Tahoma' style='font-family: Tahoma'>Tahoma</option><option value='Times New Roma' style='font-family: Times New Roma'>Times NewRoma</option><option value='Verdana' style='font-family: Verdana'>Verdana</option><option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option><option value='Days' style='font-family: Days'>Days</option><option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option><option value='Marck Script' style='font-family: Marck Script'>Marck Script</option></select></div></div><div class='col-6 editor-btn'><select id='InputFontSizeRoundText-" + (RoundTexts.length) + "'class='form-control col-sm'><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>14</option><option>16</option><option selected=''>18</option><option>20</option><option>22</option><option>24</option><option>28</option><option>30</option><option>32</option><option>34</option><option>36</option><option>38</option><option>40</option><option>42</option><option>44</option><option>46</option><option>48</option><option>50</option><option>52</option><option>54</option><option>56</option><option>60</option><option>64</option><option>72</option><option>80</option></select></div></div><div class='row mt-2'><div class='col-lg-6 col-md-7 col-sm-7 col-7 editor-btn'><div class='text-style-btns text-center'><button class='btn btn-sm modals'>B</button>|<button class='btn btn-sm modals'>I</button>|<button class='btn btn-sm modals'>U</button></div></div><div class='col-lg-6 col-md-5 col-sm-5 col-5 editor-btn'><div class='slidecontainer color-picker'>Color:<input id='RoundColor-" + (RoundTexts.length) + "' /></div></div><div class='col-12'>Text: <div class='slidecontainer'> <input type='text'id='InputTextRoundText-" + (RoundTexts.length) + "' class='text text-field' value='Text around the circle'></div></div></div></div><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-lg-12 col-sm-12 col-md-12 col-12 text-center'><div class='card properties-wrapper'><h5 class='property-heading'>Properties</h5><div class='slidecontainer'> Radius: <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "' class='slider' min='30' max='406' value='150'> </div><div class='slidecontainer'> Spacing:<span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "'class='slider' min='1.00' max='10.00' value='1'> </div><div class='slidecontainer'> Start Point:<span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "'class='slider' min='0' max='360' value='0'> </div><div class='slidecontainer' style='display:none'>Width:<span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" + (RoundTexts.length) + "' style='display:none' class='slider' min='1' max='200' value='100'></div><div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" + (RoundTexts.length) + "' class='slider' min='1' max='200' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' style='display:none' class='custom-control-input' id='InputRoundTextAspect-" + (RoundTexts.length) + "'><label style='display:none' class='custom-control-label'for='InputRoundTextAspect-" + (RoundTexts.length) + "'>Maintain AspectRatio?</label></div></div></div></div></div></div></div>";
+    var moduleDiv = " <div id='RoundText" + (RoundTexts.length) + "' class='property'><div class='row'><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-6 editor-btn'><div> <select id='InputFontRoundText-" + (RoundTexts.length) + "'class='form-control col-sm'><option value='Arial' style='font-family: Arial'selected='>Arial</option><option value=' Calibri'style='font-family: Calibri'>Calibri</option><option value='Courier New' style='font-family: Courier New'>Courier New</option><option value='Tahoma' style='font-family: Tahoma'>Tahoma</option><option value='Times New Roma' style='font-family: Times New Roma'>Times NewRoma</option><option value='Verdana' style='font-family: Verdana'>Verdana</option><option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option><option value='Days' style='font-family: Days'>Days</option><option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option><option value='Marck Script' style='font-family: Marck Script'>Marck Script</option></select></div></div><div class='col-6 editor-btn'><select id='InputFontSizeRoundText-" + (RoundTexts.length) + "'class='form-control col-sm'><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>14</option><option>16</option><option selected=''>18</option><option>20</option><option>22</option><option>24</option><option>28</option><option>30</option><option>32</option><option>34</option><option>36</option><option>38</option><option>40</option><option>42</option><option>44</option><option>46</option><option>48</option><option>50</option><option>52</option><option>54</option><option>56</option><option>60</option><option>64</option><option>72</option><option>80</option></select></div></div><div class='row mt-2'><div class='col-lg-6 col-md-7 col-sm-7 col-7 editor-btn'><div class='text-style-btns text-center'><button id='InputBoldRoundText-" + (RoundTexts.length) + "' class='btn'>B</button>|<button id='InputItalicRoundText-" + (RoundTexts.length) + "' type='button' class='btn'>I</button>|<button class='btn'>U</button></div></div><div class='col-lg-6 col-md-5 col-sm-5 col-5 editor-btn'><div class='slidecontainer color-picker'>Color:<input id='RoundColor-" + (RoundTexts.length) + "' /></div></div><div class='col-12'>Text: <div class='slidecontainer'> <input type='text'id='InputTextRoundText-" + (RoundTexts.length) + "' class='text text-field' value='Text around the circle'></div></div></div></div><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-lg-12 col-sm-12 col-md-12 col-12 text-center'><div class='card properties-wrapper'><h5 class='property-heading'>Properties</h5><div class='slidecontainer'> Radius: <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "' class='slider' min='30' max='406' value='150'> </div><div class='slidecontainer'> Spacing:<span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "'class='slider' min='1.00' max='10.00' value='1'> </div><div class='slidecontainer'> Start Point:<span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "'class='slider' min='0' max='360' value='0'> </div><div class='slidecontainer' style='display:none'>Width:<span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" + (RoundTexts.length) + "' style='display:none' class='slider' min='1' max='200' value='100'></div><div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" + (RoundTexts.length) + "' class='slider' min='1' max='200' value='100'></div><div class='custom-control custom-checkbox'><input type='checkbox' style='display:none' class='custom-control-input' id='InputRoundTextAspect-" + (RoundTexts.length) + "'><label style='display:none' class='custom-control-label'for='InputRoundTextAspect-" + (RoundTexts.length) + "'>Maintain AspectRatio?</label></div></div></div></div></div></div></div>";
     $("#properties").append(moduleDiv);
     var RoundText = [$('#InputRadiusRoundText-' + (RoundTexts.length)).val(), $('#InputSpacingRoundText-' + (RoundTexts.length)).val(), $('#InputStartingPointRoundText-' + (RoundTexts.length)).val(), $('#InputTextRoundText-' + (RoundTexts.length)).val(), $('#InputFontRoundText-' + (RoundTexts.length)).val(), $('#InputFontSizeRoundText-' + (RoundTexts.length)).val(), "normal", "normal", "Round Text", null];
 
@@ -114,11 +114,11 @@ $(document).ready(function () {
     hideallproperties();
     if (checkAvailiblity(LineTexts, 10) == 0) {
       return;
-    }
+    } //bold italic  modals usman
     // var moduleDiv = "<div id='LineText" + (LineTexts.length) + "' class='property'> <h3>Line Text: " + (LineTexts.length + 1) + "</h3>               <div class='row'>                 <select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control col-sm'>          <option value='Arial' style='font-family: Arial' selected=''>Arial</option>          <option value='Calibri' style='font-family: Calibri'>Calibri</option>          <option value='Courier New' style='font-family: Courier New'>Courier New</option>          <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>          <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>          <option value='Verdana' style='font-family: Verdana'>Verdana</option>          <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>          <option value='Days' style='font-family: Days'>Days</option>          <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>          <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select>        <select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control col-sm'>          <option>6</option>          <option>7</option>          <option>8</option>          <option>9</option>          <option>10</option>          <option>12</option>          <option>14</option>          <option>16</option>          <option selected=''>18</option>          <option>20</option>          <option>22</option>          <option>24</option>          <option>28</option>          <option>30</option>          <option>32</option>          <option>34</option>          <option>36</option>          <option>38</option>          <option>40</option>          <option>42</option>          <option>44</option>          <option>46</option>          <option>48</option>          <option>50</option>          <option>52</option>          <option>54</option>          <option>56</option>          <option>60</option>          <option>64</option>          <option>72</option>          <option>80</option>      </select>          <button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn'>            <img src='svg/bold-solid.svg' width='20' height='20'>          </button>          <button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn'>              <img src='svg/italic-solid.svg' width='20' height='20'>          </button>     <div class='slidecontainer'>Color:<input id='LineColor-" + (LineTexts.length) + "'  /></div>             </div>      Text:      <div class='slidecontainer'>        <input type='text' id='InputTextLineText-" + (LineTexts.length) + "'  class='text' value='Text on the line'>               </div>            <div class='slidecontainer'>        Horizontal Position:        <span class='range-slider__value'>0</span>        <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "'  class='slider' min='0' max='250' value='125'>      </div>           <div class='slidecontainer'>          Vertical Position:<span class='range-slider__value'>0</span>        <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "'  class='slider' min='0' max='240' value='120'>      </div>            <div class='slidecontainer'>        Rotation:<span class='range-slider__value'>0</span>        <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "'  class='slider'  min='0' max='360' value='0'>      </div>              </div>          </div>";
-    var moduleDiv = " <div id='LineText" + (LineTexts.length) + "' class='property'><div class='row'><div class='col-lg-12 col-md-12 col-sm-6 col-6'><h3>Line Text: " + (LineTexts.length + 1) + "</h3><div class='row'><div class='col-6 editor-btn'><select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control col-sm'><option value='Arial' style='font-family: Arial' selected=''>Arial</option><option value='Calibri' style='font-family: Calibri'>Calibri</option><option value='Courier New' style='font-family: Courier New'>Courier New</option><option value='Tahoma' style='font-family: Tahoma'>Tahoma</option><option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option><option value='Verdana' style='font-family: Verdana'>Verdana</option><option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option><option value='Days' style='font-family: Days'>Days</option><option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option><option value='Marck Script' style='font-family: Marck Script'>Marck Script</option></select> </div><div class='col-6 editor-btn'><select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control col-sm'><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>14</option><option>16</option><option selected=''>18</option><option>20</option><option>22</option><option>24</option><option>28</option><option>30</option><option>32</option><option>34</option><option>36</option><option>38</option><option>40</option><option>42</option><option>44</option><option>46</option><option>48</option><option>50</option><option>52</option><option>54</option><option>56</option><option>60</option><option>64</option><option>72</option><option>80</option></select> </div></div><div class='row mt-2'><div class='col-lg-6 col-md-7 col-sm-7 col-7 editor-btn'><div class='text-style-btns text-center'><button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn' class='btn btn-sm modals'>B</button>|<button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn btn-sm modals'>I</button>|<button id='InputUnderlineLineText-" + (LineTexts.length) + "' type='button'  class='btn btn-sm modals'>U</button></div></div><div class='col-lg-6 col-md-5 col-sm-5 col-5 editor-btn'><div class='slidecontainer color-picker'>Color:<input id='LineColor-" + (LineTexts.length) + "' /></div></div><div class='col-12'>Text: <div class='slidecontainer'> <input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text text-field' value='Text on the line'> </div></div></div></div><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-lg-12 col-sm-12 col-md-12 col-12 text-center'><div class='card properties-wrapper'><h5 class='property-heading'>Properties</h5><div class='slidecontainer'> Horizontal Position: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='250' value='125'> </div><div class='slidecontainer'> Vertical Position:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='240' value='120'> </div><div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "' class='slider' min='0' max='360' value='0'> </div></div></div></div></div></div></div></div>";
+    var moduleDiv = " <div id='LineText" + (LineTexts.length) + "' class='property'><div class='row'><div class='col-lg-12 col-md-12 col-sm-6 col-6'><h3>Line Text: " + (LineTexts.length + 1) + "</h3><div class='row'><div class='col-6 editor-btn'><select id='InputFontLineText-" + (LineTexts.length) + "' class='form-control col-sm'><option value='Arial' style='font-family: Arial' selected=''>Arial</option><option value='Calibri' style='font-family: Calibri'>Calibri</option><option value='Courier New' style='font-family: Courier New'>Courier New</option><option value='Tahoma' style='font-family: Tahoma'>Tahoma</option><option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option><option value='Verdana' style='font-family: Verdana'>Verdana</option><option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option><option value='Days' style='font-family: Days'>Days</option><option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option><option value='Marck Script' style='font-family: Marck Script'>Marck Script</option></select> </div><div class='col-6 editor-btn'><select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='form-control col-sm'><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>14</option><option>16</option><option selected=''>18</option><option>20</option><option>22</option><option>24</option><option>28</option><option>30</option><option>32</option><option>34</option><option>36</option><option>38</option><option>40</option><option>42</option><option>44</option><option>46</option><option>48</option><option>50</option><option>52</option><option>54</option><option>56</option><option>60</option><option>64</option><option>72</option><option>80</option></select> </div></div><div class='row mt-2'><div class='col-lg-6 col-md-7 col-sm-7 col-7 editor-btn'><div class='text-style-btns text-center'><button id='InputBoldLineText-" + (LineTexts.length) + "' type='button' class='btn' class='btn'>B</button>|<button id='InputItalicLineText-" + (LineTexts.length) + "' type='button' class='btn'>I</button>|<button id='InputUnderlineLineText-" + (LineTexts.length) + "' type='button'  class='btn'>U</button></div></div><div class='col-lg-6 col-md-5 col-sm-5 col-5 editor-btn'><div class='slidecontainer color-picker'>Color:<input id='LineColor-" + (LineTexts.length) + "' /></div></div><div class='col-12'>Text: <div class='slidecontainer'> <input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text text-field' value='Text on the line'> </div></div></div></div><div class='col-lg-12 col-md-12 col-sm-6 col-6'><div class='row'><div class='col-lg-12 col-sm-12 col-md-12 col-12 text-center'><div class='card properties-wrapper'><h5 class='property-heading'>Properties</h5><div class='slidecontainer'> Horizontal Position: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='250' value='125'> </div><div class='slidecontainer'> Vertical Position:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='240' value='120'> </div><div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "' class='slider' min='0' max='360' value='0'> </div></div></div></div></div></div></div></div>";
     $("#properties").append(moduleDiv);
-    var LineText = [$('#InputTextLineText-' + (LineTexts.length)).val(), $('#InputHorizontalPositionLineText-' + (LineTexts.length)).val(), $('#InputVerticalPositionLineText-' + (LineTexts.length)).val(), $('#InputRotationLineText-' + (LineTexts.length)).val(), $('#InputFontLineText-' + (LineTexts.length)).val(), $('#InputFontSizeLineText-' + (LineTexts.length)).val(), "normal", "normal", "Line Text", "#ff8800"];
+    var LineText = [$('#InputTextLineText-' + (LineTexts.length)).val(), $('#InputHorizontalPositionLineText-' + (LineTexts.length)).val(), $('#InputVerticalPositionLineText-' + (LineTexts.length)).val(), $('#InputRotationLineText-' + (LineTexts.length)).val(), $('#InputFontLineText-' + (LineTexts.length)).val(), $('#InputFontSizeLineText-' + (LineTexts.length)).val(), "normal", "normal", "normal", "#ff8800"];
     LineTexts.push(LineText);
 
     updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length));
@@ -181,13 +181,18 @@ $(document).ready(function () {
 
   }
   $(document).on('click', '.closeL', function () {
-
-
-    var orignalid = $(this).attr('id');
-    $(this).parent().parent().css("display", "none");
-    $(this).parent().parent().attr("id", "deleted");
-    var typeofelement = orignalid.split(' ')[0];
-    var indexofelement = orignalid.split('#')[1];
+    //usman
+    elementd = $(this).parent().parent().next(); 
+    elementp = $(this).parent().parent().prev();
+    lastchild = $(".elementlabel.mt-2:last-child"); 
+    var orignalid = $(this).parent().parent().attr('id');//delete element on canvas with id usman
+    //$(this).parent().parent().css("display", "none");
+    //$(this).parent().parent().attr("id", "deleted");
+    //$(this).parent().parent().attr("class", "deleted");  
+    $(this).parent().parent().remove(); //deleted to remove usman
+    var typeofelement = orignalid.split(' ')[0];  //usman
+    var indexofelement = orignalid.split('#')[1]; //usman
+    
     var deleteElement = [typeofelement, indexofelement];
 
     if (typeofelement == "Circle") {
@@ -206,49 +211,108 @@ $(document).ready(function () {
       base64First = "";
     }
 
-
-
-
     updateTheCanvas();
     hideallproperties();
-    var set = $(".card:not(#deleted)");
-    var index = 0;
+    //changed code usman
+    var lastchildid = $(lastchild).attr("id");
+    console.log(orignalid + "gg" );
+    console.log(lastchildid);
+    
+    if($(this).parent().parent().attr("id") == lastchildid)
+    {
+     // prevactiveelement=$(this).parent().parent().prev();
+  
+      //var nextactiveelement = document.querySelector(".elementlabel.mt-2");
+      //var newhh = $(nextactiveelement).attr("id");
+      var newhh = $(elementp).attr("id");
+      var elementtype = newhh.split("#")[0]; // linetext
+      var elementindex = newhh.split("#")[1]; // 0
+      var propertywindowid = elementtype.trim() + elementindex;// linetext0
+      $("#" + propertywindowid).attr("style", "display:block");//#linetext0
+    }
+    else{
+      nextactiveelement=$(this).parent().parent().next();
+  
+      //var nextactiveelement = document.querySelector(".elementlabel.mt-2");
+      //var newhh = $(nextactiveelement).attr("id");
+      var newhh = $(elementd).attr("id");
+      //console.log(nextactiveelement);
+      var elementtype = newhh.split("#")[0]; // linetext
+      var elementindex = newhh.split("#")[1]; // 0
+      var propertywindowid = elementtype.trim() + elementindex;// linetext0
+      $("#" + propertywindowid).attr("style", "display:block");//#linetext0
+    }  
+   
+    
+    //if($(this).parent().parent() == $(this).parent().parent().parent().children().last()) {
+    //console.log($(this).parent().parent().parent().children().last().attr("id"));
+    //}
+    //var set = $(".card:not(#deleted)");
+    //var index = 0;
 
-    if ($(this).parent().parent().children().hasClass("all")) {
-      $(".card:not(#deleted)").each(function () {
+    //if ($(this).parent().parent().children().hasClass("all")) {
+      //$(".card:not(#deleted)").each(function () {
 
-        var isLastElement = index == set.length - 1;
+        //var isLastElement = index == set.length - 1;
 
-        if (isLastElement) {
-          $(this).children().trigger("click");
-        }
-        index++;
-      });
+        //if (isLastElement) {
+          //$(this).children().trigger("click");
+        //}
+        //index++;
+      //});
 
-    } else {
-      index = 1;
+    //} else {
+      //index = 1;
       //$(this).parent().parent().children().trigger("click");
-      $(".all").trigger("click");
-    }
+      //$(".all").trigger("click");
+    //}
 
-    if (index == 0) {
-      $(".guide").css("display", "block");
-    }
+    //if (index == 0) {
+      //$(".guide").css("display", "block");
+    //}
 
     //console.log(DeletedElements);
   })
-  $(document).on('click', '.card-body', function () {
-    // debugger;
-    $(".card-body").removeClass("all");
+
+
+  //new function usman
+  $(document).on('click', '.card-item-n', function () {
     hideallproperties();
-    var valueoflabel = $(this).attr("id");
-    $(this).addClass('all');
-    var elementtype = valueoflabel.split("#")[0];
-    var elementindex = valueoflabel.split("#")[1];
+    var elementid = $(this).attr("id");     //wrong id usman
+
+    var elementtype = elementid.split("#")[0];
+    var elementindex = elementid.split("#")[1];
     var propertywindowid = elementtype.trim() + elementindex;
     $("#" + propertywindowid).attr("style", "display:block");
-
+    //console.log("#" + propertywindowid);
   });
+  //new function for move down usman
+  $(document).on('click', '.move-down-element', function () {
+    //var pelement = $(this).parent().parent().parent().attr("id");
+    nextelement = $(this).parent().parent().next();
+    currentelement = $(this).parent().parent();
+    $(nextelement).insertBefore(currentelement);
+  });
+  //new function for move up usman
+  $(document).on('click', '.move-up-element', function () {
+    prevelement = $(this).parent().parent().prev();
+    currentelement = $(this).parent().parent();
+    $(prevelement).insertAfter(currentelement);
+  });
+
+  //$(document).on('click', '.card-body', function () {
+    // debugger;
+    //$(".card-body").removeClass("all");
+    //hideallproperties();
+    //var valueoflabel = $(this).children().attr("id");     //wrong id usman
+
+    //$(this).addClass('all');
+    //var elementtype = valueoflabel.split("#")[0];
+    //var elementindex = valueoflabel.split("#")[1];
+    //var propertywindowid = elementtype.trim() + elementindex;
+    //$("#" + propertywindowid).attr("style", "display:block");
+    //console.log("#" + propertywindowid);
+  //});
   $('.pickup').change(function () {
     updateTheCanvas();
   })
@@ -325,7 +389,13 @@ $(document).ready(function () {
         } else {
           LineTexts[indexofelement][7] = "normal";
         }
-      }
+      } else if (theElementInputId == "InputUnderlineLineText") { //usman code
+        if (LineTexts[indexofelement][8] == "normal") {
+          LineTexts[indexofelement][8] = "underline";
+        } else {
+          LineTexts[indexofelement][8] = "normal";
+        }
+      }  
 
       updateTheCanvas();
     } else if (idofelement.indexOf("Picture") !== -1) {
