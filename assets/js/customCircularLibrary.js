@@ -63,7 +63,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
         // console.log(circlebunch[i]);
-        if (circlebunch[i][11] != null && circlebunch[i][11] == "deleted") {
+        if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted") {//wrong array index usman
             continue;
         }
 
@@ -97,17 +97,31 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         ctxRef.textBaseline = 'middle';
         ctxRef.textAlign = 'center';
         ctxRef.fillText(linetextbunch[i][0], 0, 15 / 2);
+        //new code lines usman
+        if (linetextbunch[i][8] == "underline") {
+            var width = ctxRef.measureText(linetextbunch[i][0]).width;
+            var x; var y;
+            x = (-width/2);
+            y = linetextbunch[i][5];
+            //ctxRef.strokeStyle = "red";
+            ctxRef.lineWidth = 2;
+            //console.log(ctxRef.lineWidth);
+            ctxRef.moveTo(x,y);
+            ctxRef.lineTo(width/2,y);
+            ctxRef.stroke();
+            //ctxRef.fillText("___", 0, 50 / 2);
+        }
         ctxRef.restore();
     }
     //Rounded Text
     for (var i = 0; i < textbunch.length; ++i) {
 
-
-        if (textbunch[i][11] != null && textbunch[i][11] == "deleted") {
+        console.log(textbunch[i]);
+        if (textbunch[i][10] != null && textbunch[i][10] == "deleted") { //wrong array index usman
             continue;
         }
 
-
+        ctxRef.font = textbunch[i][6] + ' ' + textbunch[i][7] + ' ' + textbunch[i][5] + 'px ' + textbunch[i][4];
         ctxRef.save();
         var diameter = parseInt(textbunch[i][0]);
         var text = textbunch[i][3];
@@ -212,7 +226,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
         var ang = 0; //angle
         img.onload = function () { //on image load do the following stuff
-            var ct = document.getElementById('measure');
+            var ct = document.getElementById('addimage');            //image usman
             ct.appendChild(img);
             var wrh = img.width / img.height;
 
