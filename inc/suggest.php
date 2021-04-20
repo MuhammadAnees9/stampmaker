@@ -8,7 +8,7 @@ require_once "PHPMailer/PHPMailer.php";
 require_once "PHPMailer/SMTP.php";
 require_once "PHPMailer/Exception.php";
 $text = $_POST["text"];
-$to = "sayapingeorge@gmail.com";
+$to = "stampmakerapp@gmail.com";
 $from = $_SESSION["email"];
 $id = $_SESSION["id"];
 $subject = "Concern Or Suggestion";
@@ -17,8 +17,8 @@ $subject = "Concern Or Suggestion";
 
 $recipient = $to; // this is receipient email address.
 
-$usernameSmtp = 'sayapingeorge@gmail.com';   // Remember to Change: this is you gmail adddress.
-$passwordSmtp = 'bsffegtlvbrswupk';            // This is you gmail password
+$usernameSmtp = 'stampmakerapp@gmail.com';   // Remember to Change: this is your gmail adddress.
+$passwordSmtp = 'ppasoxlcdihmznry';            // This is your gmail password
 
 $mail = new PHPMailer(true);
 
