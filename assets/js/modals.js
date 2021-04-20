@@ -280,7 +280,7 @@ function suggestion() {
 
 
     $.ajax({
-      url: base_url + "/inc/suggest.php", //the page containing php script
+      url: base_url + "inc/suggest.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {
