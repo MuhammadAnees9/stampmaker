@@ -8,7 +8,7 @@ require_once "PHPMailer/PHPMailer.php";
 require_once "PHPMailer/SMTP.php";
 require_once "PHPMailer/Exception.php";
 $text = $_POST["text"];
-$to = "stampmakerapp@gmail.com";
+$to = "muhammadusman78@yandex.com";
 $from = $_SESSION["email"];
 $id = $_SESSION["id"];
 $subject = "Concern Or Suggestion";
