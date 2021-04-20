@@ -166,8 +166,9 @@ else:
                 // IF PASSWORD IS CORRECT THEN SEND THE LOGIN TOKEN
                   if($row['isActive']==0):
                          $returnData = msg(0,422,'Please check your email and activate account!');
-                elseif($row['isLogin']=='true'):
-                            $returnData = msg(0,422,'User already logged in!');
+		//temporary comments lines
+                //elseif($row['isLogin']=='true'):
+                            //$returnData = msg(0,422,'User already logged in!');
                 elseif($row['role']=='admin'):
                             $returnData = msg(0,422,'Only user can login here!');
                             
