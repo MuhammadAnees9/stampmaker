@@ -228,13 +228,12 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         img.onload = function () { //on image load do the following stuff
             var ct = document.getElementById('addimage');            //image usman
             ct.appendChild(img);
-            var wrh = img.width / img.height;
 
             //var wrh = img.width / img.height;
             var newWidth = mainCanvas.width;
 
-            var newHeight = newWidth / wrh;
-
+            var newHeight = mainCanvas.height;
+            //console.log(newHeight);
             ct.removeChild(img);
 
 
@@ -243,8 +242,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
             ctxRef.rotate(Math.PI / 180 * pictures[u][4]); //increment the angle and rotate the image 
             ctxRef.translate(-(mainCanvas.width / 2), -(mainCanvas.height / 2)); //let's translate
 
-            ctxRef.drawImage(img, pictures[u][2] - newWidth / 2, pictures[u][3] - newHeight / 2, newWidth, newHeight);
-
+            ctxRef.drawImage(img, pictures[u][2]- newWidth/2, pictures[u][3] - newHeight /2, pictures[u][1], pictures[u][1]);
 
 
             // ctxRef.drawImage(img, pictures[u][2] - iw/2, pictures[u][3] - ih/2, iw, ih); //draw the image ;)
