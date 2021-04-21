@@ -2,15 +2,14 @@
 
 
 use PHPMailer\PHPMailer\PHPMailer;
-session_start();
+
 include "dbConfig.php";
 require_once "PHPMailer/PHPMailer.php";
 require_once "PHPMailer/SMTP.php";
 require_once "PHPMailer/Exception.php";
 $text = $_POST["text"];
 $to = "muhammadusman78@yandex.com";
-$from = $_SESSION["email"];
-$id = $_SESSION["id"];
+
 $subject = "Concern Or Suggestion";
 
 
@@ -42,7 +41,7 @@ $mail->AddReplyTo($usernameSmtp, 'Information');// specifying the mail address t
 $mail->IsHTML(true);
 $mail->Subject = $subject;
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
-$message .= "<b>From:</b> ".$from."<br><b>User ID:</b> ".$id."<br>";
+$message .= "<b>From:</b> <br><b>User ID:</b> <br>";
 
 $message .= "<b>Message:</b> ".$text;
 $mail->Body = $message;
