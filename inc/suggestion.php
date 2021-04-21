@@ -17,7 +17,7 @@ function getSuggest()
 		                    <form action='javascript:suggestion()' method='post'>
 				        <center><h5>Leave Suggestion</h5></center>
 				        <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
-				        <br><center><button class='modals btn btn-md btn-success' onclick='suggestion()'>Send</button></center>
+				        <br><center><button class='modals btn btn-md btn-success'>Send</button></center>
 				    </form>
 				    </div>
 				</div>        
