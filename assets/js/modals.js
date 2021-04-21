@@ -270,6 +270,7 @@ function toggleinstruction() {
 
 function suggestion() {
   var suggestText = $("#suggestText").val();
+  var base_url_n = window.location.origin;
   if (suggestText == null || suggestText == "") {
     alert("Please enter message first");
 
@@ -280,7 +281,7 @@ function suggestion() {
 
 
     $.ajax({
-      url: base_url + "inc/suggest.php", //the page containing php script
+      url: base_url_n + "/inc/suggest.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
       data: {
