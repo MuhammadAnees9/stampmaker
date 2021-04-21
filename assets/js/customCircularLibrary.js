@@ -63,7 +63,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
         // console.log(circlebunch[i]);
-        if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted") {//wrong array index usman
+        if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted" || circlebunch[i][11] == "deleted") {//usman
             continue;
         }
 
@@ -84,7 +84,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //Line Text
     for (var i = 0; i < linetextbunch.length; ++i) {
         console.log(linetextbunch[i]);
-        if (linetextbunch[i][10] != null && linetextbunch[i][10] == "deleted") {
+        if (linetextbunch[i][10] != null && linetextbunch[i][10] == "deleted" || linetextbunch[i][12] == "deleted") {
             continue;
         }
 
@@ -117,7 +117,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     for (var i = 0; i < textbunch.length; ++i) {
 
         console.log(textbunch[i]);
-        if (textbunch[i][10] != null && textbunch[i][10] == "deleted") { //wrong array index usman
+        if (textbunch[i][10] != null && textbunch[i][10] == "deleted" || textbunch[i][11] == "deleted") { //usman
             continue;
         }
 
