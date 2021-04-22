@@ -270,7 +270,7 @@ function toggleinstruction() {
 
 function suggestion() {
   var suggestText = $("#suggestText").val();
-  var base_urln = window.location.origin;
+  var base_url_n = window.location.origin;
   console.log(base_urln);
   if (suggestText == null || suggestText == "") {
     alert("Please enter message first");
