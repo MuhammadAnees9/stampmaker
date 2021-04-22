@@ -62,8 +62,8 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
-        // console.log(circlebunch[i]);
-        if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted" || circlebunch[i][11] == "deleted") {//usman
+        console.log(circlebunch[i]);
+        if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted" || circlebunch[i][11] == "deleted") {//wrong array index usman
             continue;
         }
 
@@ -83,20 +83,28 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     }
     //Line Text
     for (var i = 0; i < linetextbunch.length; ++i) {
-        console.log(linetextbunch[i]);
+        
         if (linetextbunch[i][10] != null && linetextbunch[i][10] == "deleted" || linetextbunch[i][12] == "deleted") {
             continue;
         }
 
+        //if(linetextbunch[i][12] == "deleted") {
+            //continue;
+        //}
+        
         ctxRef.font = linetextbunch[i][6] + ' ' + linetextbunch[i][7] + ' ' + linetextbunch[i][5] + 'px ' + linetextbunch[i][4];
         //console.log(linetextbunch[i][6] + ' ' + linetextbunch[i][7] + ' ' + linetextbunch[i][5] + 'px ' + linetextbunch[i][4]);
         ctxRef.save();
+        //ctx.fill();
+        ctxRef.beginPath();
         ctxRef.fillStyle = linetextbunch[i][11];
         ctxRef.translate(linetextbunch[i][1], linetextbunch[i][2]);
         ctxRef.rotate(linetextbunch[i][3] * (Math.PI / 180));
         ctxRef.textBaseline = 'middle';
         ctxRef.textAlign = 'center';
         ctxRef.fillText(linetextbunch[i][0], 0, 15 / 2);
+
+        ctxRef.closePath();
         //new code lines usman
         if (linetextbunch[i][8] == "underline") {
             var width = ctxRef.measureText(linetextbunch[i][0]).width;
@@ -111,13 +119,14 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
             ctxRef.stroke();
             //ctxRef.fillText("___", 0, 50 / 2);
         }
+
         ctxRef.restore();
     }
     //Rounded Text
     for (var i = 0; i < textbunch.length; ++i) {
 
         console.log(textbunch[i]);
-        if (textbunch[i][10] != null && textbunch[i][10] == "deleted" || textbunch[i][11] == "deleted") { //usman
+        if (textbunch[i][10] != null && textbunch[i][10] == "deleted"  || textbunch[i][11] == "deleted") { //wrong array index usman
             continue;
         }
 
@@ -255,6 +264,8 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     // Return it
     return (mainCanvas);
 }
+
+
 
 function loadImages(sources, callback) {
     var images = {};
