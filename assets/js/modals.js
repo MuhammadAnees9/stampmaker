@@ -270,32 +270,28 @@ function toggleinstruction() {
 
 function suggestion() {
   var suggestText = $("#suggestText").val();
-  var testing = "test";
-  var base_url_n = window.location.origin;
+  var base_urln = window.location.origin;
+  console.log(base_urln);
   if (suggestText == null || suggestText == "") {
     alert("Please enter message first");
 
   } else {
-    swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
+      swal("Thanks!", "Thanks for your suggestion, we will be notified.", "success").then((value) => {
       $("#suggest").slideToggle();
     });
 
 
     $.ajax({
-      url: base_url_n + '/' + "inc/suggestionmail.php", //the page containing php script
+      url: base_url_n + "/inc/suggestionmail.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
-      data: JSON.stringify({
+      data: ({
         text: suggestText,
-        msg: testing,
       }),
       success: function (response) {
         console.log(response);
-
-
-
       }
-    });
+    }); 
   }
 
 }
