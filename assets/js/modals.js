@@ -284,9 +284,7 @@ function suggestion() {
       url: base_url_n + '/' + "inc/suggestionmail.php", //the page containing php script
       type: "post", //request type,
       dataType: 'json',
-      data: {
-        text: suggestText
-      },
+      data: { 'text': suggestText },
       success: function (response) {
         console.log(response);
 
