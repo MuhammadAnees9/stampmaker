@@ -289,7 +289,6 @@ function suggestion() {
       }),
       success: function (response) {
         console.log(response);
-        window.location.href = "inc/suggestionmail.php";
       }
     }); 
   }
