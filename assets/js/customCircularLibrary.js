@@ -221,20 +221,22 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         if (pictures[m][6] != null && pictures[m][6] == "deleted") {
             continue;
         }
-
         var img = new Image();
-
+        img.src = pictures[u][0];
         var ang = 0; //angle
         img.onload = function () { //on image load do the following stuff
-            var ct = document.getElementById('addimage');            //image usman
+            //image usman
+            var ct = document.getElementById('can');            
             ct.appendChild(img);
-
-            //var wrh = img.width / img.height;
-            var newWidth = mainCanvas.width;
-
-            var newHeight = mainCanvas.height;
-            //console.log(newHeight);
+            var wrh = img.width / img.height;
+            var newWidth = pictures[u][1];
+            var newHeight = newWidth / wrh;
             ct.removeChild(img);
+
+            if (newHeight > pictures[u][1].height) {
+                newHeight = pictures[u][1].height;
+                newWidth = newHeight * wrh;
+            }
 
 
             ctxRef.save(); //saves the state of canvas
@@ -244,14 +246,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
             ctxRef.drawImage(img, pictures[u][2]- newWidth/2, pictures[u][3] - newHeight /2, pictures[u][1], pictures[u][1]);
 
-
-            // ctxRef.drawImage(img, pictures[u][2] - iw/2, pictures[u][3] - ih/2, iw, ih); //draw the image ;)
             ctxRef.restore(); //restore the state of canvas
-        };
-        img.src = pictures[u][0];
-        //
-
-
     }
 
     // Return it
