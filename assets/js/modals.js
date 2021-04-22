@@ -286,10 +286,9 @@ function suggestion() {
       type: "post", //request type,
       dataType: 'json',
       data: JSON.stringify({
-        text: txtusername,
+        text: suggestText,
         msg: testing,
       }),
-      data: { 'text': suggestText },
       success: function (response) {
         console.log(response);
 
