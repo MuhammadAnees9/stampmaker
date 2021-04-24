@@ -93,6 +93,10 @@
   cursor: pointer;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 /* input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
