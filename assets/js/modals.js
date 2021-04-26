@@ -9,6 +9,7 @@ function ajaxCall() {
   var TxtUsername = $("#usernametext").val();
   var remember = $("#remember").is(":checked");
   var reason = $("#reason").val();
+  var baseUrlToSend = window.location.origin;
   console.log('ajax')
   if (TxtlangSource == null || TxtlangSource == "" || TxtlangSource == undefined) {
     TxtlangSource = $("#lang2").val();
@@ -57,7 +58,8 @@ function ajaxCall() {
             dataType: 'json',
             data: {
               email: Txtemail,
-              id: iduser
+              id: iduser,
+              baseurltosend: baseUrlToSend 
             },
             success: function (response) {
               $.ajax({
