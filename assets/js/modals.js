@@ -10,7 +10,7 @@ function ajaxCall() {
   var remember = $("#remember").is(":checked");
   var reason = $("#reason").val();
   var baseUrlToSend = window.location.origin;
-  
+
   console.log('ajax')
   if (TxtlangSource == null || TxtlangSource == "" || TxtlangSource == undefined) {
     TxtlangSource = $("#lang2").val();

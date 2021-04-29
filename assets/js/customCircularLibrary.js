@@ -62,8 +62,10 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
+
         console.log(circlebunch[i]);
         if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted" || circlebunch[i][11] == "deleted") {//wrong array index usman
+
             continue;
         }
 
@@ -104,8 +106,10 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         ctxRef.textAlign = 'center';
         ctxRef.fillText(linetextbunch[i][0], 0, 15 / 2);
 
+
         ctxRef.closePath();
         //new code lines usman
+
         if (linetextbunch[i][8] == "underline") {
             var width = ctxRef.measureText(linetextbunch[i][0]).width;
             var x; var y;
@@ -126,7 +130,9 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     for (var i = 0; i < textbunch.length; ++i) {
 
         console.log(textbunch[i]);
+
         if (textbunch[i][10] != null && textbunch[i][10] == "deleted"  || textbunch[i][11] == "deleted") { //wrong array index usman
+
             continue;
         }
 
@@ -235,7 +241,9 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         img.src = pictures[u][0];
         var ang = 0; //angle
         img.onload = function () { //on image load do the following stuff
+
             var ct = document.getElementById('can');            //image usman
+
             ct.appendChild(img);
             var wrh = img.width / img.height;
             var newWidth = pictures[u][1];
@@ -255,10 +263,10 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
             ctxRef.drawImage(img, pictures[u][2]- newWidth/2, pictures[u][3] - newHeight /2, pictures[u][1], pictures[u][1]);
 
-
-            // ctxRef.drawImage(img, pictures[u][2] - iw/2, pictures[u][3] - ih/2, iw, ih); //draw the image ;)
             ctxRef.restore(); //restore the state of canvas
         };
+
+
     }
 
     // Return it
