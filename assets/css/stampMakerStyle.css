@@ -3,8 +3,60 @@
 }
 .header {
   background-color: #00438a;
-  height: auto;
+  height: 100%;
+  padding: 30px;
 }
+
+.header-navbar-buttons{
+  align-items:center;
+  float: right;
+}
+
+.header-navbar-buttons .btns-wrapper{
+  float: right;
+}
+
+.d-inline{
+  font-weight: 400;
+}
+
+.top-logo{
+  height: 110px;
+  width: 120px;
+}
+
+.signup-btn{
+  height:40px;
+  margin:20px;
+  border: none!important;
+  background-color:#ff8800
+}
+
+.login-input{
+  border: none;
+  padding-left: 40px;
+  border-bottom: 3px solid #7abcf3;
+}
+
+.login-input::placeholder {
+  color: #41a0efad;
+}
+
+.login-heading{
+  color: #0e6cbb;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 15px 35px;
+}
+
+.login-submit-btn{
+    background-color: #38a1fd;
+    border: none;
+    color: #ffffff;
+}
+
+
 .footer {
   background-color: #00438a;
   color: white;
@@ -17,6 +69,7 @@
   width: 60px;
   padding: 0;
   margin: 0;
+  margin-top: 15px;
 }
 .list-group-item:nth-child(2) {
   width: 70px;
@@ -39,10 +92,16 @@
   margin-left: 10px;
   color: #fff;
 }
+.btn-outline-warning{
+  border: 2px solid white;
+  color: #fffff;
+}
 .text-field {
   height: 30px !important;
   width: 100%;
   margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  padding: 17px 8px;
 }
 .hide {
   /* visibility: hidden; */
@@ -51,10 +110,15 @@
 #stageparent {
   width: 100% !important;
   height: 25em !important;
-  border: 1px solid black;
-  padding-top: 2em;
+  border: 1px solid #00438a;
+  padding-top: 2.5em;
   position: relative;
 }
+
+.left-banner, .right-banner{
+  height: 25em;
+}
+
 #container {
   width: 90% !important;
   height: 20em !important;
@@ -151,12 +215,16 @@ input[type="range"]::-ms-thumb {
   padding: 0px;
   position: relative;
   z-index: 100;
-  width: 6.5em;
+  width: 8.6em;
+  border-bottom: 3px solid #f1f1f1;
 }
 .canvas-btns {
   position: absolute;
   bottom: 10px;
   left: calc(50% - 89px);
+}
+#properties{
+  padding-left: 30px;
 }
 .properties-wrapper {
   border: none;
@@ -166,26 +234,28 @@ input[type="range"]::-ms-thumb {
   border-radius: 20px;
 }
 .properties-wrapper h5 {
-  color: #0e4075;
-  border-bottom: 2px solid #0e4075;
+    color: #0a67ca;
+    border-bottom: 2px solid #518bc7;
+    font-weight: 600;
 }
 .labels-card {
   border: none;
   background-color: #f8f8f8;
   box-shadow: 0 0 10px #bfbfbf;
-  max-height: 21em;
+  max-height: 25em;
   height: 100%;
   border-radius: 20px;
   overflow-y: auto;
 }
 .download-btn {
   position: relative;
+  margin-top: 50px!important;
   /* left: calc(50% - 210px); */
 }
 .download-btn .dropdown .btn {
   background-color: #ff8800;
   color: #fff;
-}
+} /**usman code***/
 #suggestionbox {
   color: white;
   background: #00438a;
@@ -242,7 +312,7 @@ input[type="range"]::-ms-thumb {
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
-}
+} /**usman code***/
 .bottomright {
   width: 20.7em;
   margin-top: 0px;
@@ -268,7 +338,7 @@ input[type="range"]::-ms-thumb {
   position: relative;
 }
 #labels-container {
-  padding-left: 50px;
+  padding-left: 30px;
 }
 .property-heading {
   color: #0e4075;
@@ -288,11 +358,6 @@ input[type="range"]::-ms-thumb {
   background-color: #e0a800;
   border-color: #ff8800
 }
-.btn-outline-warning {
-  color: #ff8800;
-  border-color: #ff8800
-}
-
 .btn-outline-warning:hover {
   color: #212529;
   background-color: #ff8800;
@@ -306,167 +371,5 @@ input[type="range"]::-ms-thumb {
 .sp-replacer .sp-preview {
   border: none !important;
 }
-@media screen and (max-width: 768px) {
-  canvas {
-    width: 200px;
-  }
-  .wrapper {
-    margin-top: 7em;
-  }
-  .instruction {
-    position: relative;
-    left: 0px;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 20em !important;
-    padding-top: 1.5em;
-  }
-  #container {
-    width: 95% !important;
-    height: 15em !important;
-  }
-  .btns {
-    position: absolute;
-    top: -7em;
-    left: calc(50% - 175px);
-  }
-  .list-group {
-    flex-direction: row;
-  }
-  .right-panel .editor-btn {
-    padding: 0px;
-  }
-  .canvas-col {
-    margin-top: 1em;
-  }
-  .seggestions-section {
-    width: 16em;
-    bottom: 1em;
-  }
-  .brand h1 {
-    font-size: 2.5em;
-    margin-left: 10px;
-  }
-  .icon-btn {
-    flex-direction: column;
-  }
-}
 
-@media screen and (max-width: 767px) {
-  .wrapper {
-    margin-top: 6em;
-  }
-  .canvas-col {
-    margin-top: 8em;
-  }
-  #labels-container {
-    margin-top: 8em;
-  }
-  .desktop-view {
-    display: none;
-  }
-  .mobile-view {
-    display: block;
-    position: relative;
-    left: 0px;
-    bottom: 0.8em;
-  }
-  .left-banner,
-  .right-banner {
-    display: none;
-  }
-  .instruction .btn {
-    width: 12.5em;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  /* .brand {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  } */
-  .brand {
-    text-align: left !important;
-    justify-content: flex-start;
-  }
-  .btns-wrapper {
-    padding-top: 0px;
-    margin-bottom: 10px;
-  }
-  .list-group {
-    flex-direction: row;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 21em !important;
-    padding-top: 0.5em;
-  }
-  #container {
-    width: 90% !important;
-    height: 18em !important;
-  }
-  .btns {
-    position: absolute;
-    top: -5em;
-    left: calc(50% - 170px);
-  }
-  #labels {
-    padding: 0px;
-  }
-  .canvas-btns {
-    bottom: 0;
-  }
-  .properties-wrapper h5 {
-    display: none;
-  }
-  .slidecontainer p,
-  .slidecontainer input {
-    margin: 0px;
-  }
-  .download-btn {
-    position: absolute;
-    top: -87px;
-    left: calc(50% - 68px);
-  }
-  /* .canvas {
-    margin-top: 10px;
-  } */
-  .right-panel {
-    margin-top: 20px;
-  }
-  .seggestions-section {
-    width: 100%;
-    bottom: 0px;
-  }
-  .brand h1 {
-    font-size: 1.6em;
-    margin-left: 10px;
-  }
-}
 
-@media screen and (max-width: 320px) {
-  h1 {
-    font-size: 1.5em !important;
-  }
-  .brand {
-    padding: 0px;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 16em !important;
-    padding-top: 0.5em;
-  }
-  #container {
-    width: 90% !important;
-    height: 13em !important;
-  }
-  .instruction {
-    position: relative;
-    top: -85px !important;
-  }
-  .instruction .btn {
-    width: 10em !important;
-  }
-}
