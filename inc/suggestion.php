@@ -14,14 +14,15 @@ function getSuggest()
 	        <div class='suggest' id='suggest'>
 	        	<div class='card'>
                     <div class='card-body'>
-		                    <form action='javascript:suggestion()' method='post'>
+                        <form action='javascript:suggestion()' method='post'>
 				        <center><h5>Leave Suggestion</h5></center>
 				        <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter your concerns or suggestions here.' required=''></textarea>
 				        <br><center><button class='modals btn btn-md btn-success'>Send</button></center>
-				    </form>
+				        </form>
 				    </div>
 				</div>        
 	        </div>
-	    </div>
-    ";
-} ?>
+	    </div> 
+
+";
+} ?>	    
