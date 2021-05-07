@@ -204,7 +204,7 @@ include_once('inc/header.php');
     /* margin-left: 10px; */
     color: #fff;
     margin-top: 0px!important;
-    margin: 10px!important;
+    margin: 5px!important;
    }
 
    #labels-container {
@@ -213,8 +213,8 @@ include_once('inc/header.php');
     overflow: auto;
    }
   
-  .header-navbar-buttons h6{
-    margin: 20px 0px;
+  .header-navbar-buttons h6 {
+    margin: 20px 0px!important;
   }
 
    .download-btn {
