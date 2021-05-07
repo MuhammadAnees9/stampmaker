@@ -122,7 +122,7 @@ include_once('inc/header.php');
     height: 18em !important;
   }
   #labels {
-    padding: 0px 15px;
+    padding: 0px 5px;
   }
   .canvas-btns {
     bottom: 0;
@@ -187,7 +187,11 @@ include_once('inc/header.php');
     flex: 0 0 100%;
     max-width: 100%;
   }
-
+  
+  .property h3{
+    font-size: 27px;
+  }
+  
   .d-inline{
       font-size: 1.85em!important;
       margin-left: 10px;
@@ -208,6 +212,10 @@ include_once('inc/header.php');
     padding-left: 0px;
     overflow: auto;
    }
+  
+  .header-navbar-buttons h6{
+    margin: 20px 0px;
+  }
 
    .download-btn {
       position: absolute;
@@ -218,10 +226,13 @@ include_once('inc/header.php');
    #downloads{
     padding: 5px 10px;
    }
-
+  
    .canvas-col{
     padding-left: 0px;
     margin-top: 120px;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%; 
    }
 
    .list-group .btn{
