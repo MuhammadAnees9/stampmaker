@@ -59,7 +59,7 @@
 }
 
 .signup-submit-btn{
-    background-color: #38a1fd;
+    background-color: #ff8800;
     border: none;
     color: #ffffff;
 }
@@ -188,7 +188,7 @@
                             <option value="Yoruba">Yoruba</option>
                             <option value="Zulu">Zulu</option>
                         </select>
-                        <emp style="font-size:15px;text-decoration:underline; color: #649aca;" class="notInlisted" id="source">*
+                        <emp style="font-size:15px;text-decoration:underline; color: #22639a;" class="notInlisted" id="source">*
                             Language Not Inlisted?</emp>
                         </div>
                         <div class="form-group col-md-6">
@@ -292,7 +292,7 @@
                                 <option value="Zulu">Zulu</option>
                             </select>
 
-                            <p style="font-size:15px;text-decoration:underline; color: #649aca;" id="target">* Language Not Inlisted?</p>
+                            <p style="font-size:15px;text-decoration:underline; color: #22639a;" id="target">* Language Not Inlisted?</p>
                         </div>
                     </div>
                     
@@ -317,7 +317,7 @@
                     </div>
                     <br><br>
                     <center>
-                        <button class="btn btn-md signup-submit-btn modals" id="signup">Sign Up</button>
+                        <button class="btn btn-md btn-warning signup-submit-btn modals" id="signup">Sign Up</button>
                     </center>
                 </form>
 
