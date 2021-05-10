@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <center>
-                        <button class="btn btn-md login-submit-btn btn-success modals" id="login">Log In</button>
+                        <button class="btn btn-md login-submit-btn btn-warning modals" id="login">Log In</button>
                     </center>
                 </form>
 
