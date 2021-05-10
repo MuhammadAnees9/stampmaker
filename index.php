@@ -6,25 +6,6 @@ include_once('inc/header.php');
 ?>
 
 <style type="text/css">
-  @media screen and (max-width: 1600px) {
-      #properties{
-        -ms-flex: 0 0 23%;
-        flex: 0 0 23%;
-        max-width: 23%;
-      }
-  } 
-
-  @media screen and (max-width: 1600px) {
-      #properties{
-        -ms-flex: 0 0 21%;
-        flex: 0 0 21%;
-        max-width: 21%;
-      }
-
-      .btns{
-        width: 7.9em;
-      }
-  } 
 
   @media screen and (max-width: 768px) {
   .wrapper {
@@ -32,9 +13,9 @@ include_once('inc/header.php');
   }
   .canvas-col {
     margin-top: 1.5em;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 43%;
-    max-width: 43%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
   }
   .canvas-col .col-md-8{
     max-width: 100%;
@@ -169,6 +150,13 @@ include_once('inc/header.php');
     padding: 15px 0px 0px;
   }
 
+  .canvas-col {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin-left: 20px;
+  }
+
   .top-logo{
     margin-bottom: -60px;
     width: 90px;
@@ -176,6 +164,10 @@ include_once('inc/header.php');
 
   .top-logo-name{
     padding-left: 0px!important;
+  }
+
+  .header-navbar-buttons h6{
+    margin: 20px 0px!important;
   }
 
   .wrapper {
@@ -187,11 +179,11 @@ include_once('inc/header.php');
     flex: 0 0 100%;
     max-width: 100%;
   }
-  
+
   .property h3{
     font-size: 27px;
   }
-  
+
   .d-inline{
       font-size: 1.85em!important;
       margin-left: 10px;
@@ -204,18 +196,15 @@ include_once('inc/header.php');
     /* margin-left: 10px; */
     color: #fff;
     margin-top: 0px!important;
-    margin: 5px!important;
+    margin: 10px!important;
    }
 
    #labels-container {
     margin-top: 40px;
     padding-left: 0px;
     overflow: auto;
+    height: 32em;
    }
-  
-  .header-navbar-buttons h6 {
-    margin: 20px 0px!important;
-  }
 
    .download-btn {
       position: absolute;
@@ -226,13 +215,10 @@ include_once('inc/header.php');
    #downloads{
     padding: 5px 10px;
    }
-  
+
    .canvas-col{
     padding-left: 0px;
     margin-top: 120px;
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
-    max-width: 75%; 
    }
 
    .list-group .btn{
@@ -283,6 +269,7 @@ include_once('inc/header.php');
    .btns {
       left: 0;
       width: 100%!important;
+      border: none;
     }
 
    .icon-btn {
@@ -369,29 +356,22 @@ include_once('inc/header.php');
 
     </div>
 </header>
-<div class="container-fluid">
+<div class="container-fluid content-body">
     <div class="row mt-lg-4 wrapper" style="position: relative;">
-        <div class="btns" style="padding:0px;">
+        <div class="left-panel">
+          <div class="row">
+          <div class="btns col-md-5" style="padding:0px;">
             <ul class="list-group">
                 <li class="list-group-item">
 
                     <a class="btn o icon-btn" id="addroundtext" title="Text Around The Circle">
                         <img src="assets/img/IconRound.svg" alt="">
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px" height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <path fill="#000000" d="M136 153l-37 0 -10 23 -27 0 49 -102 27 0 27 55c-12,5 -22,13 -29,24zm5 -17l-17 -38 -17 38 34 0zm-21 -126c-61,0 -110,50 -110,111 0,61 49,110 110,110 7,0 13,0 20,-2 -7,-6 -12,-14 -16,-23 -1,0 -2,0 -4,0 -47,0 -85,-38 -85,-85 0,-47 38,-85 85,-85 47,0 85,38 85,85 0,1 0,1 0,2 9,3 18,8 24,15 1,-6 2,-12 2,-17 0,-61 -50,-111 -111,-111zm60 140l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -28 0 -2zm2 -15c-30,4 -50,30 -46,58 3,27 27,50 58,46 16,-2 27,-10 34,-18 19,-23 15,-57 -6,-74 -11,-9 -24,-14 -40,-12z">
-                            </path>
-                        </svg> -->
-
                         <span style="color:black; text-align:left">Round Text</span>
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a class="btn o icon-btn" id="addlinetext" title="Line Text">
                         <img src="assets/img/IconLine.svg" alt="">
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 250 250" width="24px" height="24px" version="1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <path fill="#000000" d="M5 236l60 1 15 -38 45 0c-1,-20 3,-35 15,-50 1,-1 1,-2 2,-2l-41 -1 24 -59 22 54c1,0 7,-5 10,-7 13,-8 27,-11 43,-10l-45 -113 -60 0 -90 225zm180 -82l15 0 0 30 30 0 0 15 -30 0 0 30 -15 0 0 -30 -30 0 0 -15 30 0 0 -27 0 -3zm2 -15c-30,4 -50,30 -47,58 3,27 28,50 58,47 16,-2 28,-10 35,-19 19,-22 15,-56 -6,-74 -11,-8 -25,-14 -40,-12z">
-                            </path>
-                        </svg> -->
                         <span style="color:black; text-align:left">Line Text</span>
 
                     </a>
@@ -423,7 +403,7 @@ include_once('inc/header.php');
             </ul>
         </div>
         <!--Labels -->
-        <div class="col-lg-2 col-sm-2 col-md-3 col-3" id="labels-container" style="border: none; ">
+        <div class="col-md-6" id="labels-container" style="border: none; ">
             <div class="card labels-card elementlabel">
                 <h5 class="text-center">Labels</h5>
                 <div class="card-body" id="labels">
@@ -442,50 +422,43 @@ include_once('inc/header.php');
             </div>
 
         </div>
-
-        <!-- Canvas -->
-        <div class="col-lg-6 col-sm-8 col-md-6 col-9 mb-lg-2  canvas-col">
-            <div class="row">
-                <!-- <ul class="bookmarks col-lg-2 col-sm-2 col-md-3 col-2" id="labels">
-        </ul> -->
-                <div class="col-lg-2 col-md-2 left-banner" style="padding:0px;">
-                    <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%">
-                </div>
-                <div class="col-lg-8 col-sm-12 col-md-8 col-12 ">
-                    <center>
-                        <div id="stageparent" class="canvas-stageparent">
-                            <div id="parent_sub">
-                                <!-- <div id="container"></div> -->
-                                <div class="canvas"></div>
-                                <center class="canvas-btns">
-
-                                    <div class="canvasBtns">
-                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="plusStage()">+</button> |
-
-                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="minusStage()">-</button> |
-
-                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="real()">100%</button> |
-
-                                        <button class="btn btn-outline-secondary btn-sm modals" onclick="fit()">[ ]</button>
-                                    </div>
-                                </center>
-
-                            </div>
-                        </div>
-                    </center>
-                    <center class=" mt-2 download-btn">
-                        <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
-                        <button class="btn btn-lg btn-warning shadow" style="color: white; border: none;" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
-
-                    </center>
-                </div>
-                <div class="col-lg-2 col-md-2 right-banner" style="padding:0px;">
-                    <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%" />
-                </div>
-
-            </div>
         </div>
-        <div class="col-lg-3 col-sm-12 col-md-3 col-12 right-panel" id="properties" style="height:auto;">
+        </div>
+          <div class="left-banner" style="padding:0px;">
+              <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%">
+          </div>
+          <div class="canvas-col">
+              <center>
+                  <div id="stageparent" class="canvas-stageparent">
+                      <div id="parent_sub">
+                          <div class="canvas"></div>
+                          <center class="canvas-btns">
+
+                              <div class="canvasBtns">
+                                  <button class="btn btn-outline-secondary btn-sm modals" onclick="plusStage()">+</button> |
+
+                                  <button class="btn btn-outline-secondary btn-sm modals" onclick="minusStage()">-</button> |
+
+                                  <button class="btn btn-outline-secondary btn-sm modals" onclick="real()">100%</button> |
+
+                                  <button class="btn btn-outline-secondary btn-sm modals" onclick="fit()">[ ]</button>
+                              </div>
+                          </center>
+
+                      </div>
+                  </div>
+              </center>
+              <center class=" mt-2 download-btn">
+                  <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
+                  <button class="btn btn-lg btn-warning shadow" style="color: white; border: none;" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
+
+              </center>
+          </div>
+          <div class="right-banner" style="padding:0px;">
+              <img src="assets/img/banner.jpg" alt="" style="width:100%; height:100%" />
+          </div>
+
+        <div class="right-panel" id="properties" style="height:auto;">
 
         </div>
 
